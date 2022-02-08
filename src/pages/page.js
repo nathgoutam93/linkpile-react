@@ -6,14 +6,18 @@ import { useFirestore } from '../context/firestoreContext';
 export default function UserPage() {
   const { userId } = useParams();
   const { getUserDoc } = useFirestore();
+  const [loading, setLoading] = useState(true);
 
   const [data, setData] = useState(null);
 
   useEffect(() => {
     getUserDoc(userId).then((doc) => {
       setData(doc);
+      setLoading(false);
     });
   }, [userId, getUserDoc]);
+
+  if (loading) return <h1>Loading...</h1>;
 
   if (!data) return <h1>user not found</h1>;
 
