@@ -1,0 +1,36 @@
+module.exports = {
+  purge: ['./public/index.html', './src/**/*.js', './src/**/*.jsx'],
+  darkMode: 'class', // or 'media' or 'class'
+  theme: {
+    extend: {
+      fontFamily: {
+        inter: ['Inter', 'sans-serif'],
+        Rammetto: ['Rammetto One', 'cursive'],
+      },
+      animation: {
+        'gradient-xy': 'gradient-xy 10s linear infinite',
+      },
+      keyframes: {
+        'gradient-xy': {
+          '0%, 100%': {
+            'background-size': '400% 400%',
+            'background-position': 'left top',
+          },
+          '25%': {
+            'background-size': '400% 400%',
+            'background-position': 'right bottom',
+          },
+          '50%': {
+            'background-size': '400% 400%',
+            'background-position': 'left center',
+          },
+          '75%': {
+            'background-size': '400% 400%',
+            'background-position': 'right top',
+          },
+        },
+      },
+    },
+  },
+  plugins: [],
+};

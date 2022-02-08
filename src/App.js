@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import * as ROUTES from './constants/routes';
+import { Routes, Route } from 'react-router-dom';
+
+import Home from './pages/Home';
+import Login from './pages/login.js';
+import Register from './pages/register';
+import Admin from './pages/Admin';
+import UserPage from './pages/page';
+import Page404 from './pages/404page';
+
+import RequiredAuth from './helpers/RequiredAuth';
+import IsLoggedIn from './helpers/isLoggedIn';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path={ROUTES.Home} element={<Home />} />
+
+      <Route path={'/:userId'} element={<UserPage />} />
+
+      <Route element={<IsLoggedIn pathToRedirect={ROUTES.ADMIN} />}>
+        <Route path={ROUTES.LOGIN} element={<Login />} />
+        <Route path={ROUTES.REGISTER} element={<Register />} />
+      </Route>
+
+      <Route element={<RequiredAuth />}>
+        <Route path={ROUTES.ADMIN} element={<Admin />} />
+      </Route>
+
+      <Route path="*" element={<Page404 />} />
+    </Routes>
   );
 }
 

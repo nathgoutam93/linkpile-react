@@ -4,9 +4,24 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { AuthProvider } from './context/authContext';
+import { FirestoreProvider } from './context/firestoreContext';
+import { HeaderProvider } from './context/headerContext';
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AuthProvider>
+      <FirestoreProvider>
+        <HeaderProvider>
+          <Router>
+            <Routes>
+              <Route path="/*" element={<App />} />
+            </Routes>
+          </Router>
+        </HeaderProvider>
+      </FirestoreProvider>
+    </AuthProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
