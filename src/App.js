@@ -6,6 +6,7 @@ import Login from './pages/login.js';
 import Register from './pages/register';
 import Admin from './pages/Admin';
 import UserPage from './pages/page';
+import Profile from './pages/profile';
 import Page404 from './pages/404page';
 
 import RequiredAuth from './helpers/RequiredAuth';
@@ -25,6 +26,7 @@ function App() {
 
       <Route element={<RequiredAuth />}>
         <Route path={ROUTES.ADMIN} element={<Admin />} />
+        <Route path={ROUTES.PROFILE} element={<Profile />} />
       </Route>
 
       <Route path="*" element={<Page404 />} />

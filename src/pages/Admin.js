@@ -182,7 +182,7 @@ export default function Admin() {
           Log Out
         </button>
         <Link
-          to={`${ROUTES.ADMIN}`}
+          to={`${ROUTES.PROFILE}`}
           className="px-4 py-2 text-white font-nunito font-bold rounded-3xl bg-rose-400"
         >
           My Account
