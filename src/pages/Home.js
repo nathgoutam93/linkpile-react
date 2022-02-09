@@ -53,13 +53,10 @@ export default function Home() {
       <Header />
       <section className="w-full p-4 flex flex-col justify-around lg:flex-row font-nunito">
         <div className="flex flex-col items-center">
-          <h1 className="mt-4 text-5xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-rose-400 to-fuchsia-400">
-            Linkpile
-          </h1>
-          <h2 className="mt-4 text-2xl text-gray-700 lg:text-3xl">
+          <h2 className="mt-4 text-2xl lg:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-fuchsia-400 to-blue-400">
             The only link you'll ever need
           </h2>
-          <h3 className="w-5/6 my-2 mb-4 text-center text-sm text-gray-700 lg:text-lg lg:w-auto">
+          <h3 className="w-5/6 my-2 mb-4 text-center text-sm text-gray-700 lg:text-xl lg:w-auto">
             Use it to connect audiences to all of your content with just one
             link
           </h3>
@@ -78,32 +75,15 @@ export default function Home() {
                 Already on Linkpile? Log In
               </Link>
             </div>
-            <div className="mb-4 p-4 relative flex justify-center items-center">
-              <div className="absolute scale-90 left-1/2 lg:left-3/4 -z-10">
-                <div className="flex justify-center items-center w-[195px] h-[422px] bg-gray-900 rounded-3xl">
-                  <div className="w-[95%] h-[95%] bg-gradient-to-br from-rose-400 via-violet-400 to-green-400 animate-gradient-xy rounded-3xl"></div>
-                </div>
-              </div>
-              <div className="">
-                <div className="flex justify-center items-center w-[195px] h-[422px] bg-gray-900 rounded-3xl">
-                  <div className="w-[95%] h-[95%] bg-gradient-to-br from-amber-300 via-violet-400 to-green-400 animate-gradient-xy rounded-3xl"></div>
-                </div>
-              </div>
-              <div className="absolute scale-90 right-1/2 lg:right-3/4 -z-10">
-                <div className="flex justify-center items-center w-[195px] h-[422px] bg-gray-900 rounded-3xl">
-                  <div className="w-[95%] h-[95%] bg-gradient-to-br from-green-300 via-violet-400 to-amber-400 animate-gradient-xy rounded-3xl"></div>
-                </div>
-              </div>
-            </div>
+            <img
+              src="/mockup1.png"
+              className="w-full h-full object-cover"
+            ></img>
           </div>
         </div>
       </section>
       <section className="w-full p-4 flex flex-col justify-around items-center space-y-8 lg:flex-row">
-        <div className="flex justify-center items-center">
-          <div className="flex justify-center items-center w-[195px] h-[422px] bg-black rounded-3xl">
-            <div className="w-[95%] h-[95%] bg-gradient-to-br from-amber-300 via-violet-400 to-green-400 animate-gradient-xy rounded-3xl"></div>
-          </div>
-        </div>
+        <img src="/mockup2.png"></img>
         <div className="flex flex-col justify-center space-y-8">
           <h1 className="text-3xl font-nunito font-bold">Link to everywhere</h1>
           <p className="max-w-lg text-xl text-gray-700 font-inter font-semibold">
@@ -113,11 +93,7 @@ export default function Home() {
         </div>
       </section>
       <section className="w-full p-4 flex flex-col justify-around items-center space-y-8 lg:flex-row-reverse">
-        <div className="flex justify-center items-center">
-          <div className="flex justify-center items-center w-[195px] h-[422px] bg-black rounded-3xl">
-            <div className="w-[95%] h-[95%] bg-gradient-to-br from-amber-300 via-violet-400 to-green-400 animate-gradient-xy rounded-3xl"></div>
-          </div>
-        </div>
+        <img src="/mockup3.png" />
         <div className="flex flex-col justify-center space-y-8">
           <h1 className="text-3xl font-nunito font-bold">Easily managed</h1>
           <p className="max-w-lg text-xl text-gray-700 font-inter font-semibold">
