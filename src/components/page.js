@@ -45,7 +45,7 @@ export default function Page({
         to={'/'}
         className="text-2xl font-extraboldbold font-nunito text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-fuchsia-400 to-blue-400"
       >
-        Linkpile
+        Link.pile
       </Link>
     </div>
   );

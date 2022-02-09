@@ -77,27 +77,28 @@ export default function Home() {
             </div>
             <img
               src="/mockup1.png"
+              alt=""
               className="w-full h-full object-cover"
             ></img>
           </div>
         </div>
       </section>
       <section className="w-full p-4 flex flex-col justify-around items-center space-y-8 lg:flex-row">
-        <img src="/mockup2.png"></img>
+        <img src="/mockup2.png" alt=""></img>
         <div className="flex flex-col justify-center space-y-8">
           <h1 className="text-3xl font-nunito font-bold">Link to everywhere</h1>
           <p className="max-w-lg text-xl text-gray-700 font-inter font-semibold">
-            Linktree is the launchpad to your latest video, article, recipe,
+            Linkpile is the launchpad to your latest video, article, recipe,
             tour, store, website, social post - everywhere you are online.
           </p>
         </div>
       </section>
       <section className="w-full p-4 flex flex-col justify-around items-center space-y-8 lg:flex-row-reverse">
-        <img src="/mockup3.png" />
+        <img src="/mockup3.png" alt="" />
         <div className="flex flex-col justify-center space-y-8">
           <h1 className="text-3xl font-nunito font-bold">Easily managed</h1>
           <p className="max-w-lg text-xl text-gray-700 font-inter font-semibold">
-            Creating a Linktree takes seconds. Use our simple drag-and-drop
+            Creating a Linkpile takes seconds. Use our simple drag-and-drop
             editor to effortlessly manage your content.
           </p>
         </div>

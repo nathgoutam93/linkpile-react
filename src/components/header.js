@@ -11,7 +11,7 @@ function Header() {
         to="/"
         className="text-2xl font-nunito font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-fuchsia-400 to-blue-400"
       >
-        Link-pile
+        Link.pile
       </Link>
       {customHeader}
     </header>
