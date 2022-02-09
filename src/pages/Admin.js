@@ -29,6 +29,7 @@ function reducer(state, action) {
       return {
         ...state,
         loading: false,
+        file: null,
       };
     case 'error':
       return {
@@ -176,13 +177,13 @@ export default function Admin() {
       <div className="flex justify-around items-center space-x-2">
         <button
           onClick={() => logOut()}
-          className="px-4 py-2 text-rose-400 font-nunito font-bold"
+          className="px-4 py-2 text-rose-400 font-nunito font-bold rounded-3xl bg-gray-50"
         >
           Log Out
         </button>
         <Link
           to={`${ROUTES.ADMIN}`}
-          className="px-4 py-2 text-white font-nunito font-bold rounded-md bg-rose-400"
+          className="px-4 py-2 text-white font-nunito font-bold rounded-3xl bg-rose-400"
         >
           My Account
         </Link>
@@ -207,11 +208,13 @@ export default function Admin() {
             <p className="text-red-700 text-base font-semibold">{error}</p>
           )}
           <ProfileCard
+            file={file}
             imgSrc={imgSrc}
             profileName={profileName}
             about={about}
             dispatch={dispatch}
           />
+
           <DragDropContext
             onDragEnd={(param) => {
               const srcI = param.source.index;
@@ -246,12 +249,106 @@ export default function Admin() {
               )}
             </Droppable>
           </DragDropContext>
+          <div className="hidden lg:flex justify-around items-center space-x-4">
+            <button
+              onClick={handleNewLink}
+              className="w-full px-5 py-2 flex justify-center items-center text-white bg-rose-400 rounded-xl space-x-4"
+            >
+              <svg
+                className="h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1}
+                  d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
+                />
+              </svg>
+              <span className="text-lg font-nunito">Add Link</span>
+            </button>
+            <button
+              disabled={loading}
+              onClick={handleUpdate}
+              className="w-full px-5 py-2 flex justify-center items-center text-white bg-rose-400 rounded-xl space-x-4"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className={`h-6 w-6 cursor-pointer ${
+                  loading && 'animate-pulse'
+                }`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1}
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+                />
+              </svg>
+              <span className="text-lg font-nunito">Save</span>
+            </button>
+          </div>
         </div>
         <div
           className={`relative ${
             preview ? 'flex' : 'hidden'
           } justify-center items-center lg:flex`}
         >
+          {preview ? (
+            <div
+              onClick={() => setPreview(false)}
+              className="fixed left-4 top-4 p-4 hidden lg:flex justify-center items-center space-x-1 bg-gray-100 rounded-3xl  cursor-pointer"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1}
+                  d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+                />
+              </svg>
+              <span className="text-2xl font-nunito">Editor</span>
+            </div>
+          ) : (
+            <div
+              className="fixed top-20 p-4 hidden lg:flex items-center space-x-1 bg-gray-100 rounded-3xl cursor-pointer"
+              onClick={() => setPreview(true)}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1}
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1}
+                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                />
+              </svg>
+              <span className="text-lg font-nunito">Preview</span>
+            </div>
+          )}
           <div
             className={`${
               preview
@@ -275,7 +372,7 @@ export default function Admin() {
           </div>
         </div>
       </div>
-      <div className="fixed bottom-0 w-full p-4 bg-white flex justify-around items-center border rounded-t-3xl shadow-xl">
+      <div className="fixed bottom-0 w-full p-4 bg-white flex justify-around items-center border rounded-t-3xl shadow-xl lg:hidden">
         {preview ? (
           <div
             onClick={() => setPreview(false)}

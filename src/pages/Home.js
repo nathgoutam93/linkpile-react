@@ -12,16 +12,16 @@ export default function Home() {
 
   useEffect(() => {
     const customHeader = currentUser ? (
-      <div className="mr-2 flex justify-around items-center space-x-1">
+      <div className="lg:mr-2 flex justify-around items-center space-x-1">
         <button
           onClick={() => logOut()}
-          className="px-4 py-2 text-rose-400 font-nunito font-bold"
+          className="px-4 py-2 text-rose-400 font-nunito font-bold rounded-3xl bg-gray-50"
         >
           Log Out
         </button>
         <Link
           to={ROUTES.ADMIN}
-          className="px-4 py-2 text-white font-nunito font-bold rounded-md bg-rose-400"
+          className="px-4 py-2 text-white font-nunito font-bold rounded-3xl bg-rose-400"
         >
           Admin
         </Link>
@@ -30,13 +30,13 @@ export default function Home() {
       <div className="mr-2 flex justify-around items-center space-x-1">
         <Link
           to={ROUTES.LOGIN}
-          className="px-4 py-2 text-rose-400 font-nunito font-bold"
+          className="px-4 py-2 text-rose-400 font-nunito font-bold rounded-3xl bg-gray-100"
         >
           Log In
         </Link>
         <Link
           to={ROUTES.REGISTER}
-          className="px-4 py-2 text-white font-nunito font-bold rounded-md bg-rose-400"
+          className="px-4 py-2 text-white font-nunito font-bold rounded-3xl bg-rose-400"
         >
           Sign Up
         </Link>
@@ -67,7 +67,7 @@ export default function Home() {
             <div className="flex flex-col justify-center items-center space-y-4">
               <Link
                 to={ROUTES.REGISTER}
-                className="py-4 px-8 text-center text-xl text-white font-nunito font-extrabold rounded-xl bg-rose-400"
+                className="py-4 px-8 text-center text-xl text-white font-nunito font-extrabold rounded-3xl bg-rose-400"
               >
                 Get Started for free
               </Link>

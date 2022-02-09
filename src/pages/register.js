@@ -41,8 +41,8 @@ export default function Register() {
   return (
     <div className="w-full h-full bg-gray-100">
       <Header />
-      <div className="w-full h-screen p-10 flex flex-col justify-center items-center">
-        <form className="p-10 flex flex-col justify-center items-center font-nunito space-y-4 bg-white rounded-3xl border">
+      <div className="w-full h-screen p-4 lg:p-10 flex flex-col justify-center items-center">
+        <form className="p-4 lg:p-10 flex flex-col justify-center items-center font-nunito space-y-4 bg-white rounded-3xl border">
           <p className="bg-rose-400 text-base font-semibold font-nunito">
             {error}
           </p>
@@ -101,7 +101,7 @@ export default function Register() {
           </div>
           <Link
             to={ROUTES.LOGIN}
-            className="mt-6 text-lg font-nunito font-semibold hover:underline"
+            className="mt-6 text-lg text-gray-700 font-nunito font-semibold hover:underline"
           >
             Already on Linkpile? Log In
           </Link>
