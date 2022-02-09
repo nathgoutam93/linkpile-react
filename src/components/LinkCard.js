@@ -8,7 +8,7 @@ export default function LinkCard({ link, linkStyle }) {
     >
       <div className="p-2 flex flex-col text-center space-y-1 lg:space-y-0">
         <p className="text-lg font-bold">{link.title}</p>
-        <p className="text-base font-semibold max-w-2xl">{link.description}</p>
+        <p className="text-sm font-semibold max-w-2xl">{link.description}</p>
       </div>
     </a>
   );

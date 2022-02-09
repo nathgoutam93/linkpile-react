@@ -15,8 +15,9 @@ export default function Page({
     <div
       style={{
         background: 'center / cover no-repeat ' + background,
+        font: 'Nunito',
       }}
-      className={`w-full h-full p-4 flex flex-col items-center ${font} space-y-2`}
+      className={`w-full h-full p-4 flex flex-col items-center space-y-2`}
     >
       {imgSrc && (
         <div className="w-24 h-24 flex justify-center">
@@ -40,7 +41,7 @@ export default function Page({
             );
           })}
       </div>
-      <Link to={'/'} className="text-2xl font-bold font-Rammetto">
+      <Link to={'/'} className="text-2xl font-extraboldbold font-nunito">
         Linkpile
       </Link>
     </div>

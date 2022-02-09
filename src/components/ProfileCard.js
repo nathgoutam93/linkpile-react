@@ -13,7 +13,7 @@ export default function ProfileCard({ imgSrc, profileName, about, dispatch }) {
         </div>
       )}
       <div className="w-full space-y-1">
-        <label className="text-sm">Profile Title</label>
+        <label className="text-sm font-nunito">Profile Title</label>
         <input
           value={profileName}
           onChange={(e) =>
@@ -29,7 +29,7 @@ export default function ProfileCard({ imgSrc, profileName, about, dispatch }) {
         ></input>
       </div>
       <div className="w-full space-y-1">
-        <label className="text-sm">Profile Description</label>
+        <label className="text-sm font-nunito">Profile Description</label>
         <textarea
           value={about}
           onChange={(e) =>

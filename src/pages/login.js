@@ -37,8 +37,8 @@ export default function Login() {
     <div className="w-full h-full bg-gray-100">
       <Header />
       <div className="w-full h-screen p-10 flex flex-col justify-center items-center">
-        <form className="p-10 flex flex-col justify-center items-center space-y-4 bg-white rounded-3xl border">
-          <p className="text-red-700 text-base font-semibold font-inter">
+        <form className="p-10 flex flex-col justify-center items-center font-nunito space-y-4 bg-white rounded-3xl border">
+          <p className="text-red-700 text-base font-semibold font-nunito">
             {error}
           </p>
           <h1>Login to your Linkpile account</h1>
@@ -72,8 +72,8 @@ export default function Login() {
             <button
               disabled={invalid || loading}
               onClick={handleLogIn}
-              className={`px-4 py-2 text-white font-inter font-bold rounded-md ${
-                invalid ? 'bg-gray-400' : 'bg-blue-700'
+              className={`px-4 py-2 text-white font-nunito font-bold rounded-md ${
+                invalid ? 'bg-gray-400' : 'bg-rose-400'
               } ${loading && 'animate-pulse'}`}
             >
               Log In
@@ -81,7 +81,7 @@ export default function Login() {
           </div>
           <Link
             to={ROUTES.REGISTER}
-            className="mt-6 text-lg font-inter font-semibold"
+            className="mt-6 text-lg font-nunito font-semibold hover:underline"
           >
             Dont have an account? create one
           </Link>

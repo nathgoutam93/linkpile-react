@@ -4,8 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        nunito: ['Nunito', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
-        Rammetto: ['Rammetto One', 'cursive'],
       },
       animation: {
         'gradient-xy': 'gradient-xy 10s linear infinite',

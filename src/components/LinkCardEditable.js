@@ -100,8 +100,8 @@ export default function LinkCardEditable({ id, Link, links, dispatch }) {
                     />
                   </svg>
                   <div className="p-2 flex-1 flex flex-col justify-center items-center space-y-1">
-                    <p className="font-bold">{Link.title}</p>
-                    <p className="text-center font-semibold">
+                    <p className="text-lg font-bold">{Link.title}</p>
+                    <p className="text-sm text-center font-semibold">
                       {Link.description}
                     </p>
                   </div>
@@ -161,13 +161,13 @@ export default function LinkCardEditable({ id, Link, links, dispatch }) {
                 <div className="flex justify-around items-center space-x-2">
                   <button
                     onClick={handleCancel}
-                    className="flex-1 px-10 py-2 text-white font-inter font-bold rounded-md bg-blue-700"
+                    className="flex-1 px-10 py-2 text-white font-inter font-bold rounded-md bg-rose-400"
                   >
                     Cancel
                   </button>
                   <button
                     onClick={handleSave}
-                    className="flex-1 px-10 py-2 text-white font-inter font-bold rounded-md bg-blue-700"
+                    className="flex-1 px-10 py-2 text-white font-inter font-bold rounded-md bg-rose-400"
                   >
                     Save
                   </button>

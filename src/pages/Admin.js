@@ -176,13 +176,13 @@ export default function Admin() {
       <div className="flex justify-around items-center space-x-2">
         <button
           onClick={() => logOut()}
-          className="px-4 py-2  text-blue-700 font-inter font-bold"
+          className="px-4 py-2 text-rose-400 font-nunito font-bold"
         >
           Log Out
         </button>
         <Link
           to={`${ROUTES.ADMIN}`}
-          className="px-4 py-2 text-white font-inter font-bold rounded-md bg-blue-700"
+          className="px-4 py-2 text-white font-nunito font-bold rounded-md bg-rose-400"
         >
           My Account
         </Link>
@@ -198,13 +198,13 @@ export default function Admin() {
     <>
       {!preview && <Header />}
       <div
-        className={`w-full grid ${!preview && 'lg:grid-cols-2'} bg-gray-200`}
+        className={`w-full grid ${
+          !preview && 'lg:grid-cols-2'
+        } bg-gray-200 font-nunito`}
       >
         <div className={`p-4 space-y-4 pb-96 ${preview && 'hidden'}`}>
           {error && (
-            <p className="text-red-700 text-base font-semibold font-inter">
-              {error}
-            </p>
+            <p className="text-red-700 text-base font-semibold">{error}</p>
           )}
           <ProfileCard
             imgSrc={imgSrc}
@@ -277,69 +277,91 @@ export default function Admin() {
       </div>
       <div className="fixed bottom-0 w-full p-4 bg-white flex justify-around items-center border rounded-t-3xl shadow-xl">
         {preview ? (
-          <svg
+          <div
             onClick={() => setPreview(false)}
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-12 w-12 cursor-pointer"
-            viewBox="0 0 20 20"
-            fill="currentColor"
+            className="flex justify-center items-center space-x-1  cursor-pointer"
           >
-            <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
-          </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-12 w-12"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1}
+                d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+              />
+            </svg>
+            <span className="text-2xl font-nunito">Editor</span>
+          </div>
         ) : (
           <>
-            <svg
-              onClick={() => setPreview(true)}
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-12 w-12 cursor-pointer"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-              />
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-              />
-            </svg>
-            <svg
-              onClick={handleNewLink}
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-12 w-12 cursor-pointer"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fillRule="evenodd"
-                d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <svg
-              disabled={loading}
-              onClick={handleUpdate}
-              xmlns="http://www.w3.org/2000/svg"
-              className={`h-12 w-12 cursor-pointer ${
-                loading && 'animate-pulse'
-              }`}
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
-              />
-            </svg>
+            <div className="flex flex-col items-center">
+              <svg
+                onClick={() => setPreview(true)}
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-12 w-12 cursor-pointer"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1}
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1}
+                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                />
+              </svg>
+              <span className="text-lg font-nunito">Preview</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <svg
+                onClick={handleNewLink}
+                className="h-12 w-12 cursor-pointer"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1}
+                  d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
+                />
+              </svg>
+              <span className="text-lg font-nunito">Add Link</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <svg
+                disabled={loading}
+                onClick={handleUpdate}
+                xmlns="http://www.w3.org/2000/svg"
+                className={`h-12 w-12 cursor-pointer ${
+                  loading && 'animate-pulse'
+                }`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1}
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+                />
+              </svg>
+              <span className="text-lg font-nunito">Save</span>
+            </div>
           </>
         )}
       </div>
