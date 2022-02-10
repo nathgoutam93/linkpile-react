@@ -43,6 +43,7 @@ function reducer(state, action) {
 
 const initialState = {
   file: null,
+  username: '',
   imgSrc: '',
   profileName: '',
   about: '',
@@ -64,6 +65,7 @@ export default function Admin() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const {
     file,
+    username,
     imgSrc,
     profileName,
     about,
@@ -82,6 +84,10 @@ export default function Admin() {
       field: 'links',
       value: [...links, { title: '', link: '', description: '', active: true }],
     });
+  };
+
+  const handleShare = () => {
+    navigator.clipboard.writeText(`https://linkpile-bfd7.web.app/${username}`);
   };
 
   const handleUpdate = async (event) => {
@@ -139,6 +145,7 @@ export default function Admin() {
 
   useEffect(() => {
     if (userData) {
+      dispatch({ type: 'field', field: 'username', value: userData.username });
       dispatch({ type: 'field', field: 'imgSrc', value: userData.page.imgSrc });
       dispatch({
         type: 'field',
@@ -198,15 +205,59 @@ export default function Admin() {
   return (
     <>
       {!preview && <Header />}
+      <div className="px-4 p-2 flex justify-around items-center space-x-2 lg:hidden">
+        <a
+          href={`https://linkpile-bffd7.web.app/${username}`}
+          className="text-sm text-gray-700 truncate underline"
+        >{`https://linkpile-bffd7.web.app/${username}`}</a>
+
+        <svg
+          onClick={handleShare}
+          className="w-8 h-8 text-gray-700 cursor-pointer"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1}
+            d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+          />
+        </svg>
+      </div>
       <div
         className={`w-full grid ${
           !preview && 'lg:grid-cols-2'
         } bg-gray-200 font-nunito`}
       >
-        <div className={`p-4 space-y-4 pb-96 ${preview && 'hidden'}`}>
+        <div className={`w-full p-4  pb-96 ${preview && 'hidden'} space-y-4`}>
           {error && (
             <p className="text-red-700 text-base font-semibold">{error}</p>
           )}
+          <div className="px-4 p-2 hidden lg:flex justify-around items-center bg-gray-300 rounded-lg space-x-2 shadow-inner">
+            <a
+              href={`https://linkpile-bffd7.web.app/${username}`}
+              className=" text-gray-700 runcate underline"
+            >{`https://linkpile-bffd7.web.app/${username}`}</a>
+
+            <svg
+              onClick={handleShare}
+              className="w-8 h-8 text-gray-700 cursor-pointer"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1}
+                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+              />
+            </svg>
+          </div>
           <ProfileCard
             file={file}
             imgSrc={imgSrc}
