@@ -28,8 +28,8 @@ export default function Page({
           />
         </div>
       )}
-      <h1 className="text-white text-lg font-bold">{profileName}</h1>
-      <p className="text-white text-center text-base font-semibold">{about}</p>
+      <h1 className="text-lg font-bold">{profileName}</h1>
+      <p className="text-center text-base font-semibold">{about}</p>
       <div
         className={`p-4 w-full flex flex-col justify-center items-center space-y-4`}
       >

@@ -54,11 +54,11 @@ export default function Home() {
       <section className="w-full p-4 flex flex-col justify-around lg:flex-row font-nunito">
         <div className="flex flex-col items-center">
           <h2 className="mt-4 text-2xl lg:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-fuchsia-400 to-blue-400">
-            The only link you'll ever need
+            Supercharge your Link In Bio
           </h2>
-          <h3 className="w-5/6 my-2 mb-4 text-center text-sm text-gray-700 lg:text-xl lg:w-auto">
-            Use it to connect audiences to all of your content with just one
-            link
+          <h3 className="w-5/6 my-2 mb-4 text-center text-sm text-gray-700 lg:text-xl">
+            The only link you'll ever need to connect audiences to all of your
+            content
           </h3>
           <div className="lg:h-screen flex flex-col-reverse lg:flex-col">
             <div className="flex flex-col justify-center items-center space-y-4">
@@ -75,31 +75,26 @@ export default function Home() {
                 Already on Linkpile? Log In
               </Link>
             </div>
-            <img
-              src="/mockup1.png"
-              alt=""
-              className="w-full h-full object-cover"
-            ></img>
+            <img src="/mockup1.png" alt=""></img>
           </div>
         </div>
       </section>
       <section className="w-full p-4 flex flex-col justify-around items-center space-y-8 lg:flex-row">
-        <img src="/mockup2.png" alt=""></img>
+        <img src="/mockup2.png" alt="" className="lg:scale-75"></img>
         <div className="flex flex-col justify-center space-y-8">
           <h1 className="text-3xl font-nunito font-bold">Link to everywhere</h1>
-          <p className="max-w-lg text-xl text-gray-700 font-inter font-semibold">
-            Linkpile is the launchpad to your latest video, article, recipe,
-            tour, store, website, social post - everywhere you are online.
+          <p className="max-w-md text-xl text-gray-700 font-inter font-semibold">
+            One link to all of your latest videos, articles, store, website,
+            social posts.
           </p>
         </div>
       </section>
       <section className="w-full p-4 flex flex-col justify-around items-center space-y-8 lg:flex-row-reverse">
-        <img src="/mockup3.png" alt="" />
+        <img src="/mockup3.png" alt="" className="scale-75 lg:scale-50" />
         <div className="flex flex-col justify-center space-y-8">
           <h1 className="text-3xl font-nunito font-bold">Easily managed</h1>
-          <p className="max-w-lg text-xl text-gray-700 font-inter font-semibold">
-            Creating a Linkpile takes seconds. Use our simple drag-and-drop
-            editor to effortlessly manage your content.
+          <p className="max-w-md text-xl text-gray-700 font-inter font-semibold">
+            Simple drag-and-drop editor to effortlessly manage your content.
           </p>
         </div>
       </section>
