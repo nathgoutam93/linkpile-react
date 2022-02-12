@@ -1,0 +1,19 @@
+{
+  "name": "users/goutam",
+  "bucket": "default-bucket",
+  "contentType": "image/jpeg",
+  "metageneration": 1,
+  "generation": 1644679660611,
+  "storageClass": "STANDARD",
+  "etag": "someETag",
+  "contentDisposition": "inline",
+  "contentEncoding": "identity",
+  "downloadTokens": [
+    "61673203-5128-48db-b0e0-e37dd6dec3f3"
+  ],
+  "timeCreated": "2022-02-12T15:27:40.610Z",
+  "updated": "2022-02-12T15:27:40.612Z",
+  "size": 15353,
+  "md5Hash": "QW9ennBwzF4S3PF4F8YHVw==",
+  "crc32c": "2482193424"
+}

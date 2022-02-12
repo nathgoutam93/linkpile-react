@@ -15,6 +15,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "emulators": "firebase emulators:start --project demo-test --import=./savedData --export-on-exit",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
