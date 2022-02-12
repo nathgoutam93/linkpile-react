@@ -7,8 +7,17 @@
 - Create a **[Pull Request](https://github.com/nathgoutam93/linkpile-react/compare)** (_PR_), which will be promptly reviewed and given suggestions for improvements if needed.
 - Adding screenshots or screen captures to your Pull Request is a +1.
 
-## 🤷‍♂️HOW TO INSTALL & MAKE A PULL REQUEST:
+# 🤷‍♂️HOW TO INSTALL
 
+  ## Prerequisites
+
+  Before installation, please make sure you have already installed the following tools:
+
+  - [Git](https://git-scm.com/downloads)
+  - [NodeJs](https://nodejs.org/en/download/)
+  - [java](https://java.com/download/ie_manual.jsp) (firebase emulators require Java)
+    
+  ## Installation
 👉 Start by making a [fork](https://github.com/nathgoutam93/linkpile-react/fork) of the repository.
 
 👉 Clone your new fork of the repository:
@@ -27,6 +36,22 @@ cd linkpile-react
 ```bash
 npm install
 ```
+
+👉 start emulators with
+
+```bash
+npm run emulators
+```
+
+👉 Run
+
+```bash
+npm start
+```
+
+## 🤷‍♀️HOW TO MAKE A PULL REQUEST:
+
+Follow the above Installation setup, then
 
 👉 Set upstream command:
 
