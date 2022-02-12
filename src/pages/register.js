@@ -93,7 +93,7 @@ export default function Register() {
               disabled={invalid || loading}
               onClick={handleSignUp}
               className={`px-4 py-2 text-white font-nunito font-bold rounded-md ${
-                invalid ? 'bg-gray-400' : 'bg-rose-400'
+                invalid ? 'bg-gray-400' : 'bg-rose-400 hover:bg-rose-300'
               } ${loading && 'animate-pulse'}`}
             >
               Sign Up

@@ -72,7 +72,7 @@ export default function LinkCardEditable({ id, Link, links, dispatch }) {
           ref={provided.innerRef}
           {...provided.draggableProps}
           style={{ ...provided.draggableProps.style }}
-          className="w-full p-2 flex justify-between items-center first-of-type:mt-4 last-of-type:mb-4"
+          className="w-full p-2 flex justify-between items-center first-of-type:mt-4 last-of-type:mb-4 cursor-pointer"
         >
           <div
             className={`flex flex-1 bg-gray-100 rounded-xl ${
@@ -161,13 +161,13 @@ export default function LinkCardEditable({ id, Link, links, dispatch }) {
                 <div className="flex justify-around items-center space-x-2">
                   <button
                     onClick={handleCancel}
-                    className="flex-1 px-10 py-2 text-white font-inter font-bold rounded-md bg-rose-400"
+                    className="flex-1 px-10 py-2 text-white font-inter font-bold rounded-md bg-rose-400 hover:bg-rose-300"
                   >
                     Cancel
                   </button>
                   <button
                     onClick={handleSave}
-                    className="flex-1 px-10 py-2 text-white font-inter font-bold rounded-md bg-rose-400"
+                    className="flex-1 px-10 py-2 text-white font-inter font-bold rounded-md bg-rose-400 hover:bg-rose-300"
                   >
                     Save
                   </button>

@@ -60,19 +60,19 @@ export default function ProfileCard({
           {file ? (
             <button
               onClick={handleCancel}
-              className="text-white bg-rose-400 font-medium rounded-lg text-sm px-5 py-2 text-center"
+              className="text-white bg-rose-400 font-medium rounded-lg text-sm px-5 py-2 text-center hover:bg-rose-300"
             >
               Cancel
             </button>
           ) : (
             <button
               onClick={handleRemove}
-              className="text-white bg-rose-400 font-medium rounded-lg text-sm px-5 py-2 text-center"
+              className="text-white bg-rose-400 font-medium rounded-lg text-sm px-5 py-2 text-center hover:bg-rose-300"
             >
               Remove
             </button>
           )}
-          <label className="text-white bg-rose-400 font-medium rounded-lg text-sm px-5 py-2 text-center cursor-pointer">
+          <label className="text-white bg-rose-400 font-medium rounded-lg text-sm px-5 py-2 text-center cursor-pointer hover:bg-rose-300">
             Change
             <input
               className="hidden"

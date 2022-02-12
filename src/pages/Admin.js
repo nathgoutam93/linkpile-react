@@ -184,13 +184,13 @@ export default function Admin() {
       <div className="flex justify-around items-center space-x-2">
         <button
           onClick={() => logOut()}
-          className="px-4 py-2 text-rose-400 font-nunito font-bold rounded-3xl bg-gray-50"
+          className="px-4 py-2 text-rose-400 font-nunito font-bold rounded-3xl bg-gray-50 hover:bg-gray-100"
         >
           Log Out
         </button>
         <Link
           to={`${ROUTES.PROFILE}`}
-          className="px-4 py-2 text-white font-nunito font-bold rounded-3xl bg-rose-400"
+          className="px-4 py-2 text-white font-nunito font-bold rounded-3xl bg-rose-400 hover:bg-rose-300"
         >
           My Account
         </Link>
@@ -303,7 +303,7 @@ export default function Admin() {
           <div className="hidden lg:flex justify-around items-center space-x-4">
             <button
               onClick={handleNewLink}
-              className="w-full px-5 py-2 flex justify-center items-center text-white bg-rose-400 rounded-xl space-x-4"
+              className="w-full px-5 py-2 flex justify-center items-center text-white bg-rose-400 rounded-xl space-x-4 hover:bg-rose-300"
             >
               <svg
                 className="h-6 w-6"
@@ -324,7 +324,7 @@ export default function Admin() {
             <button
               disabled={loading}
               onClick={handleUpdate}
-              className="w-full px-5 py-2 flex justify-center items-center text-white bg-rose-400 rounded-xl space-x-4"
+              className="w-full px-5 py-2 flex justify-center items-center text-white bg-rose-400 rounded-xl space-x-4 hover:bg-rose-300"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -354,7 +354,7 @@ export default function Admin() {
           {preview ? (
             <div
               onClick={() => setPreview(false)}
-              className="fixed left-4 top-4 p-4 hidden lg:flex justify-center items-center space-x-1 bg-gray-100 rounded-3xl  cursor-pointer"
+              className="fixed left-4 top-4 p-4 hidden lg:flex justify-center items-center space-x-1 bg-gray-100 rounded-3xl  cursor-pointer hover:bg-gray-50"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -374,7 +374,7 @@ export default function Admin() {
             </div>
           ) : (
             <div
-              className="fixed top-20 p-4 hidden lg:flex items-center space-x-1 bg-gray-100 rounded-3xl cursor-pointer"
+              className="fixed top-20 p-4 hidden lg:flex items-center space-x-1 bg-gray-100 rounded-3xl cursor-pointer hover:bg-gray-50"
               onClick={() => setPreview(true)}
             >
               <svg
