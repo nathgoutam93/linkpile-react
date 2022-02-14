@@ -1,31 +1,29 @@
-import React, { useEffect, useState } from 'react';
-import { Draggable } from 'react-beautiful-dnd';
-import { useAdmin } from '../context/adminContext';
+import React, { useEffect, useState } from "react";
+import { Draggable } from "react-beautiful-dnd";
+import { BsTrashFill } from "react-icons/bs";
+import { GrDrag } from "react-icons/gr";
 
-export default function LinkCardEditable({ id, Link }) {
-  const { state, dispatch } = useAdmin();
-  const { links } = state;
-
-  const [title, setTitle] = useState('');
-  const [link, setLink] = useState('');
-  const [description, setDescription] = useState('');
+export default function LinkCardEditable({ id, Link, links, dispatch }) {
+  const [title, setTitle] = useState("");
+  const [link, setLink] = useState("");
+  const [description, setDescription] = useState("");
   const [active, setActive] = useState(false);
   const [editMode, setEditMode] = useState(false);
 
-  const linkStyle = 'bg-white rounded-xl shadow-md';
+  const linkStyle = "bg-white rounded-xl shadow-md";
 
   const handleEdit = (value) => {
     let updatedLinks = links;
 
     updatedLinks[id] = value;
 
-    dispatch({ type: 'field', field: 'links', value: updatedLinks });
+    dispatch({ type: "field", field: "links", value: updatedLinks });
   };
 
   const handleRemoveLink = () => {
     const updatedLinks = links.filter((_, index) => id !== index);
 
-    dispatch({ type: 'field', field: 'links', value: updatedLinks });
+    dispatch({ type: "field", field: "links", value: updatedLinks });
   };
 
   const handleSave = () => {
@@ -76,11 +74,11 @@ export default function LinkCardEditable({ id, Link }) {
           ref={provided.innerRef}
           {...provided.draggableProps}
           style={{ ...provided.draggableProps.style }}
-          className="w-full p-2 flex justify-between items-center first-of-type:mt-4 last-of-type:mb-4 cursor-pointer"
+          className="w-full p-2 flex justify-between items-center first-of-type:mt-4 last-of-type:mb-4 cursor-pointer border-4 border-green-900"
         >
           <div
             className={`flex flex-1 bg-gray-100 rounded-xl ${
-              snapshot.isDragging ? 'shadow-2xl' : 'shadow-md'
+              snapshot.isDragging ? "shadow-2xl" : "shadow-md"
             }`}
           >
             {!editMode ? (
@@ -89,20 +87,7 @@ export default function LinkCardEditable({ id, Link }) {
                   onClick={() => setEditMode(true)}
                   className={`px-4 flex justify-center items-center flex-1 ${linkStyle}`}
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
-                    />
-                  </svg>
+                  c
                   <div className="p-2 flex-1 flex flex-col justify-center items-center space-y-1">
                     <p className="text-lg font-bold">{Link.title}</p>
                     <p className="text-sm text-center font-semibold">
@@ -127,7 +112,7 @@ export default function LinkCardEditable({ id, Link }) {
                       <div className="dot absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition"></div>
                     </div>
                   </label>
-                  <svg
+                  {/* <svg
                     onClick={handleRemoveLink}
                     className="h-8 w-8 text-gray-500 cursor-pointer"
                     xmlns="http://www.w3.org/2000/svg"
@@ -139,7 +124,12 @@ export default function LinkCardEditable({ id, Link }) {
                       d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
                       clipRule="evenodd"
                     />
-                  </svg>
+                  </svg> */}
+                  <BsTrashFill
+                    size={40}
+                    onClick={handleRemoveLink}
+                    className="text-gray-500 cursor-pointer"
+                  />
                 </div>
               </>
             ) : (
@@ -183,7 +173,7 @@ export default function LinkCardEditable({ id, Link }) {
             {...provided.dragHandleProps}
             className="p-2 flex justify-center items-center"
           >
-            <svg className="w-8 h-8" viewBox="0 0 12 22" fill="none">
+            {/* <svg className="w-8 h-8" viewBox="0 0 12 22" fill="none">
               <path
                 fillRule="evenodd"
                 clipRule="evenodd"
@@ -196,7 +186,8 @@ export default function LinkCardEditable({ id, Link }) {
                 d="M10 4C8.89543 4 8 3.10457 8 2C8 0.89543 8.89543 -1.35705e-07 10 -8.74228e-08C11.1046 -3.91405e-08 12 0.895431 12 2C12 3.10457 11.1046 4 10 4ZM10 13C8.89543 13 8 12.1046 8 11C8 9.89543 8.89543 9 10 9C11.1046 9 12 9.89543 12 11C12 12.1046 11.1046 13 10 13ZM8 20C8 21.1046 8.89543 22 10 22C11.1046 22 12 21.1046 12 20C12 18.8954 11.1046 18 10 18C8.89543 18 8 18.8954 8 20Z"
                 fill="#888888"
               ></path>
-            </svg>
+            </svg> */}
+            <GrDrag size={40} />
           </div>
         </div>
       )}
