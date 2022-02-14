@@ -8,20 +8,17 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { AuthProvider } from './context/authContext';
 import { FirestoreProvider } from './context/firestoreContext';
 import { HeaderProvider } from './context/headerContext';
-import { AdminProvider } from './context/adminContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
       <FirestoreProvider>
         <HeaderProvider>
-          <AdminProvider>
-            <Router>
-              <Routes>
-                <Route path="/*" element={<App />} />
-              </Routes>
-            </Router>
-          </AdminProvider>
+          <Router>
+            <Routes>
+              <Route path="/*" element={<App />} />
+            </Routes>
+          </Router>
         </HeaderProvider>
       </FirestoreProvider>
     </AuthProvider>
