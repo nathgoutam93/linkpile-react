@@ -1,15 +1,17 @@
+<<<<<<< 1
 import React from "react";
 import { useFirestore } from "../context/firestoreContext";
 import { BsCamera } from "react-icons/bs";
+=======
+import React from 'react';
+import { useAdmin } from '../context/adminContext';
+import { useFirestore } from '../context/firestoreContext';
+>>>>>>> master
 
-export default function ProfileCard({
-  file,
-  imgSrc,
-  profileName,
-  about,
-  dispatch,
-}) {
+export default function ProfileCard() {
   const { userData } = useFirestore();
+  const { state, dispatch } = useAdmin();
+  const { file, imgSrc, profileName, about } = state;
 
   const handleFile = (event) => {
     event.preventDefault();
