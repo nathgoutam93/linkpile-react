@@ -15,7 +15,7 @@ import IsLoggedIn from "./helpers/isLoggedIn";
 function App() {
   return (
     <Routes>
-      <Route index element={<Home />} />
+      <Route path={ROUTES.Home} element={<Home />} />
 
       <Route path={"/:userId"} element={<UserPage />} />
 

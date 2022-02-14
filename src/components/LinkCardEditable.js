@@ -1,4 +1,3 @@
-<<<<<<< 1
 import React, { useEffect, useState } from "react";
 import { Draggable } from "react-beautiful-dnd";
 import { BsTrashFill } from "react-icons/bs";
@@ -8,19 +7,6 @@ export default function LinkCardEditable({ id, Link, links, dispatch }) {
   const [title, setTitle] = useState("");
   const [link, setLink] = useState("");
   const [description, setDescription] = useState("");
-=======
-import React, { useEffect, useState } from 'react';
-import { Draggable } from 'react-beautiful-dnd';
-import { useAdmin } from '../context/adminContext';
-
-export default function LinkCardEditable({ id, Link }) {
-  const { state, dispatch } = useAdmin();
-  const { links } = state;
-
-  const [title, setTitle] = useState('');
-  const [link, setLink] = useState('');
-  const [description, setDescription] = useState('');
->>>>>>> master
   const [active, setActive] = useState(false);
   const [editMode, setEditMode] = useState(false);
 
