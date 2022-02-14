@@ -3,17 +3,17 @@
   "bucket": "default-bucket",
   "contentType": "image/jpeg",
   "metageneration": 1,
-  "generation": 1644679660611,
+  "generation": 1644868391858,
   "storageClass": "STANDARD",
   "etag": "someETag",
   "contentDisposition": "inline",
   "contentEncoding": "identity",
   "downloadTokens": [
-    "61673203-5128-48db-b0e0-e37dd6dec3f3"
+    "6728b26c-21a1-4956-9b6d-844b8a513fc8"
   ],
-  "timeCreated": "2022-02-12T15:27:40.610Z",
-  "updated": "2022-02-12T15:27:40.612Z",
-  "size": 15353,
-  "md5Hash": "QW9ennBwzF4S3PF4F8YHVw==",
-  "crc32c": "2482193424"
+  "timeCreated": "2022-02-14T19:53:11.857Z",
+  "updated": "2022-02-14T19:53:11.860Z",
+  "size": 11712,
+  "md5Hash": "X05FzyrDVjnAlZFJslZHlQ==",
+  "crc32c": "2074953265"
 }
