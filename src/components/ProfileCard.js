@@ -1,29 +1,26 @@
-import React from "react";
-import { useFirestore } from "../context/firestoreContext";
-import { BsCamera } from "react-icons/bs";
+import React from 'react';
+import { useAdmin } from '../context/adminContext';
+import { useFirestore } from '../context/firestoreContext';
+import { BsCamera } from 'react-icons/bs';
 
-export default function ProfileCard({
-  file,
-  imgSrc,
-  profileName,
-  about,
-  dispatch,
-}) {
+export default function ProfileCard() {
   const { userData } = useFirestore();
+  const { state, dispatch } = useAdmin();
+  const { file, imgSrc, profileName, about } = state;
 
   const handleFile = (event) => {
     event.preventDefault();
 
-    dispatch({ type: "field", field: "file", value: event.target.files[0] });
+    dispatch({ type: 'field', field: 'file', value: event.target.files[0] });
   };
 
   const handleCancel = () => {
-    dispatch({ type: "field", field: "imgSrc", value: userData.page.imgSrc });
-    dispatch({ type: "field", field: "file", value: null });
+    dispatch({ type: 'field', field: 'imgSrc', value: userData.page.imgSrc });
+    dispatch({ type: 'field', field: 'file', value: null });
   };
 
   const handleRemove = () => {
-    dispatch({ type: "field", field: "imgSrc", value: null });
+    dispatch({ type: 'field', field: 'imgSrc', value: null });
   };
 
   return (
@@ -74,8 +71,8 @@ export default function ProfileCard({
           value={profileName}
           onChange={(e) =>
             dispatch({
-              type: "field",
-              field: "profileName",
+              type: 'field',
+              field: 'profileName',
               value: e.target.value,
             })
           }
@@ -90,8 +87,8 @@ export default function ProfileCard({
           value={about}
           onChange={(e) =>
             dispatch({
-              type: "field",
-              field: "about",
+              type: 'field',
+              field: 'about',
               value: e.target.value,
             })
           }
