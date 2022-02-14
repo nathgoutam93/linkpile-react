@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useReducer, useEffect } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useReducer,
+  useEffect,
+  useState,
+} from 'react';
 import { initialState, adminReducer } from '../reducers/adminReducer';
 import { useFirestore } from '../context/firestoreContext';
 
@@ -11,8 +17,10 @@ export function useAdmin() {
 export function AdminProvider({ children }) {
   const { userData } = useFirestore();
   const [state, dispatch] = useReducer(adminReducer, initialState);
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     if (userData) {
       dispatch({ type: 'field', field: 'username', value: userData.username });
       dispatch({ type: 'field', field: 'imgSrc', value: userData.page.imgSrc });
@@ -25,14 +33,11 @@ export function AdminProvider({ children }) {
       dispatch({
         type: 'field',
         field: 'appearance',
-        value: {
-          background: userData.page.appearance.background,
-          linkStyle: userData.page.appearance.linkStyle,
-          font: userData.page.appearance.font,
-        },
+        value: userData.page.appearance,
       });
       dispatch({ type: 'field', field: 'links', value: userData.page.links });
     }
+    setLoading(false);
   }, [userData]);
 
   useEffect(() => {
@@ -47,7 +52,7 @@ export function AdminProvider({ children }) {
     }
   }, [state.file]);
 
-  const value = { state, dispatch };
+  const value = { state, dispatch, isLoading };
 
   return (
     <AdminContext.Provider value={value}>{children}</AdminContext.Provider>

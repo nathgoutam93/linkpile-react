@@ -9,13 +9,15 @@ export default function Page({
   links,
   appearance,
 }) {
-  const { background, linkStyle, font } = appearance;
+  const { background, font, fontColor, linkStyle, linkColor, linkFontColor } =
+    appearance;
 
   return (
     <div
       style={{
         background: 'center / cover no-repeat ' + background,
-        font: font,
+        fontFamily: font,
+        color: fontColor,
       }}
       className={`w-full h-full pt-10 p-4 flex flex-col items-center space-y-2`}
     >
@@ -37,7 +39,13 @@ export default function Page({
           ?.filter((link) => link.active !== false && link.title && link.link)
           .map((link) => {
             return (
-              <LinkCard key={link.title} link={link} linkStyle={linkStyle} />
+              <LinkCard
+                key={link.title}
+                link={link}
+                linkStyle={linkStyle}
+                linkColor={linkColor}
+                linkFontColor={linkFontColor}
+              />
             );
           })}
       </div>
