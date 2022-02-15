@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useHeader } from '../context/headerContext';
+import React from "react";
+import { Link } from "react-router-dom";
+import { useHeader } from "../context/headerContext";
 
 function Header() {
   const { customHeader } = useHeader();

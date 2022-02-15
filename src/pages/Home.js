@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import Header from '../components/header';
-import Footer from '../components/footer';
-import * as ROUTES from '../constants/routes';
-import { Link } from 'react-router-dom';
-import { useHeader } from '../context/headerContext';
-import { useAuth } from '../context/authContext';
+import React, { useEffect } from "react";
+import Header from "../components/header";
+import Footer from "../components/footer";
+import * as ROUTES from "../constants/routes";
+import { Link } from "react-router-dom";
+import { useHeader } from "../context/headerContext";
+import { useAuth } from "../context/authContext";
 
 export default function Home() {
   const { currentUser, logOut, isLoading } = useAuth();
@@ -57,8 +57,8 @@ export default function Home() {
             Supercharge your Link In Bio
           </h2>
           <h3 className="w-5/6 my-2 mb-4 text-center text-sm text-gray-700 lg:text-xl">
-            The only link you'll ever need to connect audiences to all of your
-            content
+            The only link you&apos;ll ever need to connect audiences to all of
+            your content
           </h3>
           <div className="lg:h-screen flex flex-col-reverse lg:flex-col">
             <div className="flex flex-col justify-center items-center space-y-4">

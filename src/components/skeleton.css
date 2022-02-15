@@ -1,0 +1,51 @@
+.dark .shine {
+  background: #070707;
+  background-image: linear-gradient(
+    to right,
+    #070707 0%,
+    #171717 20%,
+    #171717 40%,
+    #070707 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: inline-block;
+  position: relative;
+
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeholderShimmer;
+  animation-timing-function: l;
+}
+
+.shine {
+  background: #fff;
+  background-image: linear-gradient(
+    to right,
+    #ffffff 0%,
+    #ecf3ff 20%,
+    #eaf2ff 40%,
+    #ffffff 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: inline-block;
+  position: relative;
+
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeholderShimmer;
+  animation-timing-function: l;
+}
+
+@keyframes placeholderShimmer {
+  0% {
+    background-position: -40rem 0;
+  }
+
+  100% {
+    background-position: 40rem 0;
+  }
+}

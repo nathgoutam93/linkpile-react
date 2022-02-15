@@ -1,7 +1,7 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import { db } from '../lib/firebase';
-import { storage } from '../lib/firebase';
-import { useAuth } from './authContext';
+import React, { createContext, useContext, useEffect, useState } from "react";
+import PropTypes from "prop-types";
+import { db, storage } from "../lib/firebase";
+import { useAuth } from "./authContext";
 import {
   doc,
   setDoc,
@@ -13,7 +13,7 @@ import {
   updateDoc,
   onSnapshot,
   limit,
-} from 'firebase/firestore';
+} from "firebase/firestore";
 
 const FirebaseContext = createContext();
 
@@ -28,7 +28,7 @@ export function FirestoreProvider({ children }) {
   useEffect(() => {
     if (currentUser) {
       const unsubUser = onSnapshot(
-        doc(db, 'users', `${currentUser.uid}`),
+        doc(db, "users", `${currentUser.uid}`),
         (doc) => {
           setUserData(doc.data());
         }
@@ -43,21 +43,21 @@ export function FirestoreProvider({ children }) {
   }, [currentUser]);
 
   function createUser(uid, username, emailAddress) {
-    return setDoc(doc(db, 'users', `${uid}`), {
+    return setDoc(doc(db, "users", `${uid}`), {
       userId: uid,
       username: username,
       page: {
-        imgSrc: '',
-        profileName: '',
-        about: '',
+        imgSrc: "",
+        profileName: "",
+        about: "",
         links: [],
         appearance: {
-          background: '#f3f4f6',
-          font: 'Nunito',
-          fontColor: '#000',
-          linkStyle: 'rounded-3xl',
-          linkColor: '#fff',
-          linkFontColor: '#000',
+          background: "#f3f4f6",
+          font: "Nunito",
+          fontColor: "#000",
+          linkStyle: "rounded-3xl",
+          linkColor: "#fff",
+          linkFontColor: "#000",
         },
       },
       email: emailAddress.toLowerCase(),
@@ -66,7 +66,7 @@ export function FirestoreProvider({ children }) {
   }
 
   function updateProfile(userId, data) {
-    const DocRef = doc(db, 'users', `${userId}`);
+    const DocRef = doc(db, "users", `${userId}`);
 
     return updateDoc(DocRef, data);
   }
@@ -74,9 +74,9 @@ export function FirestoreProvider({ children }) {
   async function getUserDoc(username) {
     let userDoc = null;
 
-    const ref = collection(db, 'users');
+    const ref = collection(db, "users");
 
-    const q = query(ref, where('username', '==', `${username}`), limit(1));
+    const q = query(ref, where("username", "==", `${username}`), limit(1));
 
     const querySnapshot = await getDocs(q);
 
@@ -101,3 +101,7 @@ export function FirestoreProvider({ children }) {
     </FirebaseContext.Provider>
   );
 }
+
+FirestoreProvider.propTypes = {
+  children: PropTypes.element,
+};

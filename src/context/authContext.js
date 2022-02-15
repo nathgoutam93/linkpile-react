@@ -1,12 +1,13 @@
-import React, { useState, useEffect, createContext, useContext } from 'react';
-import { auth } from '../lib/firebase';
+import React, { useState, useEffect, createContext, useContext } from "react";
+import PropTypes from "prop-types";
+import { auth } from "../lib/firebase";
 import {
   onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
   signOut,
-} from 'firebase/auth';
+} from "firebase/auth";
 
 const AuthContext = createContext();
 
@@ -58,3 +59,7 @@ export function AuthProvider({ children }) {
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
+
+AuthProvider.propTypes = {
+  children: PropTypes.element,
+};

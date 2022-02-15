@@ -1,6 +1,7 @@
-import React from 'react';
-import { Navigate, Outlet } from 'react-router-dom';
-import { useAuth } from '../context/authContext';
+import React from "react";
+import PropTypes from "prop-types";
+import { Navigate, Outlet } from "react-router-dom";
+import { useAuth } from "../context/authContext";
 
 export default function IsLoggedIn({ pathToRedirect }) {
   const { currentUser, isLoading } = useAuth();
@@ -9,3 +10,7 @@ export default function IsLoggedIn({ pathToRedirect }) {
 
   return currentUser ? <Navigate to={pathToRedirect} replace /> : <Outlet />;
 }
+
+IsLoggedIn.propTypes = {
+  pathToRedirect: PropTypes.string,
+};

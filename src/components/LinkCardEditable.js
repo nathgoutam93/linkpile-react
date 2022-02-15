@@ -1,34 +1,33 @@
-import React, { useEffect, useState } from 'react';
-import { Draggable } from 'react-beautiful-dnd';
-import { useAdmin } from '../context/adminContext';
-import { GoTrashcan } from 'react-icons/go';
-import { MdDragIndicator } from 'react-icons/md';
-import { HiOutlinePencil } from 'react-icons/hi';
+import React, { useEffect, useState } from "react";
+import { Draggable } from "react-beautiful-dnd";
+import { useAdmin } from "../context/adminContext";
+import { GoTrashcan } from "react-icons/go";
+import { MdDragIndicator } from "react-icons/md";
+import { HiOutlinePencil } from "react-icons/hi";
+import PropTypes from "prop-types";
 
 export default function LinkCardEditable({ id, Link }) {
   const { state, dispatch } = useAdmin();
   const { links } = state;
 
-  const [title, setTitle] = useState('');
-  const [link, setLink] = useState('');
-  const [description, setDescription] = useState('');
+  const [title, setTitle] = useState("");
+  const [link, setLink] = useState("");
+  const [description, setDescription] = useState("");
   const [active, setActive] = useState(false);
   const [editMode, setEditMode] = useState(false);
 
-  const linkStyle = 'bg-white rounded-xl shadow-md';
-
   const handleEdit = (value) => {
-    let updatedLinks = links;
+    const updatedLinks = links;
 
     updatedLinks[id] = value;
 
-    dispatch({ type: 'field', field: 'links', value: updatedLinks });
+    dispatch({ type: "field", field: "links", value: updatedLinks });
   };
 
   const handleRemoveLink = () => {
     const updatedLinks = links.filter((_, index) => id !== index);
 
-    dispatch({ type: 'field', field: 'links', value: updatedLinks });
+    dispatch({ type: "field", field: "links", value: updatedLinks });
   };
 
   const handleSave = () => {
@@ -83,14 +82,14 @@ export default function LinkCardEditable({ id, Link }) {
         >
           <div
             className={`flex flex-1 bg-gray-100 rounded-xl ${
-              snapshot.isDragging ? 'shadow-2xl' : 'shadow-md'
+              snapshot.isDragging ? "shadow-2xl" : "shadow-md"
             }`}
           >
             {!editMode ? (
               <>
                 <div
                   onClick={() => setEditMode(true)}
-                  className={`px-4 flex justify-center items-center flex-1 ${linkStyle}`}
+                  className={`px-4 flex justify-center items-center flex-1 ${Link.linkStyle}`}
                 >
                   <HiOutlinePencil size={25} className="text-gray-500" />
                   <div className="p-2 flex-1 flex flex-col justify-center items-center space-y-1">
@@ -172,3 +171,8 @@ export default function LinkCardEditable({ id, Link }) {
     </Draggable>
   );
 }
+
+LinkCardEditable.propTypes = {
+  id: PropTypes.number,
+  Link: PropTypes.object.isRequired,
+};

@@ -1,7 +1,7 @@
-import React from 'react';
-import { useAdmin } from '../context/adminContext';
-import { useFirestore } from '../context/firestoreContext';
-import { BsCamera } from 'react-icons/bs';
+import React from "react";
+import { useAdmin } from "../context/adminContext";
+import { useFirestore } from "../context/firestoreContext";
+import { BsCamera } from "react-icons/bs";
 
 export default function ProfileCard() {
   const { userData } = useFirestore();
@@ -11,16 +11,16 @@ export default function ProfileCard() {
   const handleFile = (event) => {
     event.preventDefault();
 
-    dispatch({ type: 'field', field: 'file', value: event.target.files[0] });
+    dispatch({ type: "field", field: "file", value: event.target.files[0] });
   };
 
   const handleCancel = () => {
-    dispatch({ type: 'field', field: 'imgSrc', value: userData.page.imgSrc });
-    dispatch({ type: 'field', field: 'file', value: null });
+    dispatch({ type: "field", field: "imgSrc", value: userData.page.imgSrc });
+    dispatch({ type: "field", field: "file", value: null });
   };
 
   const handleRemove = () => {
-    dispatch({ type: 'field', field: 'imgSrc', value: null });
+    dispatch({ type: "field", field: "imgSrc", value: null });
   };
 
   return (
@@ -41,19 +41,19 @@ export default function ProfileCard() {
           {file ? (
             <button
               onClick={handleCancel}
-              className="text-white bg-rose-400 font-medium rounded-lg text-sm px-5 py-2 text-center hover:bg-rose-300"
+              className="w-full text-white bg-rose-400 font-medium rounded-lg text-sm px-5 py-2 text-center hover:bg-rose-300"
             >
               Cancel
             </button>
           ) : (
             <button
               onClick={handleRemove}
-              className="text-white bg-rose-400 font-medium rounded-lg text-sm px-5 py-2 text-center hover:bg-rose-300"
+              className="w-full text-white bg-rose-400 font-medium rounded-lg text-sm px-5 py-2 text-center hover:bg-rose-300"
             >
               Remove
             </button>
           )}
-          <label className="text-white bg-rose-400 font-medium rounded-lg text-sm px-5 py-2 text-center cursor-pointer hover:bg-rose-300">
+          <label className="w-full text-white bg-rose-400 font-medium rounded-lg text-sm px-5 py-2 text-center cursor-pointer hover:bg-rose-300">
             Change
             <input
               className="hidden"
@@ -71,13 +71,13 @@ export default function ProfileCard() {
           value={profileName}
           onChange={(e) =>
             dispatch({
-              type: 'field',
-              field: 'profileName',
+              type: "field",
+              field: "profileName",
               value: e.target.value,
             })
           }
           type="text"
-          className="w-full p-4 outline-none border rounded-md"
+          className="w-full p-2 px-4 outline-none border rounded-md"
           placeholder="Profile Name"
         ></input>
       </div>
@@ -87,12 +87,12 @@ export default function ProfileCard() {
           value={about}
           onChange={(e) =>
             dispatch({
-              type: 'field',
-              field: 'about',
+              type: "field",
+              field: "about",
               value: e.target.value,
             })
           }
-          className="w-full p-4 outline-none border rounded-md"
+          className="w-full p-2 px-4 outline-none border rounded-md"
           placeholder="Bio"
         ></textarea>
       </div>

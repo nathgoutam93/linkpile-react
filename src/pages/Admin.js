@@ -1,18 +1,18 @@
-import { useEffect, useState } from 'react';
-import * as ROUTES from '../constants/routes';
-import { useAuth } from '../context/authContext';
-import { useFirestore } from '../context/firestoreContext';
-import { useHeader } from '../context/headerContext';
-import { useAdmin } from '../context/adminContext';
-import { Link } from 'react-router-dom';
-import Header from '../components/header';
-import Share from '../components/share';
-import Editor from '../components/Editor';
-import Preview from '../components/Preview';
-import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
-import { HiOutlinePencil } from 'react-icons/hi';
-import { HiOutlineUpload } from 'react-icons/hi';
-import { AiOutlineEye } from 'react-icons/ai';
+import { useEffect, useState } from "react";
+import * as ROUTES from "../constants/routes";
+import { useAuth } from "../context/authContext";
+import { useFirestore } from "../context/firestoreContext";
+import { useHeader } from "../context/headerContext";
+import { useAdmin } from "../context/adminContext";
+import { Link } from "react-router-dom";
+import Header from "../components/header";
+import Share from "../components/share";
+import Editor from "../components/Editor";
+import Preview from "../components/Preview";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { HiOutlinePencil, HiOutlineUpload } from "react-icons/hi";
+import { AiOutlineEye } from "react-icons/ai";
+import { ImSpinner } from "react-icons/im";
 
 export default function Admin() {
   const { logOut } = useAuth();
@@ -36,14 +36,14 @@ export default function Admin() {
   const handleUpdate = async (event) => {
     event.preventDefault();
 
-    dispatch({ type: 'update' });
+    dispatch({ type: "update" });
 
     if (file) {
       const storageRef = ref(storage, `users/${userData.username}`);
       const uploadTask = uploadBytesResumable(storageRef, file);
 
       uploadTask.on(
-        'state_changed',
+        "state_changed",
         (snapshot) => {
           setProgress((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
         },
@@ -62,9 +62,10 @@ export default function Admin() {
                 appearance: appearance,
               },
             });
-            dispatch({ type: 'success' });
+            setProgress(0);
+            dispatch({ type: "success" });
           } catch (error) {
-            dispatch({ type: 'error', error: error.message });
+            dispatch({ type: "error", error: error.message });
           }
         }
       );
@@ -79,9 +80,9 @@ export default function Admin() {
             appearance: appearance,
           },
         });
-        dispatch({ type: 'success' });
+        dispatch({ type: "success" });
       } catch (error) {
-        dispatch({ type: 'error', error: error.message });
+        dispatch({ type: "error", error: error.message });
       }
     }
   };
@@ -112,7 +113,7 @@ export default function Admin() {
       {!preview && <Header />}
       {!progress ? null : (
         <div className="w-full h-1 text-xs flex bg-purple-200">
-          <div className="progress flex flex-col shadow-none text-center whitespace-nowrap text-white justify-center bg-blue-500">
+          <div className="progress flex flex-col shadow-none text-center whitespace-nowrap text-white justify-center bg-rose-400">
             <style>{`.progress{width: ${progress}%}`}</style>
           </div>
         </div>
@@ -123,10 +124,10 @@ export default function Admin() {
 
       <div
         className={`w-full grid ${
-          !preview && 'lg:grid-cols-2'
+          !preview && "lg:grid-cols-2"
         } bg-gray-200 font-nunito`}
       >
-        <div className={`w-full p-4  pb-96 ${preview && 'hidden'} space-y-4`}>
+        <div className={`w-full p-4  pb-96 ${preview && "hidden"} space-y-4`}>
           <div className="hidden lg:flex">
             <Share username={username} />
           </div>
@@ -135,14 +136,14 @@ export default function Admin() {
 
         <div
           className={`${
-            preview ? 'flex' : 'hidden'
+            preview ? "flex" : "hidden"
           } justify-center items-center lg:flex`}
         >
           <Preview preview={preview} />
 
           <div
             className={`relative ${
-              preview ? 'flex' : 'hidden'
+              preview ? "flex" : "hidden"
             } justify-center items-center lg:flex`}
           >
             {preview ? (
@@ -165,12 +166,16 @@ export default function Admin() {
                 <div
                   disabled={loading}
                   onClick={handleUpdate}
-                  className={`flex p-2 items-center space-x-2 cursor-pointer hover:bg-gray-50 rounded-3xl ${
-                    loading && 'animate-pulse'
-                  }`}
+                  className="flex p-2 items-center space-x-2 cursor-pointer hover:bg-gray-50 rounded-3xl"
                 >
-                  <HiOutlineUpload size={25} />
-                  <span className="text-lg font-nunito">Save</span>
+                  {loading ? (
+                    <ImSpinner size={25} className="animate-spin" />
+                  ) : (
+                    <HiOutlineUpload size={25} />
+                  )}
+                  <span className="text-lg font-nunito">
+                    {loading ? "Saving" : "Save"}
+                  </span>
                 </div>
               </div>
             )}
@@ -198,12 +203,16 @@ export default function Admin() {
             <div
               disabled={loading}
               onClick={handleUpdate}
-              className={`flex flex-col items-center space-x-2 cursor-pointer ${
-                loading && 'animate-pulse'
-              }`}
+              className="flex flex-col items-center space-x-2 cursor-pointer"
             >
-              <HiOutlineUpload size={45} />
-              <span className="text-lg font-nunito">Save</span>
+              {loading ? (
+                <ImSpinner size={45} className="animate-spin" />
+              ) : (
+                <HiOutlineUpload size={45} />
+              )}
+              <span className="text-lg font-nunito">
+                {loading ? "Saving" : "Save"}
+              </span>
             </div>
           </>
         )}

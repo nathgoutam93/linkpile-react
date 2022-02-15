@@ -1,21 +1,35 @@
-import React from 'react';
-import { useAdmin } from '../context/adminContext';
-import { DragDropContext } from 'react-beautiful-dnd';
-import { Droppable } from 'react-beautiful-dnd';
-import LinkCardEditable from './LinkCardEditable';
-import ProfileCard from './ProfileCard';
+import React from "react";
+import { useAdmin } from "../context/adminContext";
+import { DragDropContext, Droppable } from "react-beautiful-dnd";
+import LinkCardEditable from "./LinkCardEditable";
+import ProfileCard from "./ProfileCard";
+import "./skeleton.css";
+import { useFirestore } from "../context/firestoreContext";
 
 export default function Editor() {
+  const { userData } = useFirestore();
   const { state, dispatch } = useAdmin();
   const { error, links } = state;
 
   const handleNewLink = () => {
     dispatch({
-      type: 'field',
-      field: 'links',
-      value: [...links, { title: '', link: '', description: '', active: true }],
+      type: "field",
+      field: "links",
+      value: [...links, { title: "", link: "", description: "", active: true }],
     });
   };
+
+  if (!userData)
+    return (
+      <div className="w-full space-y-4">
+        <div className="shine w-full h-80 rounded-3xl shadow-md"></div>
+        <div className="w-full flex flex-col space-y-4">
+          <div className="shine w-full h-24 rounded-xl shadow-md"></div>
+          <div className="shine w-full h-24 rounded-xl shadow-md"></div>
+          <div className="shine w-full h-24 rounded-xl shadow-md"></div>
+        </div>
+      </div>
+    );
 
   return (
     <>
@@ -30,7 +44,7 @@ export default function Editor() {
           const newLinks = [...links];
           const draggeditem = newLinks.splice(srcI, 1);
           newLinks.splice(desI, 0, ...draggeditem);
-          dispatch({ type: 'field', field: 'links', value: newLinks });
+          dispatch({ type: "field", field: "links", value: newLinks });
         }}
       >
         <Droppable droppableId="dropable-1">

@@ -1,6 +1,6 @@
-import { Outlet, Navigate } from 'react-router';
-import * as ROUTES from '../constants/routes';
-import { useAuth } from '../context/authContext';
+import { Outlet, Navigate } from "react-router";
+import * as ROUTES from "../constants/routes";
+import { useAuth } from "../context/authContext";
 
 export default function RequiredAuth() {
   const { currentUser, isLoading } = useAuth();

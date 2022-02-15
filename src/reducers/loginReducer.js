@@ -1,37 +1,37 @@
 const initialState = {
-  email: '',
-  password: '',
-  error: '',
+  email: "",
+  password: "",
+  error: "",
   loading: false,
 };
 
 function loginReducer(state, action) {
   switch (action.type) {
-    case 'field': {
+    case "field": {
       return {
         ...state,
         [action.field]: action.value,
       };
     }
-    case 'login': {
+    case "login": {
       return {
         ...state,
         loading: true,
-        error: '',
+        error: "",
       };
     }
-    case 'success': {
+    case "success": {
       return {
         ...state,
         loading: false,
       };
     }
-    case 'error': {
+    case "error": {
       return {
         ...state,
         error: action.error,
         loading: false,
-        password: '',
+        password: "",
       };
     }
     default:

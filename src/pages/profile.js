@@ -1,51 +1,16 @@
-import { useState, useEffect } from 'react';
-import { useReducer } from 'react';
-import { Link } from 'react-router-dom';
-import Header from '../components/header';
-import { useFirestore } from '../context/firestoreContext';
-import { useHeader } from '../context/headerContext';
-import { useAuth } from '../context/authContext';
-
-function reducer(state, action) {
-  switch (action.type) {
-    case 'field':
-      return {
-        ...state,
-        [action.field]: action.value,
-      };
-    case 'update':
-      return {
-        ...state,
-        loading: true,
-      };
-    case 'success':
-      return {
-        ...state,
-        loading: false,
-      };
-    case 'error':
-      return {
-        ...state,
-        error: action.error,
-        loading: false,
-      };
-    default:
-      break;
-  }
-}
-
-const initialState = {
-  username: '',
-  email: '',
-  error: '',
-  loading: false,
-};
+import { useState, useEffect, useReducer } from "react";
+import { Link } from "react-router-dom";
+import Header from "../components/header";
+import { useFirestore } from "../context/firestoreContext";
+import { useHeader } from "../context/headerContext";
+import { useAuth } from "../context/authContext";
+import { initialState, profileReducer } from "../reducers/profileReducer";
 
 export default function Profile() {
   const { setCustomHeader } = useHeader();
   const { logOut } = useAuth();
   const { userData, updateProfile } = useFirestore();
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(profileReducer, initialState);
   const { username, email, error, loading } = state;
 
   const [isLoading, setLoading] = useState(true);
@@ -53,23 +18,23 @@ export default function Profile() {
   const handleUpdate = async (event) => {
     event.preventDefault();
 
-    dispatch({ type: 'update' });
+    dispatch({ type: "update" });
 
     try {
       await updateProfile(userData.userId, {
         username: username,
         email: email,
       });
-      dispatch({ type: 'success' });
+      dispatch({ type: "success" });
     } catch (error) {
-      dispatch({ type: 'error', error: error.message });
+      dispatch({ type: "error", error: error.message });
     }
   };
 
   useEffect(() => {
     if (userData) {
-      dispatch({ type: 'field', field: 'username', value: userData.username });
-      dispatch({ type: 'field', field: 'email', value: userData.email });
+      dispatch({ type: "field", field: "username", value: userData.username });
+      dispatch({ type: "field", field: "email", value: userData.email });
       setLoading(false);
     }
   }, [userData]);
@@ -115,8 +80,8 @@ export default function Profile() {
             value={username}
             onChange={(e) =>
               dispatch({
-                type: 'field',
-                field: 'username',
+                type: "field",
+                field: "username",
                 value: e.target.value,
               })
             }
@@ -130,8 +95,8 @@ export default function Profile() {
             value={email}
             onChange={(e) =>
               dispatch({
-                type: 'field',
-                field: 'email',
+                type: "field",
+                field: "email",
                 value: e.target.value,
               })
             }
@@ -144,7 +109,7 @@ export default function Profile() {
             disabled={loading}
             onClick={handleUpdate}
             className={`max-w-max px-4 py-2 text-white font-inter font-bold rounded-3xl bg-rose-400 hover:bg-rose-300 ${
-              loading && 'animate-pulse'
+              loading && "animate-pulse"
             }`}
           >
             Save Changes

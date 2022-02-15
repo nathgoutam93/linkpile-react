@@ -1,6 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import LinkCard from '../components/LinkCard';
+import React from "react";
+import { Link } from "react-router-dom";
+import LinkCard from "../components/LinkCard";
+import PropTypes from "prop-types";
 
 export default function Page({
   imgSrc,
@@ -15,7 +16,7 @@ export default function Page({
   return (
     <div
       style={{
-        background: 'center / cover no-repeat ' + background,
+        background: "center / cover no-repeat " + background,
         fontFamily: font,
         color: fontColor,
       }}
@@ -50,7 +51,7 @@ export default function Page({
           })}
       </div>
       <Link
-        to={'/'}
+        to={"/"}
         className="text-2xl font-extraboldbold font-nunito text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-fuchsia-400 to-blue-400"
       >
         Link.pile
@@ -58,3 +59,11 @@ export default function Page({
     </div>
   );
 }
+
+Page.propTypes = {
+  imgSrc: PropTypes.string,
+  profileName: PropTypes.string,
+  about: PropTypes.string,
+  links: PropTypes.array,
+  appearance: PropTypes.object,
+};

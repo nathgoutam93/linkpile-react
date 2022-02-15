@@ -1,10 +1,10 @@
-import { useEffect, useReducer } from 'react';
-import * as ROUTES from '../constants/routes';
-import { useAuth } from '../context/authContext';
-import { useHeader } from '../context/headerContext';
-import { initialState, loginReducer } from '../reducers/loginReducer';
-import { Link } from 'react-router-dom';
-import Header from '../components/header';
+import { useEffect, useReducer } from "react";
+import * as ROUTES from "../constants/routes";
+import { useAuth } from "../context/authContext";
+import { useHeader } from "../context/headerContext";
+import { initialState, loginReducer } from "../reducers/loginReducer";
+import { Link } from "react-router-dom";
+import Header from "../components/header";
 
 export default function Login() {
   const { login } = useAuth();
@@ -13,24 +13,24 @@ export default function Login() {
   const [state, dispatch] = useReducer(loginReducer, initialState);
   const { email, password, error, loading } = state;
 
-  const invalid = email === '' || password === '';
+  const invalid = email === "" || password === "";
 
   const handleLogIn = async (event) => {
     event.preventDefault();
 
-    dispatch({ type: 'login' });
+    dispatch({ type: "login" });
 
     try {
       await login(email, password);
     } catch (error) {
-      dispatch({ type: 'error', error: error.message });
+      dispatch({ type: "error", error: error.message });
     }
   };
 
   useEffect(() => {
     setCustomHeader(null);
 
-    return () => dispatch({ type: 'field', field: 'loading', value: false });
+    return () => dispatch({ type: "field", field: "loading", value: false });
   }, [setCustomHeader]);
 
   return (
@@ -47,8 +47,8 @@ export default function Login() {
               value={email}
               onChange={(e) =>
                 dispatch({
-                  type: 'field',
-                  field: 'email',
+                  type: "field",
+                  field: "email",
                   value: e.target.value,
                 })
               }
@@ -60,8 +60,8 @@ export default function Login() {
               value={password}
               onChange={(e) =>
                 dispatch({
-                  type: 'field',
-                  field: 'password',
+                  type: "field",
+                  field: "password",
                   value: e.target.value,
                 })
               }
@@ -73,8 +73,8 @@ export default function Login() {
               disabled={invalid || loading}
               onClick={handleLogIn}
               className={`px-4 py-2 text-white font-nunito font-bold rounded-md ${
-                invalid ? 'bg-gray-400' : 'bg-rose-400 hover:bg-rose-300'
-              } ${loading && 'animate-pulse'}`}
+                invalid ? "bg-gray-400" : "bg-rose-400 hover:bg-rose-300"
+              } ${loading && "animate-pulse"}`}
             >
               Log In
             </button>

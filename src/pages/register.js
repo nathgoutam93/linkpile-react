@@ -1,11 +1,11 @@
-import { useEffect, useReducer } from 'react';
-import * as ROUTES from '../constants/routes';
-import { useHeader } from '../context/headerContext';
-import { useAuth } from '../context/authContext';
-import { useFirestore } from '../context/firestoreContext';
-import { initialState, registerReducer } from '../reducers/registerReducer';
-import { Link, useNavigate } from 'react-router-dom';
-import Header from '../components/header';
+import { useEffect, useReducer } from "react";
+import * as ROUTES from "../constants/routes";
+import { useHeader } from "../context/headerContext";
+import { useAuth } from "../context/authContext";
+import { useFirestore } from "../context/firestoreContext";
+import { initialState, registerReducer } from "../reducers/registerReducer";
+import { Link, useNavigate } from "react-router-dom";
+import Header from "../components/header";
 
 export default function Register() {
   const { setCustomHeader } = useHeader();
@@ -17,20 +17,20 @@ export default function Register() {
   const [state, dispatch] = useReducer(registerReducer, initialState);
   const { username, email, password, error, loading } = state;
 
-  const invalid = username === '' || email === '' || password === '';
+  const invalid = username === "" || email === "" || password === "";
 
   const handleSignUp = async (event) => {
     event.preventDefault();
 
-    dispatch({ type: 'register' });
+    dispatch({ type: "register" });
 
     try {
       const { user } = await signup(email, password);
       await createUser(user.uid, username, email);
-      dispatch({ type: 'success' });
+      dispatch({ type: "success" });
       navigate(ROUTES.ADMIN);
     } catch (error) {
-      dispatch({ type: 'error', error: error.message });
+      dispatch({ type: "error", error: error.message });
     }
   };
 
@@ -54,8 +54,8 @@ export default function Register() {
                 value={username}
                 onChange={(e) =>
                   dispatch({
-                    type: 'field',
-                    field: 'username',
+                    type: "field",
+                    field: "username",
                     value: e.target.value,
                   })
                 }
@@ -67,8 +67,8 @@ export default function Register() {
               value={email}
               onChange={(e) =>
                 dispatch({
-                  type: 'field',
-                  field: 'email',
+                  type: "field",
+                  field: "email",
                   value: e.target.value,
                 })
               }
@@ -80,8 +80,8 @@ export default function Register() {
               value={password}
               onChange={(e) =>
                 dispatch({
-                  type: 'field',
-                  field: 'password',
+                  type: "field",
+                  field: "password",
                   value: e.target.value,
                 })
               }
@@ -93,8 +93,8 @@ export default function Register() {
               disabled={invalid || loading}
               onClick={handleSignUp}
               className={`px-4 py-2 text-white font-nunito font-bold rounded-md ${
-                invalid ? 'bg-gray-400' : 'bg-rose-400 hover:bg-rose-300'
-              } ${loading && 'animate-pulse'}`}
+                invalid ? "bg-gray-400" : "bg-rose-400 hover:bg-rose-300"
+              } ${loading && "animate-pulse"}`}
             >
               Sign Up
             </button>

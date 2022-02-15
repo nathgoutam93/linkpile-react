@@ -1,20 +1,11 @@
 const initialState = {
-  file: null,
   username: "",
-  imgSrc: "",
-  profileName: "",
-  about: "",
-  links: null,
-  appearance: {
-    background: "",
-    linkStyle: "",
-    font: "",
-  },
+  email: "",
   error: "",
   loading: false,
 };
 
-function adminReducer(state, action) {
+function profileReducer(state, action) {
   switch (action.type) {
     case "field":
       return {
@@ -25,22 +16,21 @@ function adminReducer(state, action) {
       return {
         ...state,
         loading: true,
-        file: null,
       };
     case "success":
       return {
         ...state,
         loading: false,
-        file: null,
       };
     case "error":
       return {
         ...state,
         error: action.error,
+        loading: false,
       };
     default:
       break;
   }
 }
 
-export { initialState, adminReducer };
+export { initialState, profileReducer };

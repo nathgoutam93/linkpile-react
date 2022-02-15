@@ -9,15 +9,16 @@
 
 # 🤷‍♂️HOW TO INSTALL
 
-  ## Prerequisites
+## Prerequisites
 
-  Before installation, please make sure you have already installed the following tools:
+Before installation, please make sure you have already installed the following tools:
 
-  - [Git](https://git-scm.com/downloads)
-  - [NodeJs](https://nodejs.org/en/download/)
-  - [java](https://java.com/download/ie_manual.jsp) (firebase emulators require Java)
-    
-  ## Installation
+- [Git](https://git-scm.com/downloads)
+- [NodeJs](https://nodejs.org/en/download/)
+- [java](https://java.com/download/ie_manual.jsp) (firebase emulators require Java)
+
+## Installation
+
 👉 Start by making a [fork](https://github.com/nathgoutam93/linkpile-react/fork) of the repository.
 
 👉 Clone your new fork of the repository:
@@ -33,6 +34,7 @@ cd linkpile-react
 ```
 
 👉 install dependencies
+
 ```bash
 npm install
 ```
@@ -83,6 +85,7 @@ git merge upstream/main
 👉 Make your changes to the source code.
 
 👉 Stage your changes and commit:
+
 ```bash
 git add .
 git commit -m "<your_commit_message>"

@@ -1,31 +1,31 @@
 const initialState = {
-  username: '',
-  email: '',
-  password: '',
-  error: '',
+  username: "",
+  email: "",
+  password: "",
+  error: "",
   loading: false,
 };
 
 function registerReducer(state, action) {
   switch (action.type) {
-    case 'field':
+    case "field":
       return {
         ...state,
         [action.field]: action.value,
       };
 
-    case 'register':
+    case "register":
       return {
         ...state,
-        error: '',
+        error: "",
         loading: true,
       };
-    case 'success':
+    case "success":
       return {
         ...state,
         loading: false,
       };
-    case 'error':
+    case "error":
       return {
         ...state,
         error: action.error,

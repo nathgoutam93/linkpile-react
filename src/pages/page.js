@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import Page from '../components/page';
-import { useFirestore } from '../context/firestoreContext';
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import Page from "../components/page";
+import { useFirestore } from "../context/firestoreContext";
 
 export default function UserPage() {
   const { userId } = useParams();

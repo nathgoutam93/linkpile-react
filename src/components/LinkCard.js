@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export default function LinkCard({
   link,
   linkStyle,
@@ -19,3 +21,10 @@ export default function LinkCard({
     </a>
   );
 }
+
+LinkCard.propTypes = {
+  link: PropTypes.object.isRequired,
+  linkStyle: PropTypes.string,
+  linkColor: PropTypes.string,
+  linkFontColor: PropTypes.string,
+};

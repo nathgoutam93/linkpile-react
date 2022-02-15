@@ -1,5 +1,6 @@
-import React from 'react';
-import { IoCopyOutline } from 'react-icons/io5';
+import React from "react";
+import { IoCopyOutline } from "react-icons/io5";
+import PropTypes from "prop-types";
 
 export default function Share({ username }) {
   const handleShare = () => {
@@ -21,3 +22,7 @@ export default function Share({ username }) {
     </div>
   );
 }
+
+Share.propTypes = {
+  username: PropTypes.string.isRequired,
+};

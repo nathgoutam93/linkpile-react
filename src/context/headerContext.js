@@ -1,4 +1,5 @@
-import React, { useState, createContext, useContext } from 'react';
+import React, { useState, createContext, useContext } from "react";
+import PropTypes from "prop-types";
 
 const HeaderContext = createContext();
 
@@ -15,3 +16,7 @@ export function HeaderProvider({ children }) {
     <HeaderContext.Provider value={value}>{children}</HeaderContext.Provider>
   );
 }
+
+HeaderProvider.propTypes = {
+  children: PropTypes.element,
+};
