@@ -17,6 +17,16 @@
   },
   "plugins": ["react"],
   "rules": {
-    "react/react-in-jsx-scope": 0
+    "react/react-in-jsx-scope": 0,
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto",
+        "semi": true,
+        "tabWidth": 2,
+        "singleQuote": false,
+        "trailingComma": "all"
+      }
+    ]
   }
 }
