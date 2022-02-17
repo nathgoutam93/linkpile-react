@@ -22,3 +22,14 @@
     scrollbar-width: none; /* Firefox */
   }
 }
+/* Loading Animation */
+.loader {
+  border: 10px solid #f3f3f3; /* Light grey */
+  border-top: 10px solid #fc3c65; /* Change this to the correct "bg-rose-400" your are using for most of your App */
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: spin 1s linear infinite;
+ margin: auto;
+ margin-top: 40vh;
+}

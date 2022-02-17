@@ -1,10 +1,4 @@
-import React, {
-  createContext,
-  useContext,
-  useReducer,
-  useEffect,
-  useState,
-} from "react";
+import React, { createContext, useContext, useReducer, useEffect } from "react";
 import PropTytpes from "prop-types";
 import { initialState, adminReducer } from "../reducers/adminReducer";
 import { useFirestore } from "../context/firestoreContext";

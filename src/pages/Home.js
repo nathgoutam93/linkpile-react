@@ -46,7 +46,7 @@ export default function Home() {
     setCustomHeader(customHeader);
   }, [currentUser, logOut, setCustomHeader]);
 
-  if (isLoading) return <h1>Loading...</h1>;
+  if (isLoading) return <div className="loader" />;
 
   return (
     <div className="w-full">

@@ -31,7 +31,7 @@ export function FirestoreProvider({ children }) {
         doc(db, "users", `${currentUser.uid}`),
         (doc) => {
           setUserData(doc.data());
-        }
+        },
       );
 
       return () => {

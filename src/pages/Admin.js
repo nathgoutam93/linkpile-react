@@ -67,7 +67,7 @@ export default function Admin() {
           } catch (error) {
             dispatch({ type: "error", error: error.message });
           }
-        }
+        },
       );
     } else {
       try {
