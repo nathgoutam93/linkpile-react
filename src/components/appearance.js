@@ -4,7 +4,7 @@ import { useAdmin } from "../context/adminContext";
 import { useFirestore } from "../context/firestoreContext";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import "./appearance.css";
-import { AiOutlinePicture } from "react-icons/ai";
+import { MdAddPhotoAlternate } from "react-icons/md";
 
 export default function Appearance() {
   const { userData, updateProfile, storage } = useFirestore();
@@ -155,7 +155,7 @@ export default function Appearance() {
             </div>
             <label>Background Color</label>
           </div>
-          <div className="p-2 w-full text-center rounded-3xl space-y-2">
+          <div className="w-full text-center rounded-3xl space-y-2">
             <div className="space-y-2">
               {background ? (
                 <img
@@ -164,8 +164,8 @@ export default function Appearance() {
                   className="w-full h-fit rounded-3xl object-cover border"
                 />
               ) : (
-                <div className="p-6 w-full rounded-full">
-                  <AiOutlinePicture size={128} />
+                <div className="w-full p-6 inline-flex justify-center rounded-full">
+                  <MdAddPhotoAlternate size={128} />
                 </div>
               )}
               <div className="flex-1 flex justify-center items-center space-x-1">
@@ -269,7 +269,7 @@ export default function Appearance() {
             <label>Button Color</label>
           </div>
           <div className="p-4 text-center flex flex-col justify-between items-center space-y-2">
-            <div className="grid grid-cols-2 gap-1 rounded-3xl">
+            <div className="w-full grid grid-cols-2 gap-1 rounded-3xl">
               <button
                 onClick={() => {
                   dispatch({
@@ -281,7 +281,7 @@ export default function Appearance() {
                     },
                   });
                 }}
-                className="p-2 bg-gray-400 rounded-lg"
+                className="p-2 bg-gray-500 rounded-lg"
               >
                 Rectangular
               </button>

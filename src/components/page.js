@@ -52,7 +52,7 @@ export default function Page({
       {profileName ? (
         <h1 className="text-lg font-bold">{profileName}</h1>
       ) : (
-        <h1 className="text-lg font-bold">@{userData.username}</h1>
+        <h1 className="text-lg font-bold">@{userData?.username}</h1>
       )}
       <p className="text-center text-base font-semibold">{about}</p>
       <div

@@ -75,12 +75,12 @@ export default function Home() {
                 Already on Linkpile? Log In
               </Link>
             </div>
-            <img src="/mockup1.png" alt=""></img>
+            <img src="./images/mockup1.png" alt=""></img>
           </div>
         </div>
       </section>
       <section className="w-full p-4 flex flex-col justify-around items-center space-y-8 lg:flex-row">
-        <img src="/mockup2.png" alt="" className="lg:scale-75"></img>
+        <img src="./images/mockup2.png" alt="" className="lg:scale-75"></img>
         <div className="flex flex-col justify-center space-y-8">
           <h1 className="text-3xl font-nunito font-bold">Link to everywhere</h1>
           <p className="max-w-md text-xl text-gray-700 font-inter font-semibold">
@@ -90,7 +90,11 @@ export default function Home() {
         </div>
       </section>
       <section className="w-full p-4 flex flex-col justify-around items-center space-y-8 lg:flex-row-reverse">
-        <img src="/mockup3.png" alt="" className="scale-75 lg:scale-50" />
+        <img
+          src="./images/mockup3.png"
+          alt=""
+          className="scale-75 lg:scale-50"
+        />
         <div className="flex flex-col justify-center space-y-8">
           <h1 className="text-3xl font-nunito font-bold">Easily managed</h1>
           <p className="max-w-md text-xl text-gray-700 font-inter font-semibold">
