@@ -60,7 +60,7 @@ export default function Profile() {
     setCustomHeader(customHeader);
   }, [logOut, setCustomHeader]);
 
-  if (isLoading) return <h1>Loading...</h1>;
+  if (isLoading) return <div className="loader" />;
 
   return (
     <div className="w-full h-full bg-gray-200">

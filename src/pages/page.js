@@ -17,7 +17,7 @@ export default function UserPage() {
     });
   }, [userId, getUserDoc]);
 
-  if (loading) return <h1>Loading...</h1>;
+  if (loading) return <div className="loader" />;
 
   if (!data) return <h1>user not found</h1>;
 
