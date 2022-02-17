@@ -1,5 +1,6 @@
 const initialState = {
-  file: null,
+  imgFile: null,
+  bgImgFile: null,
   username: "",
   imgSrc: "",
   profileName: "",
@@ -25,13 +26,13 @@ function adminReducer(state, action) {
       return {
         ...state,
         loading: true,
-        file: null,
       };
     case "success":
       return {
         ...state,
         loading: false,
-        file: null,
+        imgFile: null,
+        bgImgFile: null,
       };
     case "error":
       return {

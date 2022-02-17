@@ -32,18 +32,6 @@ export function AdminProvider({ children }) {
     }
   }, [userData]);
 
-  useEffect(() => {
-    if (state.file) {
-      const reader = new FileReader();
-
-      reader.onload = function (e) {
-        dispatch({ type: "field", field: "imgSrc", value: e.target.result });
-      };
-
-      reader.readAsDataURL(state.file);
-    }
-  }, [state.file]);
-
   const value = { state, dispatch };
 
   return (

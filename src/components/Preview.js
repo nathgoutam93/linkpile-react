@@ -17,8 +17,8 @@ export default function Preview({ preview }) {
     >
       <div
         className={`dark ${
-          preview ? "w-full h-full" : "w-[97%] h-[97%] rounded-3xl"
-        } flex flex-col items-center bg-gray-700 space-y-1 overflow-y-auto s_hide`}
+          preview ? "w-full h-full" : "w-[96%] h-[96%] rounded-3xl"
+        } flex flex-col items-center bg-gray-700 overflow-y-auto s_hide`}
       >
         {!userData ? (
           <div className="shine w-full h-full"></div>

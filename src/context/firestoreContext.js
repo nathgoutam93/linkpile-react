@@ -52,10 +52,16 @@ export function FirestoreProvider({ children }) {
         about: "",
         links: [],
         appearance: {
-          background: "#f3f4f6",
+          background: "",
+          backgroundColor: "#f3f4f6",
           font: "Nunito",
           fontColor: "#000",
-          linkStyle: "rounded-3xl",
+          linkStyle: {
+            rounded: true,
+            filled: true,
+            shadow: false,
+            special: "",
+          },
           linkColor: "#fff",
           linkFontColor: "#000",
         },
