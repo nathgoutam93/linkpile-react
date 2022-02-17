@@ -1,10 +1,4 @@
-import React, {
-  createContext,
-  useContext,
-  useReducer,
-  useEffect,
-  useState,
-} from "react";
+import React, { createContext, useContext, useReducer, useEffect } from "react";
 import PropTytpes from "prop-types";
 import { initialState, adminReducer } from "../reducers/adminReducer";
 import { useFirestore } from "../context/firestoreContext";
@@ -37,18 +31,6 @@ export function AdminProvider({ children }) {
       dispatch({ type: "field", field: "links", value: userData.page.links });
     }
   }, [userData]);
-
-  useEffect(() => {
-    if (state.file) {
-      const reader = new FileReader();
-
-      reader.onload = function (e) {
-        dispatch({ type: "field", field: "imgSrc", value: e.target.result });
-      };
-
-      reader.readAsDataURL(state.file);
-    }
-  }, [state.file]);
 
   const value = { state, dispatch };
 

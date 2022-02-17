@@ -66,7 +66,7 @@ export default function Profile() {
     <div className="w-full h-full bg-gray-200">
       <Header />
       <div className="w-full h-screen p-10 flex flex-col justify-center items-center">
-        <form className="w-full p-10 flex flex-col bg-gray-100 space-y-4 rounded-3xl shadow-2xl">
+        <form className="w-full max-w-lg p-10 flex flex-col bg-gray-100 space-y-4 rounded-3xl shadow-2xl">
           <h2 className="mb-4 text-xl font-semibold font-inter">
             Account Information
           </h2>

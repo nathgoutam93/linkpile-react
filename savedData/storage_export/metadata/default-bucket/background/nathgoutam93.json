@@ -1,0 +1,19 @@
+{
+  "name": "background/nathgoutam93",
+  "bucket": "default-bucket",
+  "contentType": "image/jpeg",
+  "metageneration": 1,
+  "generation": 1645100329077,
+  "storageClass": "STANDARD",
+  "etag": "someETag",
+  "contentDisposition": "inline",
+  "contentEncoding": "identity",
+  "downloadTokens": [
+    "9a0195f2-8016-4403-9f2c-cba7517a8f00"
+  ],
+  "timeCreated": "2022-02-17T12:18:49.076Z",
+  "updated": "2022-02-17T12:18:49.078Z",
+  "size": 629243,
+  "md5Hash": "Sa88W1FxGOJNGUxzHO+RdA==",
+  "crc32c": "2824252883"
+}

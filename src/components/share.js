@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 export default function Share({ username }) {
   const handleShare = () => {
-    navigator.clipboard.writeText(`https://linkpile-bfd7.web.app/${username}`);
+    navigator.clipboard.writeText(`https://linkpile-bffd7.web.app/${username}`);
   };
 
   return (

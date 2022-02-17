@@ -8,82 +8,45 @@ import { Link } from "react-router-dom";
 import Header from "../components/header";
 import Share from "../components/share";
 import Editor from "../components/Editor";
+import Appearance from "../components/appearance";
 import Preview from "../components/Preview";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { HiOutlinePencil, HiOutlineUpload } from "react-icons/hi";
+import {
+  HiOutlineLink,
+  HiOutlinePencil,
+  HiOutlineUpload,
+} from "react-icons/hi";
 import { AiOutlineEye } from "react-icons/ai";
 import { ImSpinner } from "react-icons/im";
+import { BsBrush } from "react-icons/bs";
 
 export default function Admin() {
   const { logOut } = useAuth();
-  const { userData, updateProfile, storage } = useFirestore();
+  const { userData, updateProfile } = useFirestore();
   const { setCustomHeader } = useHeader();
   const { state, dispatch } = useAdmin();
-  const {
-    file,
-    username,
-    imgSrc,
-    profileName,
-    about,
-    links,
-    appearance,
-    loading,
-  } = state;
+  const { username, profileName, about, links, appearance, loading } = state;
 
   const [preview, setPreview] = useState(false);
-  const [progress, setProgress] = useState(0);
+  const [showDesign, setShowDesign] = useState(false);
 
   const handleUpdate = async (event) => {
     event.preventDefault();
 
     dispatch({ type: "update" });
 
-    if (file) {
-      const storageRef = ref(storage, `users/${userData.username}`);
-      const uploadTask = uploadBytesResumable(storageRef, file);
-
-      uploadTask.on(
-        "state_changed",
-        (snapshot) => {
-          setProgress((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+    try {
+      await updateProfile(userData.userId, {
+        page: {
+          ...userData.page,
+          profileName: profileName,
+          about: about,
+          links: links,
+          appearance: appearance,
         },
-        (error) => {
-          console.log(error.message);
-        },
-        async () => {
-          const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-          try {
-            await updateProfile(userData.userId, {
-              page: {
-                imgSrc: downloadURL,
-                profileName: profileName,
-                about: about,
-                links: links,
-                appearance: appearance,
-              },
-            });
-            setProgress(0);
-            dispatch({ type: "success" });
-          } catch (error) {
-            dispatch({ type: "error", error: error.message });
-          }
-        }
-      );
-    } else {
-      try {
-        await updateProfile(userData.userId, {
-          page: {
-            imgSrc: imgSrc,
-            profileName: profileName,
-            about: about,
-            links: links,
-            appearance: appearance,
-          },
-        });
-        dispatch({ type: "success" });
-      } catch (error) {
-        dispatch({ type: "error", error: error.message });
-      }
+      });
+      dispatch({ type: "success" });
+    } catch (error) {
+      dispatch({ type: "error", error: error.message });
     }
   };
 
@@ -111,13 +74,6 @@ export default function Admin() {
   return (
     <>
       {!preview && <Header />}
-      {!progress ? null : (
-        <div className="w-full h-1 text-xs flex bg-purple-200">
-          <div className="progress flex flex-col shadow-none text-center whitespace-nowrap text-white justify-center bg-rose-400">
-            <style>{`.progress{width: ${progress}%}`}</style>
-          </div>
-        </div>
-      )}
       <div className="lg:hidden">
         <Share username={username} />
       </div>
@@ -131,7 +87,7 @@ export default function Admin() {
           <div className="hidden lg:flex">
             <Share username={username} />
           </div>
-          <Editor />
+          {showDesign ? <Appearance /> : <Editor />}
         </div>
 
         <div
@@ -156,6 +112,23 @@ export default function Admin() {
               </div>
             ) : (
               <div className="fixed top-20 p-4 hidden lg:flex items-center space-x-1 bg-gray-100 rounded-3xl cursor-pointe">
+                {showDesign ? (
+                  <div
+                    onClick={() => setShowDesign(false)}
+                    className="flex p-2 items-center space-x-2 cursor-pointer hover:bg-gray-50 rounded-3xl"
+                  >
+                    <HiOutlineLink size={25} />
+                    <span className="text-lg font-nunito">Links</span>
+                  </div>
+                ) : (
+                  <div
+                    onClick={() => setShowDesign(true)}
+                    className="flex p-2 items-center space-x-2 cursor-pointer hover:bg-gray-50 rounded-3xl"
+                  >
+                    <BsBrush size={25} />
+                    <span className="text-lg font-nunito">Design</span>
+                  </div>
+                )}
                 <div
                   onClick={() => setPreview(true)}
                   className="flex p-2 items-center space-x-2 cursor-pointer hover:bg-gray-50 rounded-3xl"
@@ -182,7 +155,7 @@ export default function Admin() {
           </div>
         </div>
       </div>
-      <div className="fixed bottom-0 w-full p-4 bg-white flex justify-around items-center border rounded-t-3xl lg:hidden">
+      <div className="fixed z-50 bottom-0 w-full p-4 bg-white flex justify-around items-center border rounded-t-3xl lg:hidden">
         {preview ? (
           <div
             onClick={() => setPreview(false)}
@@ -193,9 +166,26 @@ export default function Admin() {
           </div>
         ) : (
           <>
+            {showDesign ? (
+              <div
+                onClick={() => setShowDesign(false)}
+                className="flex flex-col justify-center items-center cursor-pointer"
+              >
+                <HiOutlineLink size={45} />
+                <span className="text-lg font-nunito">Links</span>
+              </div>
+            ) : (
+              <div
+                onClick={() => setShowDesign(true)}
+                className="flex flex-col justify-center items-center cursor-pointer"
+              >
+                <BsBrush size={45} />
+                <span className="text-lg font-nunito">Design</span>
+              </div>
+            )}
             <div
               onClick={() => setPreview(true)}
-              className="flex flex-col items-center space-x-2 cursor-pointer"
+              className="flex flex-col justify-center items-center cursor-pointer"
             >
               <AiOutlineEye size={45} />
               <span className="text-lg font-nunito">Preview</span>
@@ -203,7 +193,7 @@ export default function Admin() {
             <div
               disabled={loading}
               onClick={handleUpdate}
-              className="flex flex-col items-center space-x-2 cursor-pointer"
+              className="flex flex-col justify-center items-center cursor-pointer"
             >
               {loading ? (
                 <ImSpinner size={45} className="animate-spin" />

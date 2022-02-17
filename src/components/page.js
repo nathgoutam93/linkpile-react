@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import LinkCard from "../components/LinkCard";
 import PropTypes from "prop-types";
+import { BsPersonFill } from "react-icons/bs";
+import { useFirestore } from "../context/firestoreContext";
 
 export default function Page({
   imgSrc,
@@ -10,19 +12,31 @@ export default function Page({
   links,
   appearance,
 }) {
-  const { background, font, fontColor, linkStyle, linkColor, linkFontColor } =
-    appearance;
+  const { userData } = useFirestore();
+  const {
+    background,
+    backgroundColor,
+    font,
+    fontColor,
+    linkStyle,
+    linkColor,
+    linkFontColor,
+  } = appearance;
 
   return (
     <div
       style={{
-        background: "center / cover no-repeat " + background,
+        backgroundImage: `url(${background})`,
+        backgroundColor: backgroundColor,
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
         fontFamily: font,
         color: fontColor,
       }}
       className={`w-full h-full pt-10 p-4 flex flex-col items-center space-y-2`}
     >
-      {imgSrc && (
+      {imgSrc ? (
         <div className="w-24 h-24 flex justify-center">
           <img
             src={imgSrc}
@@ -30,8 +44,16 @@ export default function Page({
             alt=""
           />
         </div>
+      ) : (
+        <div className="w-24 h-24 flex justify-center border rounded-full">
+          <BsPersonFill className="p-2 w-full h-full text-gray-500" />
+        </div>
       )}
-      <h1 className="text-lg font-bold">{profileName}</h1>
+      {profileName ? (
+        <h1 className="text-lg font-bold">{profileName}</h1>
+      ) : (
+        <h1 className="text-lg font-bold">@{userData.username}</h1>
+      )}
       <p className="text-center text-base font-semibold">{about}</p>
       <div
         className={`p-4 w-full flex flex-col justify-center items-center space-y-4`}

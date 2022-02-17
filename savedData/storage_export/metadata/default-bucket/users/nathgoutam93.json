@@ -1,18 +1,18 @@
 {
-  "name": "users/goutam",
+  "name": "users/nathgoutam93",
   "bucket": "default-bucket",
   "contentType": "image/jpeg",
   "metageneration": 1,
-  "generation": 1644868391858,
+  "generation": 1645100329055,
   "storageClass": "STANDARD",
   "etag": "someETag",
   "contentDisposition": "inline",
   "contentEncoding": "identity",
   "downloadTokens": [
-    "6728b26c-21a1-4956-9b6d-844b8a513fc8"
+    "7f1feda6-dfbe-494c-8858-35852dce7031"
   ],
-  "timeCreated": "2022-02-14T19:53:11.857Z",
-  "updated": "2022-02-14T19:53:11.860Z",
+  "timeCreated": "2022-02-17T12:18:49.054Z",
+  "updated": "2022-02-17T12:18:49.054Z",
   "size": 11712,
   "md5Hash": "X05FzyrDVjnAlZFJslZHlQ==",
   "crc32c": "2074953265"
