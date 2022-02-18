@@ -5,7 +5,7 @@ An Open Source alternative to other 'Link in Bio' serveices
 - Supercharge your 'Link in Bio' with [Linkpile](http://linkpile-bffd7.web.app)
 - Easy to create, Easy to manage
 
-![Screenshot 2022-02-10 at 23-36-07 Linkpile](https://user-images.githubusercontent.com/91387097/153469479-652533ec-cad8-4741-941e-2ffedcb4a43a.png)
+![Preview of Linkpile](https://user-images.githubusercontent.com/91387097/154650460-22ce65d6-13f7-450f-a3ca-4098601f63fb.gif)
 
 ## 👨‍💻 Contributing
 
