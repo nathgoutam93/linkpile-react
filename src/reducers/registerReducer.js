@@ -30,6 +30,7 @@ function registerReducer(state, action) {
         ...state,
         error: action.error,
         loading: false,
+        password: "",
       };
     default:
       break;

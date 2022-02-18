@@ -33,9 +33,12 @@ export default function Register() {
         dispatch({ type: "success" });
         navigate(ROUTES.ADMIN);
       } catch (error) {
+        const message = error.message
+          .split(/(?<=\/)(.*?)(?=\))/gm)[1]
+          .replace(/-/g, " ");
         dispatch({
           type: "error",
-          error: error.message.split(/(?<=\/)(.*?)(?=\))/gm)[1],
+          error: message,
         });
       }
     } else {

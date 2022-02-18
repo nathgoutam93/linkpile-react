@@ -23,7 +23,10 @@ export default function Login() {
     try {
       await login(email, password);
     } catch (error) {
-      dispatch({ type: "error", error: error.message });
+      const message = error.message
+        .split(/(?<=\/)(.*?)(?=\))/gm)[1]
+        .replace(/-/g, " ");
+      dispatch({ type: "error", error: message });
     }
   };
 
