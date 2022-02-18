@@ -29,6 +29,7 @@ function registerReducer(state, action) {
       return {
         ...state,
         error: action.error,
+        loading: false,
       };
     default:
       break;

@@ -10,7 +10,7 @@ import Header from "../components/header";
 export default function Register() {
   const { setCustomHeader } = useHeader();
   const { signup } = useAuth();
-  const { createUser } = useFirestore();
+  const { createUser, getUserDoc } = useFirestore();
 
   const navigate = useNavigate();
 
@@ -24,13 +24,22 @@ export default function Register() {
 
     dispatch({ type: "register" });
 
-    try {
-      const { user } = await signup(email, password);
-      await createUser(user.uid, username, email);
-      dispatch({ type: "success" });
-      navigate(ROUTES.ADMIN);
-    } catch (error) {
-      dispatch({ type: "error", error: error.message });
+    const usernameTaken = await getUserDoc(username);
+
+    if (!usernameTaken) {
+      try {
+        const { user } = await signup(email, password);
+        await createUser(user.uid, username, email);
+        dispatch({ type: "success" });
+        navigate(ROUTES.ADMIN);
+      } catch (error) {
+        dispatch({
+          type: "error",
+          error: error.message.split(/(?<=\/)(.*?)(?=\))/gm)[1],
+        });
+      }
+    } else {
+      dispatch({ type: "error", error: "username already taken" });
     }
   };
 
@@ -43,7 +52,7 @@ export default function Register() {
       <Header />
       <div className="w-full h-screen p-4 lg:p-10 flex flex-col justify-center items-center">
         <form className="p-4 lg:p-10 flex flex-col justify-center items-center font-nunito space-y-4 bg-white rounded-3xl border">
-          <p className="bg-rose-400 text-base font-semibold font-nunito">
+          <p className="text-red-500 text-base font-semibold font-nunito">
             {error}
           </p>
           <h1>Create your Linkpile account for free</h1>
