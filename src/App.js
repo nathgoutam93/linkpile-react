@@ -11,6 +11,7 @@ import Page404 from "./pages/404page";
 
 import RequiredAuth from "./helpers/RequiredAuth";
 import IsLoggedIn from "./helpers/isLoggedIn";
+import ForgotPassword from "./pages/forgotPassword";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Route element={<IsLoggedIn pathToRedirect={ROUTES.ADMIN} />}>
         <Route path={ROUTES.LOGIN} element={<Login />} />
         <Route path={ROUTES.REGISTER} element={<Register />} />
+        <Route path={ROUTES.RESET_PASSWORD} element={<ForgotPassword />} />
       </Route>
 
       <Route element={<RequiredAuth />}>

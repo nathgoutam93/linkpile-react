@@ -40,7 +40,7 @@ export default function Login() {
     <div className="w-full h-full bg-gray-100">
       <Header />
       <div className="w-full h-screen p-4 lg:p-10 flex flex-col justify-center items-center">
-        <form className="p-4 lg:p-10 flex flex-col justify-center items-center font-nunito space-y-4 bg-white rounded-3xl border">
+        <form className="w-full max-w-lg p-4 lg:p-10 flex flex-col justify-center items-center font-nunito space-y-4 bg-white rounded-3xl border">
           <p className="text-red-700 text-base font-semibold font-nunito">
             {error}
           </p>
@@ -87,6 +87,12 @@ export default function Login() {
             className="mt-6 text-lg text-gray-700 font-nunito font-semibold hover:underline"
           >
             Dont have an account? create one
+          </Link>
+          <Link
+            to={ROUTES.RESET_PASSWORD}
+            className="mt-6 text-sm text-gray-700 font-nunito font-semibold hover:underline"
+          >
+            Forgot Password?
           </Link>
         </form>
       </div>
