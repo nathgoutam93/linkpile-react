@@ -100,3 +100,42 @@ git push origin YourBranchName
 👉 Create a [Pull Request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request)!
 
 🎉🎊 **Congratulations!** You've made your first contribution to [**Linkpile**](https://github.com/nathgoutam93/linkpile-react/graphs/contributors)! 🙌🏼
+
+## ⚠ Facing problems while running Firebase emulators? ⚠
+
+- Firstly, Check if you have Java Installed.
+- If you have Java installed and still getting error!
+
+### try this:
+
+👉 go to the firebase.json and edit the file as follows
+
+```
+"emulators": {
+    "auth": {
+      "port": 9099,
+      "host": <your local Ip>
+    },
+    "firestore": {
+      "port": 8188
+      "host": <your local Ip>
+    },
+    "storage": {
+      "port": 9199
+      "host": <your local Ip>
+    },
+    "ui": {
+      "enabled": true,
+      "port": 4000
+      "host": <your local Ip>
+    }
+  }
+```
+👉 after this go to ./src/lib/firebase.js and edit the file as follows
+```
+if (hostname === "localhost") {
+  connectAuthEmulator(auth, "http://<your local Ip>:9099");
+  connectFirestoreEmulator(db, "localhost", 8188);
+  connectStorageEmulator(storage, "localhost", 9199);
+}
+```
