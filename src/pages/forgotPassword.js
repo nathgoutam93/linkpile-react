@@ -61,7 +61,7 @@ export default function ForgotPassword() {
             <button
               disabled={isInvalid || loading}
               type="submit"
-              className="w-full mt-2 px-4 py-2 text-white bg-primary-accent hover:bg-primary-accent rounded-md"
+              className="w-full mt-2 px-4 py-2 text-white bg-primary-accent hover:bg-secondary-accent rounded-md"
             >
               Reset Password
             </button>

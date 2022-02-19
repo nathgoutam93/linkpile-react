@@ -94,13 +94,13 @@ export default function ProfileCard() {
             <>
               <button
                 onClick={handleCancel}
-                className="w-full text-white bg-primary-accent font-medium rounded-xl text-sm px-5 py-2 text-center hover:bg-primary-accent"
+                className="w-full text-white bg-primary-accent font-medium rounded-xl text-sm px-5 py-2 text-center hover:bg-secondary-accent"
               >
                 Cancel
               </button>
               <button
                 onClick={handleUpload}
-                className="w-full text-white bg-primary-accent font-medium rounded-xl text-sm px-5 py-2 text-center hover:bg-primary-accent"
+                className="w-full text-white bg-primary-accent font-medium rounded-xl text-sm px-5 py-2 text-center hover:bg-secondary-accent"
               >
                 {loading ? "Uploading" : "Upload"}
               </button>
@@ -110,11 +110,11 @@ export default function ProfileCard() {
               <button
                 disabled={!imgSrc}
                 onClick={handleRemove}
-                className="w-full text-white bg-primary-accent font-medium rounded-xl text-sm px-5 py-2 text-center hover:bg-primary-accent"
+                className="w-full text-white bg-primary-accent font-medium rounded-xl text-sm px-5 py-2 text-center hover:bg-secondary-accent"
               >
                 Remove
               </button>
-              <label className="w-full text-white bg-primary-accent font-medium rounded-xl text-sm px-5 py-2 text-center cursor-pointer hover:bg-primary-accent">
+              <label className="w-full text-white bg-primary-accent font-medium rounded-xl text-sm px-5 py-2 text-center cursor-pointer hover:bg-secondary-accent">
                 Change
                 <input
                   className="hidden"

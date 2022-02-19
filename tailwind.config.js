@@ -12,6 +12,7 @@ module.exports = {
         secondary: "#132F4C",
         "border-dark": "#5090D3",
         "primary-accent": "#7964FF",
+        "secondary-accent": "#7f75ef",
       },
       animation: {
         "gradient-xy": "gradient-xy 10s linear infinite",

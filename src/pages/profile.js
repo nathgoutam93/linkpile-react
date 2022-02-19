@@ -44,13 +44,13 @@ export default function Profile() {
       <div className="flex justify-around items-center space-x-2">
         <button
           onClick={() => logOut()}
-          className="px-4 py-2 font-nunito font-bold text-primary-accent bg-secondary rounded-3xl hover:bg-border-dark"
+          className="px-4 py-2 font-nunito font-bold text-primary-accent hover:bg-secondary rounded-3xl"
         >
           Log Out
         </button>
         <Link
           to="/admin"
-          className="px-4 py-2 text-white font-nunito font-bold rounded-3xl bg-primary-accent hover:bg-primary-accent"
+          className="px-4 py-2 text-white font-nunito font-bold rounded-3xl bg-primary-accent hover:bg-secondary-accent"
         >
           Admin
         </Link>
@@ -108,7 +108,7 @@ export default function Profile() {
           <button
             disabled={loading}
             onClick={handleUpdate}
-            className={`max-w-max px-4 py-2 text-white font-nunito font-bold rounded-3xl bg-primary-accent hover:bg-primary-accent ${
+            className={`max-w-max px-4 py-2 text-white font-nunito font-bold rounded-3xl bg-primary-accent hover:bg-secondary-accent ${
               loading && "animate-pulse"
             }`}
           >

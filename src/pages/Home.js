@@ -21,7 +21,7 @@ export default function Home() {
         </button>
         <Link
           to={ROUTES.ADMIN}
-          className="px-4 py-2 text-white font-nunito font-bold rounded-3xl bg-primary-accent hover:bg-primary-accent"
+          className="px-4 py-2 text-white font-nunito font-bold rounded-3xl bg-primary-accent hover:bg-secondary-accent"
         >
           Admin
         </Link>
@@ -36,7 +36,7 @@ export default function Home() {
         </Link>
         <Link
           to={ROUTES.REGISTER}
-          className="px-4 py-2 text-white font-nunito font-bold rounded-3xl bg-primary-accent hover:bg-primary-accent"
+          className="px-4 py-2 text-white font-nunito font-bold rounded-3xl bg-primary-accent hover:bg-secondary-accent"
         >
           Sign Up
         </Link>
@@ -64,7 +64,7 @@ export default function Home() {
             <div className="flex flex-col justify-center items-center space-y-4">
               <Link
                 to={ROUTES.REGISTER}
-                className="py-4 px-8 text-center text-xl text-gray-100 font-nunito font-extrabold rounded-3xl bg-primary-accent hover:bg-primary-accent"
+                className="py-4 px-8 text-center text-xl text-gray-100 font-nunito font-extrabold rounded-3xl bg-primary-accent hover:bg-secondary-accent"
               >
                 Get Started for free
               </Link>

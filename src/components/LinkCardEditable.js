@@ -146,13 +146,13 @@ export default function LinkCardEditable({ id, Link }) {
                 <div className="flex justify-around items-center space-x-2">
                   <button
                     onClick={handleCancel}
-                    className="flex-1 px-10 py-2 text-white font-inter font-bold rounded-md bg-primary-accent hover:bg-primary-accent"
+                    className="flex-1 px-10 py-2 text-white font-inter font-bold rounded-md bg-primary-accent hover:bg-secondary-accent"
                   >
                     Cancel
                   </button>
                   <button
                     onClick={handleSave}
-                    className="flex-1 px-10 py-2 text-white font-inter font-bold rounded-md bg-primary-accent hover:bg-primary-accent"
+                    className="flex-1 px-10 py-2 text-white font-inter font-bold rounded-md bg-primary-accent hover:bg-secondary-accent"
                   >
                     Save
                   </button>

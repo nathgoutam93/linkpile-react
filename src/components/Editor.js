@@ -71,7 +71,7 @@ export default function Editor() {
       <div className="flex justify-around items-center space-x-2">
         <button
           onClick={handleNewLink}
-          className="flex-1 px-5 py-2 flex justify-center items-center text-white bg-primary-accent rounded-xl space-x-4 hover:bg-primary-accent"
+          className="flex-1 px-5 py-2 flex justify-center items-center text-white bg-primary-accent rounded-xl space-x-4 hover:bg-secondary-accent"
         >
           <svg
             className="h-6 w-6"

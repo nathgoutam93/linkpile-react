@@ -78,7 +78,7 @@ export default function Login() {
               className={`px-4 py-2 text-white font-nunito font-bold rounded-md ${
                 invalid
                   ? "bg-gray-800"
-                  : "bg-primary-accent hover:bg-primary-accent"
+                  : "bg-primary-accent hover:bg-secondary-accent"
               } ${loading && "animate-pulse"}`}
             >
               Log In

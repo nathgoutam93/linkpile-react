@@ -61,7 +61,7 @@ export default function Admin() {
         </button>
         <Link
           to={`${ROUTES.PROFILE}`}
-          className="px-4 py-2 text-white font-nunito font-bold rounded-3xl bg-primary-accent hover:bg-primary-accent"
+          className="px-4 py-2 text-white font-nunito font-bold rounded-3xl bg-primary-accent hover:bg-secondary-accent"
         >
           My Account
         </Link>
@@ -105,7 +105,7 @@ export default function Admin() {
             {preview ? (
               <div
                 onClick={() => setPreview(false)}
-                className="fixed left-4 top-4 p-4 hidden lg:flex justify-center items-center space-x-1 bg-secondary border border-border-dark rounded-3xl  cursor-pointer hover:bg-secondary"
+                className="fixed left-4 top-4 p-4 hidden lg:flex justify-center items-center space-x-1 bg-secondary border border-border-dark rounded-3xl  cursor-pointer hover:bg-secondary-accent"
               >
                 <HiOutlinePencil size={23} className="text-gray-400" />
                 <span className="text-2xl text-white font-nunito">Editor</span>
@@ -115,7 +115,7 @@ export default function Admin() {
                 {showDesign ? (
                   <div
                     onClick={() => setShowDesign(false)}
-                    className="flex p-2 items-center space-x-2 cursor-pointer hover:bg-primary rounded-xl"
+                    className="flex p-2 items-center space-x-2 cursor-pointer hover:bg-border-dark rounded-xl"
                   >
                     <HiOutlineLink size={25} className="text-gray-400" />
                     <span className="text-lg text-white font-nunito">
@@ -125,7 +125,7 @@ export default function Admin() {
                 ) : (
                   <div
                     onClick={() => setShowDesign(true)}
-                    className="flex p-2 items-center space-x-2 cursor-pointer hover:bg-primary rounded-xl"
+                    className="flex p-2 items-center space-x-2 cursor-pointer hover:bg-border-dark rounded-xl"
                   >
                     <BsBrush size={25} className="text-gray-400" />
                     <span className="text-lg text-white font-nunito">
@@ -135,7 +135,7 @@ export default function Admin() {
                 )}
                 <div
                   onClick={() => setPreview(true)}
-                  className="flex p-2 items-center space-x-2 cursor-pointer hover:bg-primary rounded-xl"
+                  className="flex p-2 items-center space-x-2 cursor-pointer hover:bg-border-dark rounded-xl"
                 >
                   <AiOutlineEye size={25} className="text-gray-400" />
                   <span className="text-lg text-white font-nunito">
@@ -145,7 +145,7 @@ export default function Admin() {
                 <div
                   disabled={loading}
                   onClick={handleUpdate}
-                  className="flex p-2 items-center space-x-2 cursor-pointer hover:bg-primary rounded-xl"
+                  className="flex p-2 items-center space-x-2 cursor-pointer hover:bg-border-dark rounded-xl"
                 >
                   {loading ? (
                     <ImSpinner
