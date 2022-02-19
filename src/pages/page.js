@@ -24,6 +24,7 @@ export default function UserPage() {
   return (
     <div className="w-full h-screen">
       <Page
+        styleClasses="w-full h-full pt-10 p-4 flex flex-col items-center space-y-2 overflow-y-auto s_hide"
         imgSrc={data.imgSrc}
         profileName={data.profileName}
         about={data.about}

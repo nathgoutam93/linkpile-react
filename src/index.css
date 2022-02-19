@@ -5,12 +5,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  #root {
+    background-color: #0a1929;
+  }
+}
+
 @layer components {
   input:checked ~ .dot {
     transform: translateX(100%);
   }
   input:checked ~ .block {
-    background-color: #fb7183;
+    background-color: #7964ff;
   }
 
   /* Hide scrollbar for Chrome, Safari and Opera */
@@ -32,5 +38,57 @@
     animation: spin 1s linear infinite;
     margin: auto;
     margin-top: 40vh;
+  }
+
+  .dark .shine {
+    background: #070707;
+    background-image: linear-gradient(
+      to right,
+      #070707 0%,
+      #171717 20%,
+      #171717 40%,
+      #070707 100%
+    );
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: inline-block;
+    position: relative;
+
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeholderShimmer;
+    animation-timing-function: l;
+  }
+
+  .shine {
+    background: #132f4c;
+    background-image: linear-gradient(
+      to right,
+      #132f4c 0%,
+      #0a1929 20%,
+      #0a1929 40%,
+      #132f4c 100%
+    );
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: inline-block;
+    position: relative;
+
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeholderShimmer;
+    animation-timing-function: l;
+  }
+
+  @keyframes placeholderShimmer {
+    0% {
+      background-position: -40rem 0;
+    }
+
+    100% {
+      background-position: 40rem 0;
+    }
   }
 }

@@ -12,26 +12,25 @@ export default function Preview({ preview }) {
   return (
     <div
       className={`${
-        preview ? "w-full h-screen" : "fixed top-0 w-[390px] h-[844px] scale-50"
-      } flex justify-center items-center bg-gray-900 rounded-3xl shadow-2xl`}
+        preview
+          ? "w-full h-full min-h-screen"
+          : "fixed top-0 w-[390px] h-[844px] px-3 p-4 scale-50"
+      } flex justify-center items-center bg-gray-800 rounded-3xl`}
     >
-      <div
-        className={`dark ${
-          preview ? "w-full h-full" : "w-[96%] h-[96%] rounded-3xl"
-        } flex flex-col items-center bg-gray-700 overflow-y-auto s_hide`}
-      >
-        {!userData ? (
-          <div className="shine w-full h-full"></div>
-        ) : (
-          <Page
-            imgSrc={imgSrc}
-            profileName={profileName}
-            about={about}
-            links={links}
-            appearance={appearance}
-          />
-        )}
-      </div>
+      {!userData ? (
+        <div className="shine w-full h-full rounded-3xl"></div>
+      ) : (
+        <Page
+          styleClasses={`w-full h-full pt-10 p-4 flex flex-col items-center space-y-2 overflow-y-auto s_hide ${
+            preview ? "" : "rounded-3xl"
+          } `}
+          imgSrc={imgSrc}
+          profileName={profileName}
+          about={about}
+          links={links}
+          appearance={appearance}
+        />
+      )}
     </div>
   );
 }

@@ -11,6 +11,7 @@ export default function Page({
   about,
   links,
   appearance,
+  styleClasses,
 }) {
   const { userData } = useFirestore();
   const {
@@ -34,7 +35,7 @@ export default function Page({
         fontFamily: font,
         color: fontColor,
       }}
-      className={`w-full h-full pt-10 p-4 flex flex-col items-center space-y-2`}
+      className={styleClasses}
     >
       {imgSrc ? (
         <div className="w-24 h-24 flex justify-center">
@@ -88,4 +89,5 @@ Page.propTypes = {
   about: PropTypes.string,
   links: PropTypes.array,
   appearance: PropTypes.object,
+  styleClasses: PropTypes.string,
 };

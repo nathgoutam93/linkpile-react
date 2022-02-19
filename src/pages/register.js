@@ -51,17 +51,19 @@ export default function Register() {
   }, [setCustomHeader]);
 
   return (
-    <div className="w-full h-full bg-gray-100">
+    <div className="w-full h-full bg-primary">
       <Header />
       <div className="w-full h-screen p-4 lg:p-10 flex flex-col justify-center items-center">
-        <form className="w-full max-w-lg p-4 lg:p-10 flex flex-col justify-center items-center font-nunito space-y-4 bg-white rounded-3xl border">
-          <p className="text-red-500 text-base font-semibold font-nunito">
+        <form className="w-full max-w-lg p-4 lg:p-10 flex flex-col justify-center items-center font-nunito space-y-4 bg-secondary border-border-dark rounded-3xl border">
+          <p className="text-rose-400 text-base font-semibold font-nunito">
             {error}
           </p>
-          <h1>Create your Linkpile account for free</h1>
+          <h1 className="text-white">Create your Linkpile account for free</h1>
           <div className="w-full flex flex-col space-y-4">
-            <div className="px-4 flex items-center bg-gray-100 rounded-md space-x-1">
-              <span className="font-nunito font-semibold">Link.pile/</span>
+            <div className="px-4 flex items-center bg-primary rounded-md space-x-1">
+              <span className="text-white font-nunito font-semibold">
+                Link.pile/
+              </span>
               <input
                 value={username}
                 onChange={(e) =>
@@ -71,7 +73,7 @@ export default function Register() {
                     value: e.target.value,
                   })
                 }
-                className="p-4 bg-gray-100 outline-none"
+                className="p-4 text-white bg-primary outline-none"
                 placeholder="yourname"
               ></input>
             </div>
@@ -85,7 +87,7 @@ export default function Register() {
                 })
               }
               type="email"
-              className="p-4 outline-none bg-gray-100 rounded-md"
+              className="p-4 text-white outline-none bg-primary rounded-md"
               placeholder="Email"
             ></input>
             <input
@@ -98,14 +100,16 @@ export default function Register() {
                 })
               }
               type="password"
-              className="p-4 outline-none bg-gray-100 rounded-md"
+              className="p-4 text-white outline-none bg-primary rounded-md"
               placeholder="Password"
             ></input>
             <button
               disabled={invalid || loading}
               onClick={handleSignUp}
               className={`px-4 py-2 text-white font-nunito font-bold rounded-md ${
-                invalid ? "bg-gray-400" : "bg-rose-400 hover:bg-rose-300"
+                invalid
+                  ? "bg-gray-800"
+                  : "bg-primary-accent hover:bg-primary-accent"
               } ${loading && "animate-pulse"}`}
             >
               Sign Up
@@ -113,7 +117,7 @@ export default function Register() {
           </div>
           <Link
             to={ROUTES.LOGIN}
-            className="mt-6 text-lg text-gray-700 font-nunito font-semibold hover:underline"
+            className="mt-6 text-lg text-gray-300 font-nunito font-semibold hover:underline"
           >
             Already on Linkpile? Log In
           </Link>

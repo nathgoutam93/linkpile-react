@@ -76,17 +76,17 @@ export default function ProfileCard() {
   }, [imgFile]);
 
   return (
-    <div className="w-full p-10 pt-2 flex flex-col items-center bg-gray-100 space-y-4 rounded-3xl shadow-md">
+    <div className="w-full p-10 pt-2 flex flex-col items-center bg-secondary space-y-4 rounded-xl border border-border-dark">
       <div className="mt-4 w-full flex flex-col lg:flex-row justify-around items-center space-x-4 space-y-2">
         {imgSrc ? (
           <img
             src={imgSrc}
             alt=""
-            className="w-32 h-32 rounded-full object-cover border"
+            className="w-32 h-32 rounded-full object-cover border border-border-dark"
           />
         ) : (
-          <div className="p-6 h-32 w-32 rounded-full border">
-            <BsPersonFill className="h-full w-full text-gray-500" />
+          <div className="p-6 h-32 w-32 rounded-full border border-border-dark">
+            <BsPersonFill className="h-full w-full text-gray-400" />
           </div>
         )}
         <div className="flex-1 flex justify-center items-center space-x-1">
@@ -94,13 +94,13 @@ export default function ProfileCard() {
             <>
               <button
                 onClick={handleCancel}
-                className="w-full text-white bg-rose-400 font-medium rounded-lg text-sm px-5 py-2 text-center hover:bg-rose-300"
+                className="w-full text-white bg-primary-accent font-medium rounded-xl text-sm px-5 py-2 text-center hover:bg-primary-accent"
               >
                 Cancel
               </button>
               <button
                 onClick={handleUpload}
-                className="w-full text-white bg-rose-400 font-medium rounded-lg text-sm px-5 py-2 text-center hover:bg-rose-300"
+                className="w-full text-white bg-primary-accent font-medium rounded-xl text-sm px-5 py-2 text-center hover:bg-primary-accent"
               >
                 {loading ? "Uploading" : "Upload"}
               </button>
@@ -110,11 +110,11 @@ export default function ProfileCard() {
               <button
                 disabled={!imgSrc}
                 onClick={handleRemove}
-                className="w-full text-white bg-rose-400 font-medium rounded-lg text-sm px-5 py-2 text-center hover:bg-rose-300"
+                className="w-full text-white bg-primary-accent font-medium rounded-xl text-sm px-5 py-2 text-center hover:bg-primary-accent"
               >
                 Remove
               </button>
-              <label className="w-full text-white bg-rose-400 font-medium rounded-lg text-sm px-5 py-2 text-center cursor-pointer hover:bg-rose-300">
+              <label className="w-full text-white bg-primary-accent font-medium rounded-xl text-sm px-5 py-2 text-center cursor-pointer hover:bg-primary-accent">
                 Change
                 <input
                   className="hidden"
@@ -129,7 +129,7 @@ export default function ProfileCard() {
         </div>
       </div>
       <div className="w-full space-y-1">
-        <label className="text-sm font-nunito">Profile Title</label>
+        <label className="text-sm text-white font-nunito">Profile Title</label>
         <input
           value={profileName}
           onChange={(e) =>
@@ -140,12 +140,14 @@ export default function ProfileCard() {
             })
           }
           type="text"
-          className="w-full p-2 px-4 outline-none border rounded-md"
+          className="w-full p-2 px-4 bg-primary text-white outline-none rounded-md"
           placeholder="Profile Name"
         ></input>
       </div>
       <div className="w-full space-y-1">
-        <label className="text-sm font-nunito">Profile Description</label>
+        <label className="text-sm text-white font-nunito">
+          Profile Description
+        </label>
         <textarea
           value={about}
           onChange={(e) =>
@@ -155,7 +157,7 @@ export default function ProfileCard() {
               value: e.target.value,
             })
           }
-          className="w-full p-2 px-4 outline-none border rounded-md"
+          className="w-full p-2 px-4 bg-primary text-white outline-none rounded-md"
           placeholder="Bio"
         ></textarea>
       </div>

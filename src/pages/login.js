@@ -37,14 +37,14 @@ export default function Login() {
   }, [setCustomHeader]);
 
   return (
-    <div className="w-full h-full bg-gray-100">
+    <div className="w-full h-full bg-primary">
       <Header />
       <div className="w-full h-screen p-4 lg:p-10 flex flex-col justify-center items-center">
-        <form className="w-full max-w-lg p-4 lg:p-10 flex flex-col justify-center items-center font-nunito space-y-4 bg-white rounded-3xl border">
-          <p className="text-red-700 text-base font-semibold font-nunito">
+        <form className="w-full max-w-lg p-4 lg:p-10 flex flex-col justify-center items-center font-nunito space-y-4 bg-secondary border-border-dark rounded-3xl border">
+          <p className="text-rose-400 text-base font-semibold font-nunito">
             {error}
           </p>
-          <h1>Login to your Linkpile account</h1>
+          <h1 className="text-white">Login to your Linkpile account</h1>
           <div className="w-full flex flex-col space-y-4">
             <input
               value={email}
@@ -56,7 +56,7 @@ export default function Login() {
                 })
               }
               type="email"
-              className="p-4 outline-none bg-gray-100 rounded-md"
+              className="p-4 text-white outline-none bg-primary rounded-md"
               placeholder="Email"
             ></input>
             <input
@@ -69,14 +69,16 @@ export default function Login() {
                 })
               }
               type="password"
-              className="p-4 outline-none bg-gray-100 rounded-md"
+              className="p-4 text-white outline-none bg-primary rounded-md"
               placeholder="Password"
             ></input>
             <button
               disabled={invalid || loading}
               onClick={handleLogIn}
               className={`px-4 py-2 text-white font-nunito font-bold rounded-md ${
-                invalid ? "bg-gray-400" : "bg-rose-400 hover:bg-rose-300"
+                invalid
+                  ? "bg-gray-800"
+                  : "bg-primary-accent hover:bg-primary-accent"
               } ${loading && "animate-pulse"}`}
             >
               Log In
@@ -84,13 +86,13 @@ export default function Login() {
           </div>
           <Link
             to={ROUTES.REGISTER}
-            className="mt-6 text-lg text-gray-700 font-nunito font-semibold hover:underline"
+            className="mt-6 text-lg text-gray-300 font-nunito font-semibold hover:underline"
           >
             Dont have an account? create one
           </Link>
           <Link
             to={ROUTES.RESET_PASSWORD}
-            className="mt-6 text-sm text-gray-700 font-nunito font-semibold hover:underline"
+            className="mt-6 text-sm text-gray-300 font-nunito font-semibold hover:underline"
           >
             Forgot Password?
           </Link>
