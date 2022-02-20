@@ -24,6 +24,7 @@ export default function Preview({ preview }) {
           styleClasses={`w-full h-full pt-10 p-4 flex flex-col items-center space-y-2 overflow-y-auto s_hide ${
             preview ? "" : "rounded-3xl"
           } `}
+          username={userData.username}
           imgSrc={imgSrc}
           profileName={profileName}
           about={about}

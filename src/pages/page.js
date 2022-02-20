@@ -17,14 +17,27 @@ export default function UserPage() {
     });
   }, [userId, getUserDoc]);
 
-  if (loading) return <div className="loader" />;
+  if (loading)
+    return (
+      <div className="w-full h-screen flex justify-center items-center">
+        <div className="loader" />;
+      </div>
+    );
 
-  if (!data) return <h1>user not found</h1>;
+  if (!data)
+    return (
+      <div className="w-full h-screen flex justify-center items-center">
+        <h1 className="text-3xl text-white font-nunito font-semibold">
+          User not found
+        </h1>
+      </div>
+    );
 
   return (
     <div className="w-full h-screen">
       <Page
         styleClasses="w-full h-full pt-10 p-4 flex flex-col items-center space-y-2 overflow-y-auto s_hide"
+        username={userId}
         imgSrc={data.imgSrc}
         profileName={data.profileName}
         about={data.about}

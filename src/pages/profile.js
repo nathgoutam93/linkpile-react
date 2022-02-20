@@ -60,7 +60,12 @@ export default function Profile() {
     setCustomHeader(customHeader);
   }, [logOut, setCustomHeader]);
 
-  if (isLoading) return <div className="loader" />;
+  if (isLoading)
+    return (
+      <div className="w-full h-screen flex justify-center items-center">
+        <div className="loader" />;
+      </div>
+    );
 
   return (
     <div className="w-full h-full bg-primary">

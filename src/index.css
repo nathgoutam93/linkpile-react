@@ -30,14 +30,12 @@
 
   /* Loading Animation */
   .loader {
-    border: 10px solid #f3f3f3;
-    border-top: 10px solid #fb7185;
+    border: 10px solid #132f4c;
+    border-top: 10px solid #7f75ef;
     border-radius: 50%;
     width: 8rem;
     height: 8rem;
     animation: spin 1s linear infinite;
-    margin: auto;
-    margin-top: 40vh;
   }
 
   .dark .shine {

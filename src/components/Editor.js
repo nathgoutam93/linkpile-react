@@ -4,6 +4,7 @@ import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import LinkCardEditable from "./LinkCardEditable";
 import ProfileCard from "./ProfileCard";
 import { useFirestore } from "../context/firestoreContext";
+import { HiOutlineLink } from "react-icons/hi";
 
 export default function Editor() {
   const { userData } = useFirestore();
@@ -73,21 +74,8 @@ export default function Editor() {
           onClick={handleNewLink}
           className="flex-1 px-5 py-2 flex justify-center items-center text-white bg-primary-accent rounded-xl space-x-4 hover:bg-secondary-accent"
         >
-          <svg
-            className="h-6 w-6"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={1}
-              d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
-            />
-          </svg>
-          <span className="text-lg font-nunito">Add Link</span>
+          <HiOutlineLink size={25} />
+          <span className="text-lg font-nunito">Add New Link</span>
         </button>
         <button className="px-5 py-2 flex justify-center items-center text-white bg-black rounded-xl space-x-4 hover:bg-gray-800">
           <span className="text-lg font-nunito">Explore Links</span>
