@@ -46,15 +46,17 @@ export default function UserPage() {
       <div className="w-full h-screen">
         
         <IoShareOutline 
-            className="shareIcon"
-            size={24}
-            onClick={e => buttonAnimation(e)}
+          className="shareIcon"
+          size={24}
+          onClick={e => buttonAnimation(e)}
         />
-          <div className={buttonAnimate  ? "show sharebtn hover:bg-blue-500" : "sharebtn hover:bg-blue-500"}> 
-            Copied to clipboard!
-          </div>
+
+        <div className={buttonAnimate  ? "show sharebtn hover:bg-blue-500" : "sharebtn hover:bg-blue-500"}> 
+          Copied to clipboard!
+        </div>
 
         <Page
+          styleClasses="w-full h-full pt-10 p-4 flex flex-col items-center space-y-2 overflow-y-auto s_hide"
           imgSrc={data.imgSrc}
           profileName={data.profileName}
           about={data.about}
@@ -62,7 +64,6 @@ export default function UserPage() {
           appearance={data.appearance}
         />
       </div>
-
     </div>
   );
 }

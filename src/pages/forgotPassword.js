@@ -28,13 +28,13 @@ export default function ForgotPassword() {
   };
 
   return (
-    <div className="w-full h-full bg-gray-100">
+    <div className="w-full h-full bg-primary">
       <Header />
       <div className="w-full h-screen p-4 lg:p-10 flex flex-col justify-center items-center">
         <form
           method="Post"
           onSubmit={handleReset}
-          className="w-full max-w-lg p-4 lg:p-10 flex flex-col justify-center items-center font-nunito space-y-4 bg-white rounded-3xl border"
+          className="w-full max-w-lg p-4 lg:p-10 flex flex-col justify-center items-center font-nunito space-y-4 bg-secondary rounded-3xl border border-border-dark"
         >
           <p className="text-red-700 text-base font-semibold font-nunito">
             {error}
@@ -42,7 +42,7 @@ export default function ForgotPassword() {
           <p className="text-red-700 text-base font-semibold font-nunito">
             {message}
           </p>
-          <h1>Forgot Password</h1>
+          <h1 className="text-white">Forgot Password</h1>
           <div className="w-full flex flex-col space-y-4">
             <input
               type="email"
@@ -61,7 +61,7 @@ export default function ForgotPassword() {
             <button
               disabled={isInvalid || loading}
               type="submit"
-              className="w-full mt-2 px-4 py-2 text-white bg-rose-400 hover:bg-rose-300 rounded-md"
+              className="w-full mt-2 px-4 py-2 text-white bg-primary-accent hover:bg-secondary-accent rounded-md"
             >
               Reset Password
             </button>
@@ -69,13 +69,13 @@ export default function ForgotPassword() {
           <div className="p-2 flex justify-around items-center space-x-4">
             <Link
               to={ROUTES.LOGIN}
-              className="mt-6 text-lg text-gray-700 font-nunito font-semibold hover:underline"
+              className="mt-6 text-lg text-gray-300 font-nunito font-semibold hover:underline"
             >
               Log In
             </Link>
             <Link
               to={ROUTES.REGISTER}
-              className="mt-6 text-lg text-gray-700 font-nunito font-semibold hover:underline"
+              className="mt-6 text-lg text-gray-300 font-nunito font-semibold hover:underline"
             >
               Sign up
             </Link>

@@ -121,7 +121,7 @@ export default function Appearance() {
 
   return (
     <>
-      <div className="p-4 bg-gray-100 rounded-3xl space-y-2 shadow-md">
+      <div className="p-4 bg-secondary rounded-xl space-y-2 border border-border-dark">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
           <div className="picker text-center rounded-3xl">
             <HexColorPicker
@@ -153,18 +153,18 @@ export default function Appearance() {
                 />
               ))}
             </div>
-            <label>Background Color</label>
+            <label className="text-white">Background Color</label>
           </div>
-          <div className="w-full text-center rounded-3xl space-y-2">
-            <div className="space-y-2">
+          <div className="w-full text-center rounded-xl space-y-2">
+            <div className="p-2 pt-0 space-y-2">
               {background ? (
                 <img
                   src={background}
                   alt=""
-                  className="w-full h-fit rounded-3xl object-cover border"
+                  className="w-full h-fit rounded-3xl object-cover"
                 />
               ) : (
-                <div className="w-full p-6 inline-flex justify-center rounded-full">
+                <div className="w-full p-6 text-gray-700 inline-flex justify-center rounded-full">
                   <MdAddPhotoAlternate size={128} />
                 </div>
               )}
@@ -173,13 +173,13 @@ export default function Appearance() {
                   <>
                     <button
                       onClick={handleCancel}
-                      className="w-full text-white bg-rose-400 font-medium rounded-lg text-sm px-5 py-2 text-center hover:bg-rose-300"
+                      className="w-full text-white bg-primary-accent font-medium rounded-xl text-sm px-5 py-2 text-center hover:bg-primary-accent"
                     >
                       Cancel
                     </button>
                     <button
                       onClick={handleUpload}
-                      className="w-full text-white bg-rose-400 font-medium rounded-lg text-sm px-5 py-2 text-center hover:bg-rose-300"
+                      className="w-full text-white bg-primary-accent font-medium rounded-xl text-sm px-5 py-2 text-center hover:bg-primary-accent"
                     >
                       {loading ? "Uploading" : "Upload"}
                     </button>
@@ -189,11 +189,11 @@ export default function Appearance() {
                     <button
                       disabled={!background}
                       onClick={handleRemove}
-                      className="w-full text-white bg-rose-400 font-medium rounded-lg text-sm px-5 py-2 text-center hover:bg-rose-300"
+                      className="w-full text-white bg-primary-accent font-medium rounded-xl text-sm px-5 py-2 text-center hover:bg-primary-accent"
                     >
                       Remove
                     </button>
-                    <label className="w-full text-white bg-rose-400 font-medium rounded-lg text-sm px-5 py-2 text-center cursor-pointer hover:bg-rose-300">
+                    <label className="w-full text-white bg-primary-accent font-medium rounded-xl text-sm px-5 py-2 text-center cursor-pointer hover:bg-primary-accent">
                       Change
                       <input
                         className="hidden"
@@ -207,12 +207,12 @@ export default function Appearance() {
                 )}
               </div>
             </div>
-            <label>Background Image</label>
+            <label className="text-white">Background Image</label>
           </div>
         </div>
       </div>
-      <div className="p-4 bg-gray-100 rounded-3xl shadow-md">
-        <label>Font Color</label>
+      <div className="p-4 bg-secondary rounded-xl border border-border-dark">
+        <label className="text-white">Font Color</label>
         <div className="p-2 flex space-x-4">
           {fontColors.map((presetColor) => (
             <button
@@ -234,7 +234,7 @@ export default function Appearance() {
         </div>
       </div>
 
-      <div className="p-4 bg-gray-100 rounded-3xl space-y-2 shadow-md">
+      <div className="p-4 bg-secondary rounded-xl space-y-2 border border-border-dark">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
           <div className="picker text-center rounded-xl">
             <HexColorPicker
@@ -266,10 +266,10 @@ export default function Appearance() {
                 />
               ))}
             </div>
-            <label>Button Color</label>
+            <label className="text-white">Button Color</label>
           </div>
           <div className="p-4 text-center flex flex-col justify-between items-center space-y-2">
-            <div className="w-full grid grid-cols-2 gap-1 rounded-3xl">
+            <div className="w-full grid grid-cols-2 gap-1 rounded-xl">
               <button
                 onClick={() => {
                   dispatch({
@@ -281,7 +281,7 @@ export default function Appearance() {
                     },
                   });
                 }}
-                className="p-2 bg-gray-500 rounded-lg"
+                className="p-2 text-white bg-gray-700 rounded-lg"
               >
                 Rectangular
               </button>
@@ -296,7 +296,7 @@ export default function Appearance() {
                     },
                   });
                 }}
-                className="p-2 bg-gray-500 rounded-3xl"
+                className="p-2 text-white bg-gray-700 rounded-3xl"
               >
                 Rounded
               </button>
@@ -311,7 +311,7 @@ export default function Appearance() {
                     },
                   });
                 }}
-                className={`p-2 bg-gray-500 ${
+                className={`p-2 text-white bg-gray-700 ${
                   linkStyle.rounded ? "rounded-3xl" : "rounded-md"
                 }`}
               >
@@ -328,19 +328,19 @@ export default function Appearance() {
                     },
                   });
                 }}
-                className={`p-2 bg-transparent ${
+                className={`p-2 text-white bg-transparent ${
                   linkStyle.rounded ? "rounded-3xl" : "rounded-md"
                 } border-2`}
               >
                 Outline
               </button>
             </div>
-            <label>Button Style</label>
+            <label className="text-white">Button Style</label>
           </div>
         </div>
       </div>
-      <div className="p-4 bg-gray-100 rounded-3xl shadow-md">
-        <label>Button Font Color</label>
+      <div className="p-4 bg-secondary rounded-xl border border-border-dark">
+        <label className="text-white">Button Font Color</label>
         <div className="p-2 flex space-x-4">
           {linkfontColors.map((presetColor) => (
             <button

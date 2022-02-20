@@ -44,13 +44,13 @@ export default function Profile() {
       <div className="flex justify-around items-center space-x-2">
         <button
           onClick={() => logOut()}
-          className="px-4 py-2 font-inter font-bold text-rose-400 bg-gray-50 rounded-3xl hover:bg-gray-100"
+          className="px-4 py-2 font-nunito font-bold text-primary-accent hover:bg-secondary rounded-3xl"
         >
           Log Out
         </button>
         <Link
           to="/admin"
-          className="px-4 py-2 text-white font-inter font-bold rounded-3xl bg-rose-400 hover:bg-rose-300"
+          className="px-4 py-2 text-white font-nunito font-bold rounded-3xl bg-primary-accent hover:bg-secondary-accent"
         >
           Admin
         </Link>
@@ -63,19 +63,19 @@ export default function Profile() {
   if (isLoading) return <div className="loader" />;
 
   return (
-    <div className="w-full h-full bg-gray-200">
+    <div className="w-full h-full bg-primary">
       <Header />
       <div className="w-full h-screen p-10 flex flex-col justify-center items-center">
-        <form className="w-full max-w-lg p-10 flex flex-col bg-gray-100 space-y-4 rounded-3xl shadow-2xl">
-          <h2 className="mb-4 text-xl font-semibold font-inter">
+        <form className="w-full max-w-lg p-10 flex flex-col bg-secondary space-y-4 rounded-3xl border border-border-dark">
+          <h2 className="mb-4 text-xl text-white font-semibold font-nunito">
             Account Information
           </h2>
           {error && (
-            <p className="text-red-700 text-base font-semibold font-inter">
+            <p className="text-rose-400 text-base font-semibold font-nunito">
               {error}
             </p>
           )}
-          <label className="text-sm">username</label>
+          <label className="text-sm text-white font-nunito">username</label>
           <input
             value={username}
             onChange={(e) =>
@@ -86,10 +86,10 @@ export default function Profile() {
               })
             }
             type="text"
-            className="w-full p-4 outline-none border rounded-md"
+            className="w-full text-white bg-primary p-4 outline-none rounded-md"
             placeholder="username"
           ></input>
-          <label className="text-sm">email</label>
+          <label className="text-sm text-white font-nunito">email</label>
           <input
             disabled
             value={email}
@@ -102,13 +102,13 @@ export default function Profile() {
             }
             type="email"
             required={true}
-            className="w-full p-4 outline-none border rounded-md"
+            className="w-full p-4 text-white bg-primary outline-none rounded-md"
             placeholder="email"
           ></input>
           <button
             disabled={loading}
             onClick={handleUpdate}
-            className={`max-w-max px-4 py-2 text-white font-inter font-bold rounded-3xl bg-rose-400 hover:bg-rose-300 ${
+            className={`max-w-max px-4 py-2 text-white font-nunito font-bold rounded-3xl bg-primary-accent hover:bg-secondary-accent ${
               loading && "animate-pulse"
             }`}
           >

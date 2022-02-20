@@ -78,11 +78,11 @@ export default function LinkCardEditable({ id, Link }) {
           ref={provided.innerRef}
           {...provided.draggableProps}
           style={{ ...provided.draggableProps.style }}
-          className="w-full p-2 flex justify-between items-center first-of-type:mt-4 last-of-type:mb-4 cursor-pointer"
+          className="w-full py-2 flex justify-between items-center first-of-type:mt-2 last-of-type:mb-2 cursor-pointer"
         >
           <div
-            className={`flex flex-1 bg-gray-100 rounded-xl ${
-              snapshot.isDragging ? "shadow-2xl" : "shadow-md"
+            className={`flex flex-1 bg-secondary rounded-xl border border-border-dark ${
+              snapshot.isDragging ? "shadow-2xl" : ""
             }`}
           >
             {!editMode ? (
@@ -91,10 +91,10 @@ export default function LinkCardEditable({ id, Link }) {
                   onClick={() => setEditMode(true)}
                   className={`px-4 flex justify-center items-center flex-1 ${Link.linkStyle}`}
                 >
-                  <HiOutlinePencil size={25} className="text-gray-500" />
+                  <HiOutlinePencil size={25} className="text-gray-400" />
                   <div className="p-2 flex-1 flex flex-col justify-center items-center space-y-1">
-                    <p className="text-lg font-bold">{Link.title}</p>
-                    <p className="text-sm text-center font-semibold">
+                    <p className="text-lg text-white font-bold">{Link.title}</p>
+                    <p className="text-sm text-white text-center font-semibold">
                       {Link.description}
                     </p>
                   </div>
@@ -112,47 +112,47 @@ export default function LinkCardEditable({ id, Link }) {
                         checked={active}
                         onChange={handleChecked}
                       />
-                      <div className="block bg-gray-600 w-10 h-6 rounded-full"></div>
+                      <div className="block bg-gray-400 w-10 h-6 rounded-full"></div>
                       <div className="dot absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition"></div>
                     </div>
                   </label>
                   <GoTrashcan
                     size={25}
                     onClick={handleRemoveLink}
-                    className="text-gray-500 cursor-pointer"
+                    className="text-gray-400 cursor-pointer"
                   />
                 </div>
               </>
             ) : (
-              <div className="p-4 flex flex-1 flex-col space-y-4 bg-white rounded-lg shadow-md">
+              <div className="p-4 flex flex-1 flex-col space-y-4 bg-secondary rounded-xl">
                 <input
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   placeholder="Title"
-                  className="p-2 font-bold rounded-md border outline-none"
+                  className="p-2 text-white bg-primary font-bold rounded-md outline-none"
                 ></input>
                 <input
                   value={link}
                   onChange={(e) => setLink(e.target.value)}
                   placeholder="Link"
-                  className="p-2 font-semibold rounded-md border outline-none"
+                  className="p-2 text-white bg-primary font-semibold rounded-md outline-none"
                 ></input>
                 <input
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   placeholder="Description"
-                  className="p-2 font-semibold rounded-md border outline-none"
+                  className="p-2 text-white bg-primary font-semibold rounded-md outline-none"
                 ></input>
                 <div className="flex justify-around items-center space-x-2">
                   <button
                     onClick={handleCancel}
-                    className="flex-1 px-10 py-2 text-white font-inter font-bold rounded-md bg-rose-400 hover:bg-rose-300"
+                    className="flex-1 px-10 py-2 text-white font-inter font-bold rounded-md bg-primary-accent hover:bg-secondary-accent"
                   >
                     Cancel
                   </button>
                   <button
                     onClick={handleSave}
-                    className="flex-1 px-10 py-2 text-white font-inter font-bold rounded-md bg-rose-400 hover:bg-rose-300"
+                    className="flex-1 px-10 py-2 text-white font-inter font-bold rounded-md bg-primary-accent hover:bg-secondary-accent"
                   >
                     Save
                   </button>
@@ -162,7 +162,7 @@ export default function LinkCardEditable({ id, Link }) {
           </div>
           <div
             {...provided.dragHandleProps}
-            className="p-2 flex justify-center items-center"
+            className=" py-2 pl-2 flex justify-center items-center"
           >
             <MdDragIndicator size={40} className="text-gray-400" />
           </div>
