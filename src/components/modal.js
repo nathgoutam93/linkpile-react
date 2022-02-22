@@ -6,14 +6,27 @@ import {
 import { FaFacebook, FaReddit } from "react-icons/fa";
 import PropTypes from "prop-types";
 import { IoCopyOutline } from "react-icons/io5";
+import Toast from "./commons/toast";
+import { useState } from "react";
 
 const Modal = ({ username }) => {
+  const [show, setShow] = useState(false);
+
+  const showToast = () => {
+    setShow(true);
+    setTimeout(() => {
+      setShow(false);
+    }, 2000);
+  };
+
   const handleCopy = () => {
     navigator.clipboard.writeText(`https://linkpile-bffd7.web.app/${username}`);
+    showToast();
   };
 
   return (
     <div className="relative">
+      <Toast show={show} message="Copid to clipboard" />
       <div className="absolute top-3 right-0 flex justify-center items-center">
         <div className="relative p-4 flex flex-col w-full max-w-lg bg-secondary border border-border-dark rounded-xl space-y-4">
           <h3 className="text-white text-3xl font-semibold">Share via</h3>
