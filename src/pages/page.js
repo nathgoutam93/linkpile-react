@@ -4,6 +4,7 @@ import Page from "../components/page";
 import { useFirestore } from "../context/firestoreContext";
 import { MdOutlineError } from "react-icons/md";
 import { IoShareOutline } from "react-icons/io5";
+import Toast from "../components/commons/toast";
 
 export default function UserPage() {
   const { userId } = useParams();
@@ -11,7 +12,7 @@ export default function UserPage() {
   const [loading, setLoading] = useState(true);
 
   const [data, setData] = useState(null);
-  const [buttonAnimate, setButtonAnimate] = useState(false);
+  const [showToast, setShowToast] = useState(false);
 
   useEffect(() => {
     getUserDoc(userId).then((doc) => {
@@ -43,33 +44,25 @@ export default function UserPage() {
       </div>
     );
 
-  const buttonAnimation = (e) => {
+  const handleCopy = () => {
     navigator.clipboard.writeText(`https://linkpile-bffd7.web.app/${userId}`);
-    setButtonAnimate(true);
+    setShowToast(true);
 
     setTimeout(() => {
-      setButtonAnimate(false);
+      setShowToast(false);
     }, 2000);
   };
 
   return (
     <div>
       <div className="w-full h-screen">
-        <IoShareOutline
-          className="shareIcon"
-          size={24}
-          onClick={buttonAnimation}
-        />
+        <Toast show={showToast} message="Copied to Clipboard" />
 
-        <div
-          className={
-            buttonAnimate
-              ? "show sharebtn hover:bg-blue-500"
-              : "sharebtn hover:bg-blue-500"
-          }
-        >
-          Copied to clipboard!
-        </div>
+        <IoShareOutline
+          className="fixed top-5 right-5 lg:top-10 lg:right-10 text-gray-400 cursor-pointer"
+          size={35}
+          onClick={handleCopy}
+        />
 
         <Page
           styleClasses="w-full h-full pt-10 p-4 flex flex-col items-center space-y-2 overflow-y-auto s_hide"
