@@ -3,10 +3,6 @@ import { useParams } from "react-router-dom";
 import Page from "../components/page";
 import { useFirestore } from "../context/firestoreContext";
 import { IoShareOutline } from "react-icons/io5" ; 
-import { ShareAdmin } from "../components/share";
-import { BsAlignBottom } from "react-icons/bs";
-import { useAdmin } from "../context/adminContext";
-
 
 export default function UserPage() {
   const { userId } = useParams();
@@ -15,9 +11,6 @@ export default function UserPage() {
 
   const [data, setData] = useState(null);
   const [ buttonAnimate , setButtonAnimate ] = useState(false)
-  
-  const { state } = useAdmin();
-  const { username } = state;
 
   useEffect(() => {
     getUserDoc(userId).then((doc) => {
@@ -26,13 +19,24 @@ export default function UserPage() {
     });
   }, [userId, getUserDoc]);
 
-  if (loading) return <div className="loader" />;
+  if (loading)
+    return (
+      <div className="w-full h-screen flex justify-center items-center">
+        <div className="loader" />;
+      </div>
+    );
 
-  if (!data) return <h1>user not found</h1>;
+  if (!data)
+    return (
+      <div className="w-full h-screen flex justify-center items-center">
+        <h1 className="text-3xl text-white font-nunito font-semibold">
+          User not found
+        </h1>
+      </div>
+    );
 
   const buttonAnimation = (e) => {
-    navigator.clipboard.writeText(`https://linkpile-bffd7.web.app/${username}`);
-    console.log(`https://linkpile-bffd7.web.app/${username}`) ;
+    navigator.clipboard.writeText(`https://linkpile-bffd7.web.app/${userId}`);
     setButtonAnimate(true) ;
       
     setTimeout(() => {
@@ -48,7 +52,7 @@ export default function UserPage() {
         <IoShareOutline 
           className="shareIcon"
           size={24}
-          onClick={e => buttonAnimation(e)}
+          onClick{ buttonAnimation }
         />
 
         <div className={buttonAnimate  ? "show sharebtn hover:bg-blue-500" : "sharebtn hover:bg-blue-500"}> 
@@ -57,6 +61,7 @@ export default function UserPage() {
 
         <Page
           styleClasses="w-full h-full pt-10 p-4 flex flex-col items-center space-y-2 overflow-y-auto s_hide"
+          username={userId}
           imgSrc={data.imgSrc}
           profileName={data.profileName}
           about={data.about}

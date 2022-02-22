@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import LinkCard from "../components/LinkCard";
 import PropTypes from "prop-types";
 import { BsPersonFill } from "react-icons/bs";
-import { useFirestore } from "../context/firestoreContext";
 
 export default function Page({
+  username,
   imgSrc,
   profileName,
   about,
@@ -13,7 +13,6 @@ export default function Page({
   appearance,
   styleClasses,
 }) {
-  const { userData } = useFirestore();
   const {
     background,
     backgroundColor,
@@ -53,7 +52,7 @@ export default function Page({
       {profileName ? (
         <h1 className="text-lg font-bold">{profileName}</h1>
       ) : (
-        <h1 className="text-lg font-bold">@{userData?.username}</h1>
+        <h1 className="text-lg font-bold">@{username}</h1>
       )}
       <p className="text-center text-base font-semibold">{about}</p>
       <div
@@ -84,6 +83,7 @@ export default function Page({
 }
 
 Page.propTypes = {
+  username: PropTypes.string,
   imgSrc: PropTypes.string,
   profileName: PropTypes.string,
   about: PropTypes.string,
