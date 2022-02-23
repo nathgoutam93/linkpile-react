@@ -10,6 +10,7 @@ export default function UserPage() {
 
   const [data, setData] = useState(null);
 
+  
   useEffect(() => {
     getUserDoc(userId).then((doc) => {
       setData(doc);
