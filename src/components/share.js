@@ -22,7 +22,14 @@ export default function Share({ username }) {
           className="text-gray-400 cursor-pointer"
           onClick={handleShare}
         />
-        {showModal ? <Modal username={username} /> : null}
+        {showModal ? (
+          <div
+            onClick={() => setShowModal(!showModal)}
+            className="fixed inset-0 flex items-center justify-center z-50 bg-black/60"
+          >
+            <Modal username={username} />
+          </div>
+        ) : null}
       </div>
     </>
   );

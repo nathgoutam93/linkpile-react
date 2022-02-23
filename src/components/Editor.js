@@ -75,7 +75,7 @@ export default function Editor() {
           className="flex-1 px-5 py-2 flex justify-center items-center text-white bg-primary-accent rounded-xl space-x-4 hover:bg-secondary-accent"
         >
           <HiOutlineLink size={25} />
-          <span className="text-lg font-nunito">Add New Link</span>
+          <span className="text-lg font-nunito">Add Link</span>
         </button>
         <button className="px-5 py-2 flex justify-center items-center text-white bg-black rounded-xl space-x-4 hover:bg-gray-800">
           <span className="text-lg font-nunito">Explore Links</span>

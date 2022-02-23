@@ -19,7 +19,7 @@
     background-color: #7964ff;
   }
 
-  /* Hide scrollbar for Chrome, Safari and Opera */
+  /* Hide scrollbar for Chrome; Safari and Opera */
   .s_hide::-webkit-scrollbar {
     display: none;
   }
