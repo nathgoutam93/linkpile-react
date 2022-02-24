@@ -1,6 +1,7 @@
 import { useState, useEffect, useReducer } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import Header from "../components/header";
+import * as ROUTES from "../constants/routes";
 import { useFirestore } from "../context/firestoreContext";
 import { useHeader } from "../context/headerContext";
 import { useAuth } from "../context/authContext";
@@ -14,6 +15,7 @@ export default function Profile() {
   const { username, email, error, loading } = state;
 
   const [isLoading, setLoading] = useState(true);
+  const [isUpdated, setUpdated] = useState(false);
 
   const handleUpdate = async (event) => {
     event.preventDefault();
@@ -28,6 +30,8 @@ export default function Profile() {
       dispatch({ type: "success" });
     } catch (error) {
       dispatch({ type: "error", error: error.message });
+    } finally {
+      setUpdated(true);
     }
   };
 
@@ -66,6 +70,8 @@ export default function Profile() {
         <div className="loader" />;
       </div>
     );
+
+  if (isUpdated) return <Navigate to={`${ROUTES.ADMIN}`} />;
 
   return (
     <div className="w-full h-full bg-primary">
