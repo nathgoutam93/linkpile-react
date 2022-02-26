@@ -3,6 +3,7 @@ import { useAdmin } from "../context/adminContext";
 import { useFirestore } from "../context/firestoreContext";
 import { BsPersonFill } from "react-icons/bs";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import InputFieldSimple from "./commons/inputFieldSimple";
 
 export default function ProfileCard() {
   const { userData, updateProfile, storage } = useFirestore();
@@ -129,8 +130,8 @@ export default function ProfileCard() {
         </div>
       </div>
       <div className="w-full space-y-1">
-        <label className="text-sm text-white font-nunito">Profile Title</label>
-        <input
+        <InputFieldSimple
+          label="Profile Title"
           value={profileName}
           onChange={(e) =>
             dispatch({
@@ -139,10 +140,8 @@ export default function ProfileCard() {
               value: e.target.value,
             })
           }
-          type="text"
-          className="w-full p-2 px-4 bg-primary text-white outline-none rounded-md"
-          placeholder="Profile Name"
-        ></input>
+          placeholder="your name"
+        />
       </div>
       <div className="w-full space-y-1">
         <label className="text-sm text-white font-nunito">

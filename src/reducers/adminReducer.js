@@ -13,6 +13,14 @@ const initialState = {
   },
   error: "",
   loading: false,
+  socials: {
+    twitter: "",
+    instagram: "",
+    facebook: "",
+    linkedin: "",
+    github: "",
+    hashnode: "",
+  },
 };
 
 function adminReducer(state, action) {

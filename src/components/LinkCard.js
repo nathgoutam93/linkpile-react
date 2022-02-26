@@ -16,7 +16,7 @@ export default function LinkCard({
         border: linkStyle.filled ? "none" : `2px solid ${linkColor}`,
         color: linkFontColor,
       }}
-      className={`w-full max-w-4xl min-h-[4rem] px-4 flex justify-center items-center ${
+      className={`w-full max-w-3xl min-h-[4rem] px-4 flex justify-center items-center ${
         linkStyle.rounded ? "rounded-3xl" : "rounded-md"
       }`}
     >

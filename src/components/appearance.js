@@ -3,7 +3,6 @@ import { HexColorPicker } from "react-colorful";
 import { useAdmin } from "../context/adminContext";
 import { useFirestore } from "../context/firestoreContext";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import "./appearance.css";
 import { MdAddPhotoAlternate } from "react-icons/md";
 
 export default function Appearance() {
@@ -125,6 +124,7 @@ export default function Appearance() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
           <div className="picker text-center rounded-3xl">
             <HexColorPicker
+              style={{ width: "100%" }}
               color={backgroundColor}
               onChange={(color) => {
                 dispatch({
@@ -138,7 +138,7 @@ export default function Appearance() {
               {backgroundPresetColors.map((presetColor) => (
                 <button
                   key={presetColor}
-                  className="picker__swatch"
+                  className="w-6 h-6 m-1 border-2 rounded cursor-pointer"
                   style={{ background: presetColor }}
                   onClick={() => {
                     dispatch({
@@ -217,7 +217,7 @@ export default function Appearance() {
           {fontColors.map((presetColor) => (
             <button
               key={presetColor}
-              className="picker__swatch border-2"
+              className="w-6 h-6 m-1 border-2 rounded cursor-pointer"
               style={{ background: presetColor }}
               onClick={() => {
                 dispatch({
@@ -238,6 +238,7 @@ export default function Appearance() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
           <div className="picker text-center rounded-xl">
             <HexColorPicker
+              style={{ width: "100%" }}
               color={linkColor}
               onChange={(color) => {
                 dispatch({
@@ -251,7 +252,7 @@ export default function Appearance() {
               {linkPresetColors.map((presetColor) => (
                 <button
                   key={presetColor}
-                  className="picker__swatch"
+                  className="w-6 h-6 m-1 border-2 rounded cursor-pointer"
                   style={{ background: presetColor }}
                   onClick={() => {
                     dispatch({
@@ -345,7 +346,7 @@ export default function Appearance() {
           {linkfontColors.map((presetColor) => (
             <button
               key={presetColor}
-              className="picker__swatch border-2"
+              className="w-6 h-6 m-1 border-2 rounded cursor-pointer"
               style={{ background: presetColor }}
               onClick={() => {
                 dispatch({

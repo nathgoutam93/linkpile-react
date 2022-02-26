@@ -24,7 +24,8 @@ export default function Admin() {
   const { userData, updateProfile } = useFirestore();
   const { setCustomHeader } = useHeader();
   const { state, dispatch } = useAdmin();
-  const { username, profileName, about, links, appearance, loading } = state;
+  const { username, profileName, about, links, appearance, socials, loading } =
+    state;
 
   const [preview, setPreview] = useState(false);
   const [showDesign, setShowDesign] = useState(false);
@@ -42,6 +43,7 @@ export default function Admin() {
           about: about,
           links: links,
           appearance: appearance,
+          socials: socials,
         },
       });
       dispatch({ type: "success" });

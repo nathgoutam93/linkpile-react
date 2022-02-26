@@ -15,20 +15,41 @@ export function AdminProvider({ children }) {
 
   useEffect(() => {
     if (userData) {
-      dispatch({ type: "field", field: "username", value: userData.username });
-      dispatch({ type: "field", field: "imgSrc", value: userData.page.imgSrc });
+      dispatch({
+        type: "field",
+        field: "username",
+        value: userData.username || state.username,
+      });
+      dispatch({
+        type: "field",
+        field: "imgSrc",
+        value: userData.page.imgSrc || state.imgSrc,
+      });
       dispatch({
         type: "field",
         field: "profileName",
-        value: userData.page.profileName,
+        value: userData.page.profileName || state.profileName,
       });
-      dispatch({ type: "field", field: "about", value: userData.page.about });
+      dispatch({
+        type: "field",
+        field: "about",
+        value: userData.page.about || state.about,
+      });
       dispatch({
         type: "field",
         field: "appearance",
-        value: userData.page.appearance,
+        value: userData.page.appearance || state.appearance,
       });
-      dispatch({ type: "field", field: "links", value: userData.page.links });
+      dispatch({
+        type: "field",
+        field: "socials",
+        value: userData.page.socials || state.socials,
+      });
+      dispatch({
+        type: "field",
+        field: "links",
+        value: userData.page.links || state.links,
+      });
     }
   }, [userData]);
 

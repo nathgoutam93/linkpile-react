@@ -5,6 +5,7 @@ import { useFirestore } from "../context/firestoreContext";
 import { MdOutlineError } from "react-icons/md";
 import { IoShareOutline } from "react-icons/io5";
 import Toast from "../components/commons/toast";
+import { initialState } from "../reducers/adminReducer";
 
 export default function UserPage() {
   const { userId } = useParams();
@@ -67,11 +68,12 @@ export default function UserPage() {
         <Page
           styleClasses="w-full h-full pt-10 p-4 flex flex-col items-center space-y-2 overflow-y-auto s_hide"
           username={userId}
-          imgSrc={data.imgSrc}
-          profileName={data.profileName}
-          about={data.about}
-          links={data.links}
-          appearance={data.appearance}
+          imgSrc={data.imgSrc || initialState.imgSrc}
+          profileName={data.profileName || initialState.profileName}
+          about={data.about || initialState.about}
+          links={data.links || initialState.links}
+          appearance={data.appearance || initialState.appearance}
+          socials={data.socials || initialState.socials}
         />
       </div>
     </div>

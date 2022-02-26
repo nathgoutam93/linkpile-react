@@ -5,15 +5,17 @@ import { GoTrashcan } from "react-icons/go";
 import { MdDragIndicator } from "react-icons/md";
 import { HiOutlinePencil } from "react-icons/hi";
 import PropTypes from "prop-types";
+import * as EMBED from "../constants/embed";
+import { AiFillYoutube } from "react-icons/ai";
+import { BsSpotify } from "react-icons/bs";
 import InputField from "./commons/inputField";
 
-export default function LinkCardEditable({ id, Link }) {
+export default function EmbedEditable({ id, Link }) {
   const { state, dispatch } = useAdmin();
   const { links } = state;
 
   const [title, setTitle] = useState("");
   const [link, setLink] = useState("");
-  const [description, setDescription] = useState("");
   const [active, setActive] = useState(false);
   const [editMode, setEditMode] = useState(false);
 
@@ -33,9 +35,10 @@ export default function LinkCardEditable({ id, Link }) {
 
   const handleSave = () => {
     handleEdit({
+      embed: Link.embed,
       title: title,
       link: link,
-      description: description,
+      description: "",
       active: active,
     });
     setEditMode(false);
@@ -44,7 +47,6 @@ export default function LinkCardEditable({ id, Link }) {
   const handleCancel = () => {
     setTitle(Link.title);
     setLink(Link.link);
-    setDescription(Link.description);
     setActive(Link.active);
     setEditMode(false);
   };
@@ -54,7 +56,7 @@ export default function LinkCardEditable({ id, Link }) {
     handleEdit({
       title: title,
       link: link,
-      description: description,
+      description: "",
       active: e.target.checked,
     });
   };
@@ -63,7 +65,6 @@ export default function LinkCardEditable({ id, Link }) {
     if (Link) {
       setTitle(Link.title);
       setLink(Link.link);
-      setDescription(Link.description);
       setActive(Link.active);
     }
   }, [Link]);
@@ -93,10 +94,15 @@ export default function LinkCardEditable({ id, Link }) {
                   className={`px-4 flex justify-center items-center flex-1 ${Link.linkStyle}`}
                 >
                   <HiOutlinePencil size={25} className="text-gray-400" />
-                  <div className="p-2 flex-1 flex flex-col justify-center items-center space-y-1">
-                    <p className="text-lg text-white font-bold">{Link.title}</p>
-                    <p className="text-sm text-white text-center font-semibold">
-                      {Link.description}
+                  <div className="p-2 flex-1 flex flex-col items-center space-y-1">
+                    {Link.embed === EMBED.YOUTUBE && (
+                      <AiFillYoutube size={45} className="text-gray-400" />
+                    )}
+                    {Link.embed === EMBED.SPOTIFY && (
+                      <BsSpotify size={45} className="text-gray-400" />
+                    )}
+                    <p className="flex-1 text-sm text-white text-center font-semibold">
+                      {Link.title}
                     </p>
                   </div>
                 </div>
@@ -136,11 +142,6 @@ export default function LinkCardEditable({ id, Link }) {
                   value={link}
                   onChange={(e) => setLink(e.target.value)}
                 />
-                <InputField
-                  label="Description"
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
-                />
                 <div className="flex justify-around items-center space-x-2">
                   <button
                     onClick={handleCancel}
@@ -170,7 +171,7 @@ export default function LinkCardEditable({ id, Link }) {
   );
 }
 
-LinkCardEditable.propTypes = {
+EmbedEditable.propTypes = {
   id: PropTypes.number,
   Link: PropTypes.object.isRequired,
 };

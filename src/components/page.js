@@ -3,6 +3,18 @@ import { Link } from "react-router-dom";
 import LinkCard from "../components/LinkCard";
 import PropTypes from "prop-types";
 import { BsPersonFill } from "react-icons/bs";
+import { SiHashnode } from "react-icons/si";
+import { FaDev } from "react-icons/fa";
+import { GrMedium } from "react-icons/gr";
+import { ImWhatsapp } from "react-icons/im";
+import {
+  FiGithub,
+  FiLinkedin,
+  FiTwitter,
+  FiInstagram,
+  FiFacebook,
+} from "react-icons/fi";
+import Embed from "./Embed";
 
 export default function Page({
   username,
@@ -11,6 +23,7 @@ export default function Page({
   about,
   links,
   appearance,
+  socials,
   styleClasses,
 }) {
   const {
@@ -61,6 +74,16 @@ export default function Page({
         {links
           ?.filter((link) => link.active !== false && link.title && link.link)
           .map((link) => {
+            if (link.embed)
+              return (
+                <Embed
+                  key={link.title}
+                  link={link}
+                  linkColor={linkColor}
+                  linkFontColor={linkFontColor}
+                  linkStyle={linkStyle}
+                />
+              );
             return (
               <LinkCard
                 key={link.title}
@@ -71,6 +94,81 @@ export default function Page({
               />
             );
           })}
+      </div>
+      <div className="w-3/4 flex flex-wrap justify-center items-center">
+        {socials.twitter && (
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href={`https://twitter.com/${socials.twitter}`}
+          >
+            <FiTwitter size={45} className="m-2" />
+          </a>
+        )}
+        {socials.instagram && (
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href={`https://instagram.com/${socials.instagram}`}
+          >
+            <FiInstagram size={45} className="m-1" />
+          </a>
+        )}
+        {socials.facebook && (
+          <a rel="noreferrer" target="_blank" href={socials.facebook}>
+            <FiFacebook size={45} className="m-1" />
+          </a>
+        )}
+        {socials.linkedin && (
+          <a rel="noreferrer" target="_blank" href={socials.linkedin}>
+            <FiLinkedin size={45} className="m-1" />
+          </a>
+        )}
+        {socials.github && (
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href={`https://github.com/${socials.github}`}
+          >
+            <FiGithub size={45} className="m-1" />
+          </a>
+        )}
+        {socials.hashnode && (
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href={`https://hashnode.com/@${socials.hashnode}`}
+          >
+            <SiHashnode size={45} className="m-1" />
+          </a>
+        )}
+        {socials.devto && (
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href={`https://dev.to/@${socials.devto}`}
+          >
+            <FaDev size={45} className="m-1" />
+          </a>
+        )}
+        {socials.medium && (
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href={`https://medium.com/@${socials.devto}`}
+          >
+            <GrMedium size={45} className="m-1" />
+          </a>
+        )}
+        {socials.whatsapp && (
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href={`https://api.whatsapp.com/send?phone=${socials.whatsapp}`}
+          >
+            <ImWhatsapp size={45} className="m-1" />
+          </a>
+        )}
       </div>
       <Link
         to={"/"}
@@ -89,5 +187,6 @@ Page.propTypes = {
   about: PropTypes.string,
   links: PropTypes.array,
   appearance: PropTypes.object,
+  socials: PropTypes.object,
   styleClasses: PropTypes.string,
 };
