@@ -15,6 +15,7 @@ export default function UserPage() {
   const [data, setData] = useState(null);
   const [showToast, setShowToast] = useState(false);
 
+  
   useEffect(() => {
     getUserDoc(userId).then((doc) => {
       setData(doc);
