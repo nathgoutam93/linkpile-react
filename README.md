@@ -14,4 +14,3 @@
 
 - Contributions are **greatly appreciated**.
 - Check out [contribution guidelines](/CONTRIBUTING.md) for more information
-

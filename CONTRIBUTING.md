@@ -131,7 +131,9 @@ git push origin YourBranchName
     }
   }
 ```
+
 👉 after this go to ./src/lib/firebase.js and edit the file as follows
+
 ```
 if (hostname === "localhost") {
   connectAuthEmulator(auth, "http://<your local Ip>:9099");
