@@ -51,7 +51,6 @@ export default function Embed({ link, linkStyle, linkColor, linkFontColor }) {
         width="100%"
         height="80"
         frameBorder="0"
-        allow="autoplay; clipboard-write; encrypted-media;"
       ></iframe>
       <p className="text-sm text-center font-light max-w-2xl">{link.title}</p>
     </div>
