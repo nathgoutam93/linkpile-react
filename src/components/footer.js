@@ -5,8 +5,8 @@ function Footer() {
   const date = `${current.getFullYear()}`;
 
   return (
-    <footer className="w-full h-2/6 border-t border-border-dark">
-      <div className="w-full h-full p-8 bg-primary">
+    <footer className="w-full h-2/6">
+      <div className="w-full h-full p-8 bg-black">
         <h1 className="text-5xl text-white font-nunito font-extrabold">
           Linkpile
         </h1>

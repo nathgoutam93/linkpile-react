@@ -54,20 +54,12 @@ export default function Admin() {
 
   useEffect(() => {
     const customHeader = (
-      <div className="flex justify-around items-center space-x-2">
-        <button
-          onClick={() => logOut()}
-          className="px-4 py-2 text-primary-accent font-nunito font-bold rounded-3xl bg-primary hover:bg-secondary"
-        >
-          Log Out
-        </button>
-        <Link
-          to={`${ROUTES.PROFILE}`}
-          className="px-4 py-2 text-white font-nunito font-bold rounded-3xl bg-primary-accent hover:bg-secondary-accent"
-        >
-          My Account
-        </Link>
-      </div>
+      <Link
+        to={`${ROUTES.PROFILE}`}
+        className="px-4 py-2 text-white font-nunito font-bold rounded-3xl bg-primary-accent hover:bg-secondary-accent"
+      >
+        My Account
+      </Link>
     );
 
     setCustomHeader(customHeader);
@@ -83,7 +75,7 @@ export default function Admin() {
       <div
         className={`w-full grid ${
           !preview && "lg:grid-cols-2"
-        } bg-primary font-nunito`}
+        } bg-gray-200 dark:bg-primary font-nunito`}
       >
         <div className={`w-full p-4  pb-96 ${preview && "hidden"} space-y-4`}>
           <div className="hidden lg:flex">
@@ -107,57 +99,74 @@ export default function Admin() {
             {preview ? (
               <div
                 onClick={() => setPreview(false)}
-                className="fixed left-4 top-4 p-4 hidden lg:flex justify-center items-center space-x-1 bg-secondary border border-border-dark rounded-3xl  cursor-pointer hover:bg-secondary-accent"
+                className="fixed left-4 top-4 p-4 hidden lg:flex justify-center items-center space-x-1 bg-white dark:bg-secondary border border-gray-300 dark:border-border-dark rounded-3xl  cursor-pointer hover:bg-gray-300 dark:hover:bg-secondary-accent"
               >
-                <HiOutlinePencil size={23} className="text-gray-400" />
-                <span className="text-2xl text-white font-nunito">Editor</span>
+                <HiOutlinePencil
+                  size={23}
+                  className="text-gray-800 dark:text-gray-400"
+                />
+                <span className="text-2xl text-gray-800 dark:text-white font-nunito">
+                  Editor
+                </span>
               </div>
             ) : (
-              <div className="fixed top-24 p-4 hidden lg:flex items-center space-x-1 bg-secondary rounded-3xl border border-border-dark cursor-pointe">
+              <div className="fixed top-24 p-4 hidden lg:flex items-center space-x-1 bg-white dark:bg-secondary rounded-3xl border border-gray-300 dark:border-border-dark cursor-pointe">
                 {showDesign ? (
                   <div
                     onClick={() => setShowDesign(false)}
-                    className="flex p-2 items-center space-x-2 cursor-pointer hover:bg-border-dark rounded-xl"
+                    className="flex p-2 items-center space-x-2 cursor-pointer hover:bg-gray-300 dark:hover:bg-border-dark rounded-xl"
                   >
-                    <HiOutlineLink size={25} className="text-gray-400" />
-                    <span className="text-lg text-white font-nunito">
+                    <HiOutlineLink
+                      size={25}
+                      className="text-gray-800 dark:text-gray-400"
+                    />
+                    <span className="text-lg text-gray-800 dark:text-white font-nunito">
                       Links
                     </span>
                   </div>
                 ) : (
                   <div
                     onClick={() => setShowDesign(true)}
-                    className="flex p-2 items-center space-x-2 cursor-pointer hover:bg-border-dark rounded-xl"
+                    className="flex p-2 items-center space-x-2 cursor-pointer hover:bg-gray-300 dark:hover:bg-border-dark rounded-xl"
                   >
-                    <BsBrush size={25} className="text-gray-400" />
-                    <span className="text-lg text-white font-nunito">
+                    <BsBrush
+                      size={25}
+                      className="text-gray-800 dark:text-gray-400"
+                    />
+                    <span className="text-lg text-gray-800 dark:text-white font-nunito">
                       Design
                     </span>
                   </div>
                 )}
                 <div
                   onClick={() => setPreview(true)}
-                  className="flex p-2 items-center space-x-2 cursor-pointer hover:bg-border-dark rounded-xl"
+                  className="flex p-2 items-center space-x-2 cursor-pointer hover:bg-gray-300 dark:hover:bg-border-dark rounded-xl"
                 >
-                  <AiOutlineEye size={25} className="text-gray-400" />
-                  <span className="text-lg text-white font-nunito">
+                  <AiOutlineEye
+                    size={25}
+                    className="text-gray-800 dark:text-gray-400"
+                  />
+                  <span className="text-lg text-gray-800 dark:text-white font-nunito">
                     Preview
                   </span>
                 </div>
                 <div
                   disabled={loading}
                   onClick={handleUpdate}
-                  className="flex p-2 items-center space-x-2 cursor-pointer hover:bg-border-dark rounded-xl"
+                  className="flex p-2 items-center space-x-2 cursor-pointer hover:bg-gray-300 dark:hover:bg-border-dark rounded-xl"
                 >
                   {loading ? (
                     <ImSpinner
                       size={25}
-                      className="text-gray-400 animate-spin"
+                      className="text-gray-800 dark:text-gray-400 animate-spin"
                     />
                   ) : (
-                    <HiOutlineUpload size={25} className="text-gray-400" />
+                    <HiOutlineUpload
+                      size={25}
+                      className="text-gray-800 dark:text-gray-400"
+                    />
                   )}
-                  <span className="text-lg text-white font-nunito">
+                  <span className="text-lg text-gray-800 dark:text-white font-nunito">
                     {loading ? "Saving" : "Save"}
                   </span>
                 </div>
@@ -166,14 +175,19 @@ export default function Admin() {
           </div>
         </div>
       </div>
-      <div className="fixed z-50 bottom-0 w-full p-4 bg-secondary flex justify-around items-center border border-border-dark rounded-t-3xl lg:hidden">
+      <div className="fixed z-50 bottom-0 w-full p-4 bg-white dark:bg-secondary flex justify-around items-center border border-border-dark rounded-t-3xl lg:hidden">
         {preview ? (
           <div
             onClick={() => setPreview(false)}
             className="flex justify-center items-center space-x-1  cursor-pointer"
           >
-            <HiOutlinePencil size={45} className="text-gray-50" />
-            <span className="text-2xl text-white font-nunito">Editor</span>
+            <HiOutlinePencil
+              size={45}
+              className="text-gray-800 dark:text-gray-50"
+            />
+            <span className="text-2xl text-gray-800 dark:text-white font-nunito">
+              Editor
+            </span>
           </div>
         ) : (
           <>
@@ -182,24 +196,39 @@ export default function Admin() {
                 onClick={() => setShowDesign(false)}
                 className="flex flex-col justify-center items-center cursor-pointer"
               >
-                <HiOutlineLink size={45} className="text-gray-50" />
-                <span className="text-lg text-gray-50 font-nunito">Links</span>
+                <HiOutlineLink
+                  size={45}
+                  className="text-gray-800 dark:text-gray-50"
+                />
+                <span className="text-lg text-gray-800 dark:text-gray-50 font-nunito">
+                  Links
+                </span>
               </div>
             ) : (
               <div
                 onClick={() => setShowDesign(true)}
                 className="flex flex-col justify-center items-center cursor-pointer"
               >
-                <BsBrush size={45} className="text-gray-50" />
-                <span className="text-lg text-gray-50 font-nunito">Design</span>
+                <BsBrush
+                  size={45}
+                  className="text-gray-800 dark:text-gray-50"
+                />
+                <span className="text-lg text-gray-800 dark:text-gray-50 font-nunito">
+                  Design
+                </span>
               </div>
             )}
             <div
               onClick={() => setPreview(true)}
               className="flex flex-col justify-center items-center cursor-pointer"
             >
-              <AiOutlineEye size={45} className="text-gray-50" />
-              <span className="text-lg text-gray-50 font-nunito">Preview</span>
+              <AiOutlineEye
+                size={45}
+                className="text-gray-800 dark:text-gray-50"
+              />
+              <span className="text-lg text-gray-800 dark:text-gray-50 font-nunito">
+                Preview
+              </span>
             </div>
             <div
               disabled={loading}
@@ -209,9 +238,12 @@ export default function Admin() {
               {loading ? (
                 <ImSpinner size={45} className="animate-spin" />
               ) : (
-                <HiOutlineUpload size={45} className="text-gray-50" />
+                <HiOutlineUpload
+                  size={45}
+                  className="text-gray-800 dark:text-gray-50"
+                />
               )}
-              <span className="text-lg text-gray-50 font-nunito">
+              <span className="text-lg text-gray-800 dark:text-gray-50 font-nunito">
                 {loading ? "Saving" : "Save"}
               </span>
             </div>

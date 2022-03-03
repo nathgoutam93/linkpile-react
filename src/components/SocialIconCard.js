@@ -17,8 +17,10 @@ export default function SocialIconCard() {
   } = state.socials;
 
   return (
-    <div className="w-full p-5 flex flex-col items-center bg-secondary space-y-4 rounded-xl border border-border-dark">
-      <span className="text-white text-xl font-nunito">Social Icons</span>
+    <div className="w-full p-5 flex flex-col items-center bg-white dark:bg-secondary space-y-4 rounded-xl border border-gray-300 dark:border-border-dark">
+      <span className="text-gray-800 dark:text-white text-xl font-nunito">
+        Social Icons
+      </span>
       <InputField
         label="twitter handle"
         value={twitter}

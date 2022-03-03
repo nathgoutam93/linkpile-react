@@ -9,22 +9,25 @@ import { AuthProvider } from "./context/authContext";
 import { FirestoreProvider } from "./context/firestoreContext";
 import { HeaderProvider } from "./context/headerContext";
 import { AdminProvider } from "./context/adminContext";
+import { DarkModeProvider } from "./context/darkModeContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <AuthProvider>
-      <FirestoreProvider>
-        <HeaderProvider>
-          <AdminProvider>
-            <Router>
-              <Routes>
-                <Route path="/*" element={<App />} />
-              </Routes>
-            </Router>
-          </AdminProvider>
-        </HeaderProvider>
-      </FirestoreProvider>
-    </AuthProvider>
+    <DarkModeProvider>
+      <AuthProvider>
+        <FirestoreProvider>
+          <HeaderProvider>
+            <AdminProvider>
+              <Router>
+                <Routes>
+                  <Route path="/*" element={<App />} />
+                </Routes>
+              </Router>
+            </AdminProvider>
+          </HeaderProvider>
+        </FirestoreProvider>
+      </AuthProvider>
+    </DarkModeProvider>
   </React.StrictMode>,
   document.getElementById("root"),
 );

@@ -83,7 +83,7 @@ export default function EmbedEditable({ id, Link }) {
           className="w-full py-2 flex justify-between items-center first-of-type:mt-2 last-of-type:mb-2 cursor-pointer"
         >
           <div
-            className={`flex flex-1 bg-secondary rounded-xl border border-border-dark ${
+            className={`flex flex-1 bg-white dark:bg-secondary rounded-xl border border-gray-300 dark:border-border-dark ${
               snapshot.isDragging ? "shadow-2xl" : ""
             }`}
           >
@@ -101,7 +101,7 @@ export default function EmbedEditable({ id, Link }) {
                     {Link.embed === EMBED.SPOTIFY && (
                       <BsSpotify size={45} className="text-gray-400" />
                     )}
-                    <p className="flex-1 text-sm text-white text-center font-semibold">
+                    <p className="flex-1 text-sm text-gray-800 dark:text-white text-center font-semibold">
                       {Link.title}
                     </p>
                   </div>
@@ -131,7 +131,7 @@ export default function EmbedEditable({ id, Link }) {
                 </div>
               </>
             ) : (
-              <div className="p-4 flex flex-1 flex-col space-y-4 bg-secondary rounded-xl">
+              <div className="p-4 flex flex-1 flex-col space-y-4 bg-white dark:bg-secondary rounded-xl">
                 <InputField
                   label="Title"
                   value={title}

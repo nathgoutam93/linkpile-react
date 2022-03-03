@@ -15,7 +15,7 @@ export default function Home() {
       <div className="lg:mr-2 flex justify-around items-center space-x-1">
         <button
           onClick={() => logOut()}
-          className="px-4 py-2 text-primary-accent font-nunito font-bold rounded-3xl bg-primary hover:bg-secondary"
+          className="px-4 py-2 text-primary-accent font-nunito font-bold rounded-3xl bg-white dark:bg-primary hover:bg-gray-300 dark:hover:bg-secondary"
         >
           Log Out
         </button>
@@ -30,7 +30,7 @@ export default function Home() {
       <div className="mr-2 flex justify-around items-center space-x-1">
         <Link
           to={ROUTES.LOGIN}
-          className="px-4 py-2 text-primary-accent font-nunito font-bold rounded-3xl bg-primary hover:bg-secondary"
+          className="px-4 py-2 text-primary-accent font-nunito font-bold rounded-3xl bg-white dark:bg-primary hover:bg-gray-300 dark:hover:bg-secondary"
         >
           Log In
         </Link>
@@ -61,7 +61,7 @@ export default function Home() {
           <h2 className="mt-4 text-2xl lg:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-rose-300 via-fuchsia-400 to-blue-400">
             Supercharge your Link In Bio
           </h2>
-          <h3 className="w-5/6 my-2 mb-4 text-center text-sm text-gray-100 lg:text-xl">
+          <h3 className="w-5/6 my-2 mb-4 text-center text-sm text-gray-800 dark:text-gray-100 lg:text-xl">
             The only link you&apos;ll ever need to connect audiences to all of
             your content
           </h3>
@@ -75,7 +75,7 @@ export default function Home() {
               </Link>
               <Link
                 to={ROUTES.LOGIN}
-                className="mt-6 text-lg text-gray-200 font-nunito font-semibold hover:underline"
+                className="mt-6 text-lg text-gray-700 dark:text-gray-200 font-nunito font-semibold hover:underline"
               >
                 Already on Linkpile? Log In
               </Link>
@@ -87,10 +87,10 @@ export default function Home() {
       <section className="w-full p-4 flex flex-col justify-around items-center space-y-8 lg:flex-row">
         <img src="./images/mockup2.png" alt="" className="lg:scale-75"></img>
         <div className="flex flex-col justify-center space-y-8">
-          <h1 className="text-3xl text-white font-nunito font-bold">
+          <h1 className="text-3xl text-gray-800 dark:text-white font-nunito font-bold">
             Link to everywhere
           </h1>
-          <p className="max-w-md text-xl text-gray-100 font-inter font-semibold">
+          <p className="max-w-md text-xl text-gray-700 dark:text-gray-100 font-inter font-semibold">
             One link to all of your latest videos, articles, store, website,
             social posts.
           </p>
@@ -103,10 +103,10 @@ export default function Home() {
           className="scale-75 lg:scale-50"
         />
         <div className="flex flex-col justify-center space-y-8">
-          <h1 className="text-3xl text-white font-nunito font-bold">
+          <h1 className="text-3xl text-gray-800 dark:text-white font-nunito font-bold">
             Easily managed
           </h1>
-          <p className="max-w-md text-xl text-gray-100 font-inter font-semibold">
+          <p className="max-w-md text-xl text-gray-700 dark:text-gray-100 font-inter font-semibold">
             Simple drag-and-drop editor to effortlessly manage your content.
           </p>
         </div>

@@ -6,8 +6,11 @@
 @tailwind utilities;
 
 @layer base {
-  #root {
+  .dark #root {
     background-color: #0a1929;
+  }
+  #root {
+    background-color: #fff;
   }
 }
 

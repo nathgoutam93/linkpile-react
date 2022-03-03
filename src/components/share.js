@@ -11,15 +11,15 @@ export default function Share({ username }) {
 
   return (
     <>
-      <div className="w-full px-4 p-2 flex justify-around items-center space-x-2 bg-secondary lg:border border-border-dark lg:rounded-xl">
+      <div className="w-full px-4 p-2 flex justify-around items-center space-x-2 bg-white dark:bg-secondary lg:border border-gray-300 dark:border-border-dark lg:rounded-xl">
         <a
           href={`https://linkpile-bffd7.web.app/${username}`}
-          className="flex-1 text-sm text-gray-50 truncate hover:underline"
+          className="flex-1 text-sm text-gray-700 dark:text-gray-50 truncate hover:underline"
         >{`https://linkpile-bffd7.web.app/${username}`}</a>
 
         <FaRegShareSquare
           size={24}
-          className="text-gray-400 cursor-pointer"
+          className="text-gray-600 dark:text-gray-400 cursor-pointer"
           onClick={handleShare}
         />
         {showModal ? (
