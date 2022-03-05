@@ -18,7 +18,7 @@ export default function LinkCard({
       }}
       className={`w-full max-w-3xl min-h-[4rem] px-4 flex justify-center items-center ${
         linkStyle.rounded ? "rounded-3xl" : "rounded-md"
-      }`}
+      } hover:scale-105 transition-transform duration-300`}
     >
       <div className="p-2 flex flex-col text-center space-y-1 lg:space-y-0">
         <p className="text-lg font-semibold">{link.title}</p>

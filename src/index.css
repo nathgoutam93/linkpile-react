@@ -63,6 +63,27 @@
   }
 
   .shine {
+    background: #fff;
+    background-image: linear-gradient(
+      to right,
+      #fff 0%,
+      #e5e7eb 20%,
+      #e5e7eb 40%,
+      #fff 100%
+    );
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: inline-block;
+    position: relative;
+
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeholderShimmer;
+    animation-timing-function: l;
+  }
+
+  .dark .shine {
     background: #132f4c;
     background-image: linear-gradient(
       to right,
