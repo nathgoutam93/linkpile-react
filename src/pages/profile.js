@@ -10,7 +10,7 @@ import { initialState, profileReducer } from "../reducers/profileReducer";
 export default function Profile() {
   const { setCustomHeader } = useHeader();
   const { logOut } = useAuth();
-  const { userData, updateProfile } = useFirestore();
+  const { userData, updateProfile, getUserDoc } = useFirestore();
   const [state, dispatch] = useReducer(profileReducer, initialState);
   const { username, email, error, loading } = state;
 
@@ -22,16 +22,22 @@ export default function Profile() {
 
     dispatch({ type: "update" });
 
-    try {
-      await updateProfile(userData.userId, {
-        username: username,
-        email: email,
-      });
-      dispatch({ type: "success" });
-    } catch (error) {
-      dispatch({ type: "error", error: error.message });
-    } finally {
-      setUpdated(true);
+    const usernameTaken = await getUserDoc(username);
+
+    if (!usernameTaken) {
+      try {
+        await updateProfile(userData.userId, {
+          username: username,
+          email: email,
+        });
+        dispatch({ type: "success" });
+      } catch (error) {
+        dispatch({ type: "error", error: error.message });
+      } finally {
+        setUpdated(true);
+      }
+    } else {
+      dispatch({ type: "error", error: "username already taken" });
     }
   };
 
