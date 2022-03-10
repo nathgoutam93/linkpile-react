@@ -56,7 +56,7 @@ export default function Editor() {
           {(provided, _) => (
             <div
               key="dropable-1"
-              className="w-full flex flex-col space-y-2"
+              className="my-2 w-full flex flex-col space-y-4"
               ref={provided.innerRef}
               {...provided.droppableProps}
             >
@@ -82,7 +82,7 @@ export default function Editor() {
           )}
         </Droppable>
       </DragDropContext>
-      <div className="flex justify-around items-center space-x-2">
+      <div className="my-4 flex justify-around items-center space-x-2">
         <button
           onClick={handleNewLink}
           className="flex-1 px-5 py-2 flex justify-center items-center text-white bg-primary-accent rounded-xl space-x-4 hover:bg-secondary-accent"

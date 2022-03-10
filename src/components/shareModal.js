@@ -9,7 +9,7 @@ import { IoCopyOutline } from "react-icons/io5";
 import Toast from "./commons/toast";
 import { useState } from "react";
 
-const Modal = ({ username }) => {
+const ShareModal = ({ username }) => {
   const [show, setShow] = useState(false);
 
   const showToast = () => {
@@ -83,8 +83,8 @@ const Modal = ({ username }) => {
   );
 };
 
-export default Modal;
+export default ShareModal;
 
-Modal.propTypes = {
+ShareModal.propTypes = {
   username: PropTypes.string.isRequired,
 };

@@ -79,7 +79,7 @@ export default function LinkCardEditable({ id, Link }) {
           ref={provided.innerRef}
           {...provided.draggableProps}
           style={{ ...provided.draggableProps.style }}
-          className="w-full py-2 flex justify-between items-center first-of-type:mt-2 last-of-type:mb-2 cursor-pointer"
+          className="w-full flex justify-between items-center first-of-type:mt-2 last-of-type:mb-2 cursor-pointer"
         >
           <div
             className={`flex flex-1 bg-white dark:bg-secondary rounded-xl border border-gray-300 dark:border-border-dark ${
@@ -162,7 +162,7 @@ export default function LinkCardEditable({ id, Link }) {
           </div>
           <div
             {...provided.dragHandleProps}
-            className=" py-2 pl-2 flex justify-center items-center"
+            className="pl-2 flex justify-center items-center"
           >
             <MdDragIndicator size={40} className="text-gray-400" />
           </div>

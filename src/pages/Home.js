@@ -49,14 +49,14 @@ export default function Home() {
   if (isLoading)
     return (
       <div className="w-full h-screen flex justify-center items-center">
-        <div className="loader" />;
+        <div className="loader" />
       </div>
     );
 
   return (
     <div className="w-full">
       <Header />
-      <section className="w-full p-4 flex flex-col justify-around lg:flex-row font-nunito">
+      <section className="mb-10 w-full p-4 flex flex-col justify-around lg:flex-row font-nunito">
         <div className="flex flex-col items-center">
           <h2 className="mt-4 text-2xl lg:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-rose-300 via-fuchsia-400 to-blue-400">
             Supercharge your Link In Bio
@@ -65,7 +65,7 @@ export default function Home() {
             The only link you&apos;ll ever need to connect audiences to all of
             your content
           </h3>
-          <div className="lg:h-screen flex flex-col-reverse lg:flex-col">
+          <div className="lg:h-screen flex flex-col-reverse items-center lg:flex-col">
             <div className="flex flex-col justify-center items-center space-y-4">
               <Link
                 to={ROUTES.REGISTER}
@@ -80,12 +80,12 @@ export default function Home() {
                 Already on Linkpile? Log In
               </Link>
             </div>
-            <img src="./images/mockup1.png" alt=""></img>
+            <img className="lg:w-2/4" src="./images/mockup1.png" alt=""></img>
           </div>
         </div>
       </section>
-      <section className="w-full p-4 flex flex-col justify-around items-center space-y-8 lg:flex-row">
-        <img src="./images/mockup2.png" alt="" className="lg:scale-75"></img>
+      <section className="my-10 w-full p-4 flex flex-col justify-around items-center space-y-8 lg:flex-row">
+        <img src="./images/mockup2.png" alt="" className="lg:w-1/2"></img>
         <div className="flex flex-col justify-center space-y-8">
           <h1 className="text-3xl text-gray-800 dark:text-white font-nunito font-bold">
             Link to everywhere
@@ -96,12 +96,8 @@ export default function Home() {
           </p>
         </div>
       </section>
-      <section className="w-full p-4 flex flex-col justify-around items-center space-y-8 lg:flex-row-reverse">
-        <img
-          src="./images/mockup3.png"
-          alt=""
-          className="scale-75 lg:scale-50"
-        />
+      <section className="my-10 w-full p-4 flex flex-col justify-around items-center space-y-8 lg:flex-row-reverse">
+        <img src="./images/mockup3.png" alt="" className="lg:w-1/2" />
         <div className="flex flex-col justify-center space-y-8">
           <h1 className="text-3xl text-gray-800 dark:text-white font-nunito font-bold">
             Easily managed

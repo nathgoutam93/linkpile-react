@@ -77,7 +77,7 @@ export default function Admin() {
           !preview && "lg:grid-cols-2"
         } bg-gray-200 dark:bg-primary font-nunito`}
       >
-        <div className={`w-full p-4  pb-96 ${preview && "hidden"} space-y-4`}>
+        <div className={`w-full p-4  pb-96 ${preview && "hidden"}`}>
           <div className="hidden lg:flex">
             <Share username={username} />
           </div>

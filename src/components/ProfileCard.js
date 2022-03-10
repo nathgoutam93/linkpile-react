@@ -77,7 +77,7 @@ export default function ProfileCard() {
   }, [imgFile]);
 
   return (
-    <div className="w-full p-10 pt-2 flex flex-col items-center bg-white dark:bg-secondary space-y-4 rounded-xl border border-gray-300 dark:border-border-dark">
+    <div className="mt-2 w-full p-10 pt-2 flex flex-col items-center bg-white dark:bg-secondary space-y-4 rounded-xl border border-gray-300 dark:border-border-dark">
       <div className="mt-4 w-full flex flex-col lg:flex-row justify-around items-center space-x-4 space-y-2">
         {imgSrc ? (
           <img

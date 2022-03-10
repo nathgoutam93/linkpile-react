@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaRegShareSquare } from "react-icons/fa";
 import PropTypes from "prop-types";
-import Modal from "./modal";
+import ShareModal from "./shareModal";
 export default function Share({ username }) {
   const handleShare = () => {
     setShowModal(!showModal);
@@ -22,15 +22,15 @@ export default function Share({ username }) {
           className="text-gray-600 dark:text-gray-400 cursor-pointer"
           onClick={handleShare}
         />
-        {showModal ? (
-          <div
-            onClick={() => setShowModal(!showModal)}
-            className="fixed inset-0 flex items-center justify-center z-50 bg-black/60"
-          >
-            <Modal username={username} />
-          </div>
-        ) : null}
       </div>
+      {showModal ? (
+        <div
+          onClick={() => setShowModal(!showModal)}
+          className="fixed inset-0 flex items-center justify-center z-50 bg-black/60"
+        >
+          <ShareModal username={username} />
+        </div>
+      ) : null}
     </>
   );
 }

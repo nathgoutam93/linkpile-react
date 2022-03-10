@@ -120,7 +120,7 @@ export default function Appearance() {
   }, [bgImgFile]);
 
   return (
-    <>
+    <div className="mt-2 space-y-4">
       <div className="p-4 bg-white dark:bg-secondary rounded-xl space-y-2 border border-gray-300 dark:border-border-dark">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
           <div className="picker text-center rounded-3xl">
@@ -377,6 +377,6 @@ export default function Appearance() {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }
