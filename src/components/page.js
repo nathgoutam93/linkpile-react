@@ -176,7 +176,7 @@ export default function Page({
           <a
             rel="noreferrer"
             target="_blank"
-            href={`https://medium.com/@${socials.devto}`}
+            href={`https://medium.com/@${socials.medium}`}
           >
             <GrMedium
               size={45}

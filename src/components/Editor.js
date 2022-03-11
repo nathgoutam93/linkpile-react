@@ -26,7 +26,7 @@ export default function Editor() {
 
   if (!userData)
     return (
-      <div className="w-full space-y-4">
+      <div className="my-2 w-full space-y-4">
         <div className="shine w-full h-80 rounded-xl shadow-md"></div>
         <div className="w-full flex flex-col space-y-4">
           <div className="shine w-full h-24 rounded-xl shadow-md"></div>

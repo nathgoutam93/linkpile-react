@@ -20,6 +20,9 @@ const initialState = {
     linkedin: "",
     github: "",
     hashnode: "",
+    devto: "",
+    medium: "",
+    whatsapp: "",
   },
 };
 
