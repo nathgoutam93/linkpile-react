@@ -11,22 +11,22 @@ export default function Share({ username }) {
 
   return (
     <>
-      <div className="w-full px-4 p-2 flex justify-around items-center space-x-2 bg-white dark:bg-secondary lg:border border-gray-300 dark:border-border-dark lg:rounded-xl">
+      <div className="flex w-full items-center justify-around space-x-2 border-gray-300 bg-white p-2 px-4 dark:border-border-dark dark:bg-secondary lg:rounded-xl lg:border">
         <a
           href={`https://linkpile-bffd7.web.app/${username}`}
-          className="flex-1 text-sm text-gray-700 dark:text-gray-50 truncate hover:underline"
+          className="flex-1 truncate text-sm text-gray-700 hover:underline dark:text-gray-50"
         >{`https://linkpile-bffd7.web.app/${username}`}</a>
 
         <FaRegShareSquare
           size={24}
-          className="text-gray-600 dark:text-gray-400 cursor-pointer"
+          className="cursor-pointer text-gray-600 dark:text-gray-400"
           onClick={handleShare}
         />
       </div>
       {showModal ? (
         <div
           onClick={() => setShowModal(!showModal)}
-          className="fixed inset-0 flex items-center justify-center z-50 bg-black/60"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
         >
           <ShareModal username={username} />
         </div>

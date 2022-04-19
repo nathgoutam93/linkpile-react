@@ -18,9 +18,9 @@ export default function Embed({ link, linkStyle, linkColor, linkFontColor }) {
           border: linkStyle.filled ? "none" : `2px solid ${linkColor}`,
           color: linkFontColor,
         }}
-        className={`w-full max-w-3xl min-h-[4rem] p-2 flex flex-col justify-center items-center ${
+        className={`flex min-h-[4rem] w-full max-w-3xl flex-col items-center justify-center p-2 ${
           linkStyle.rounded ? "rounded-3xl" : "rounded-md"
-        } space-y-2 cursor-pointer hover:scale-105 transition-transform duration-300`}
+        } cursor-pointer space-y-2 transition-transform duration-300 hover:scale-105`}
       >
         <img
           src={`https://img.youtube.com/vi/${
@@ -29,7 +29,7 @@ export default function Embed({ link, linkStyle, linkColor, linkFontColor }) {
           alt="thumbnail"
           className="w-32 rounded-xl"
         />
-        <p className="text-sm text-center font-light max-w-2xl">{link.title}</p>
+        <p className="max-w-2xl text-center text-sm font-light">{link.title}</p>
       </a>
     );
   if (link.embed === EMBED.SPOTIFY && !!spotifyRegex.exec(link.link))
@@ -40,9 +40,9 @@ export default function Embed({ link, linkStyle, linkColor, linkFontColor }) {
           border: linkStyle.filled ? "none" : `2px solid ${linkColor}`,
           color: linkFontColor,
         }}
-        className={`w-full max-w-3xl min-h-[4rem] p-4 flex flex-col justify-center items-center ${
+        className={`flex min-h-[4rem] w-full max-w-3xl flex-col items-center justify-center p-4 ${
           linkStyle.rounded ? "rounded-3xl" : "rounded-md"
-        } space-y-2 hover:scale-105 transition-transform duration-300`}
+        } space-y-2 transition-transform duration-300 hover:scale-105`}
       >
         <iframe
           style={{ borderRadius: "12px" }}
@@ -53,7 +53,7 @@ export default function Embed({ link, linkStyle, linkColor, linkFontColor }) {
           height="80"
           frameBorder="0"
         ></iframe>
-        <p className="text-sm text-center font-light max-w-2xl">{link.title}</p>
+        <p className="max-w-2xl text-center text-sm font-light">{link.title}</p>
       </div>
     );
   return (
@@ -63,9 +63,9 @@ export default function Embed({ link, linkStyle, linkColor, linkFontColor }) {
         border: linkStyle.filled ? "none" : `2px solid ${linkColor}`,
         color: linkFontColor,
       }}
-      className={`w-full max-w-3xl min-h-[4rem] p-4 flex flex-col justify-center items-center ${
+      className={`flex min-h-[4rem] w-full max-w-3xl flex-col items-center justify-center p-4 ${
         linkStyle.rounded ? "rounded-3xl" : "rounded-md"
-      } space-y-2 hover:scale-105 transition-transform duration-300`}
+      } space-y-2 transition-transform duration-300 hover:scale-105`}
     >
       Invalid Link
     </div>

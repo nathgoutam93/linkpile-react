@@ -80,10 +80,10 @@ export default function EmbedEditable({ id, Link }) {
           ref={provided.innerRef}
           {...provided.draggableProps}
           style={{ ...provided.draggableProps.style }}
-          className="w-full flex justify-between items-center first-of-type:mt-2 last-of-type:mb-2 cursor-pointer"
+          className="flex w-full cursor-pointer items-center justify-between first-of-type:mt-2 last-of-type:mb-2"
         >
           <div
-            className={`flex flex-1 bg-white dark:bg-secondary rounded-xl border border-gray-300 dark:border-border-dark ${
+            className={`flex flex-1 rounded-xl border border-gray-300 bg-white dark:border-border-dark dark:bg-secondary ${
               snapshot.isDragging ? "shadow-2xl" : ""
             }`}
           >
@@ -91,25 +91,25 @@ export default function EmbedEditable({ id, Link }) {
               <>
                 <div
                   onClick={() => setEditMode(true)}
-                  className={`px-4 flex justify-center items-center flex-1 ${Link.linkStyle}`}
+                  className={`flex flex-1 items-center justify-center px-4 ${Link.linkStyle}`}
                 >
                   <HiOutlinePencil size={25} className="text-gray-400" />
-                  <div className="p-2 flex-1 flex flex-col items-center space-y-1">
+                  <div className="flex flex-1 flex-col items-center space-y-1 p-2">
                     {Link.embed === EMBED.YOUTUBE && (
                       <AiFillYoutube size={45} className="text-gray-400" />
                     )}
                     {Link.embed === EMBED.SPOTIFY && (
                       <BsSpotify size={45} className="text-gray-400" />
                     )}
-                    <p className="flex-1 text-sm text-gray-800 dark:text-white text-center font-semibold">
+                    <p className="flex-1 text-center text-sm font-semibold text-gray-800 dark:text-white">
                       {Link.title}
                     </p>
                   </div>
                 </div>
-                <div className="p-2 flex flex-col justify-around items-center space-y-2">
+                <div className="flex flex-col items-center justify-around space-y-2 p-2">
                   <label
                     htmlFor={id}
-                    className="flex items-center cursor-pointer"
+                    className="flex cursor-pointer items-center"
                   >
                     <div className="relative">
                       <input
@@ -119,19 +119,19 @@ export default function EmbedEditable({ id, Link }) {
                         checked={active}
                         onChange={handleChecked}
                       />
-                      <div className="block bg-gray-400 w-10 h-6 rounded-full"></div>
-                      <div className="dot absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition"></div>
+                      <div className="block h-6 w-10 rounded-full bg-gray-400"></div>
+                      <div className="dot absolute left-1 top-1 h-4 w-4 rounded-full bg-white transition"></div>
                     </div>
                   </label>
                   <GoTrashcan
                     size={25}
                     onClick={handleRemoveLink}
-                    className="text-gray-400 cursor-pointer"
+                    className="cursor-pointer text-gray-400"
                   />
                 </div>
               </>
             ) : (
-              <div className="p-4 flex flex-1 flex-col space-y-4 bg-white dark:bg-secondary rounded-xl">
+              <div className="flex flex-1 flex-col space-y-4 rounded-xl bg-white p-4 dark:bg-secondary">
                 <InputField
                   label="Title"
                   value={title}
@@ -142,16 +142,16 @@ export default function EmbedEditable({ id, Link }) {
                   value={link}
                   onChange={(e) => setLink(e.target.value)}
                 />
-                <div className="flex justify-around items-center space-x-2">
+                <div className="flex items-center justify-around space-x-2">
                   <button
                     onClick={handleCancel}
-                    className="flex-1 px-10 py-2 text-white font-inter font-bold rounded-md bg-primary-accent hover:bg-secondary-accent"
+                    className="flex-1 rounded-md bg-primary-accent px-10 py-2 font-inter font-bold text-white hover:bg-secondary-accent"
                   >
                     Cancel
                   </button>
                   <button
                     onClick={handleSave}
-                    className="flex-1 px-10 py-2 text-white font-inter font-bold rounded-md bg-primary-accent hover:bg-secondary-accent"
+                    className="flex-1 rounded-md bg-primary-accent px-10 py-2 font-inter font-bold text-white hover:bg-secondary-accent"
                   >
                     Save
                   </button>
@@ -161,7 +161,7 @@ export default function EmbedEditable({ id, Link }) {
           </div>
           <div
             {...provided.dragHandleProps}
-            className="pl-2 flex justify-center items-center"
+            className="flex items-center justify-center pl-2"
           >
             <MdDragIndicator size={40} className="text-gray-400" />
           </div>

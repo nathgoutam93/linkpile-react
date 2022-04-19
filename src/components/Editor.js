@@ -27,18 +27,18 @@ export default function Editor() {
   if (!userData)
     return (
       <div className="my-2 w-full space-y-4">
-        <div className="shine w-full h-80 rounded-xl shadow-md"></div>
-        <div className="w-full flex flex-col space-y-4">
-          <div className="shine w-full h-24 rounded-xl shadow-md"></div>
-          <div className="shine w-full h-24 rounded-xl shadow-md"></div>
-          <div className="shine w-full h-24 rounded-xl shadow-md"></div>
+        <div className="shine h-80 w-full rounded-xl shadow-md"></div>
+        <div className="flex w-full flex-col space-y-4">
+          <div className="shine h-24 w-full rounded-xl shadow-md"></div>
+          <div className="shine h-24 w-full rounded-xl shadow-md"></div>
+          <div className="shine h-24 w-full rounded-xl shadow-md"></div>
         </div>
       </div>
     );
 
   return (
     <>
-      {error && <p className="text-red-700 text-base font-semibold">{error}</p>}
+      {error && <p className="text-base font-semibold text-red-700">{error}</p>}
 
       <ProfileCard />
 
@@ -56,7 +56,7 @@ export default function Editor() {
           {(provided, _) => (
             <div
               key="dropable-1"
-              className="my-2 w-full flex flex-col space-y-4"
+              className="my-2 flex w-full flex-col space-y-4"
               ref={provided.innerRef}
               {...provided.droppableProps}
             >
@@ -82,25 +82,25 @@ export default function Editor() {
           )}
         </Droppable>
       </DragDropContext>
-      <div className="my-4 flex justify-around items-center space-x-2">
+      <div className="my-4 flex items-center justify-around space-x-2">
         <button
           onClick={handleNewLink}
-          className="flex-1 px-5 py-2 flex justify-center items-center text-white bg-primary-accent rounded-xl space-x-4 hover:bg-secondary-accent"
+          className="flex flex-1 items-center justify-center space-x-4 rounded-xl bg-primary-accent px-5 py-2 text-white hover:bg-secondary-accent"
         >
           <HiOutlineLink size={25} />
-          <span className="text-lg font-nunito">Add Link</span>
+          <span className="font-nunito text-lg">Add Link</span>
         </button>
         <button
           onClick={() => setShowModal(true)}
-          className="px-5 py-2 flex justify-center items-center text-white bg-black rounded-xl space-x-4 hover:bg-gray-800"
+          className="flex items-center justify-center space-x-4 rounded-xl bg-black px-5 py-2 text-white hover:bg-gray-800"
         >
-          <span className="text-lg font-nunito">Explore Links</span>
+          <span className="font-nunito text-lg">Explore Links</span>
         </button>
       </div>
       {showModal && (
         <div
           onClick={() => setShowModal(!showModal)}
-          className="fixed inset-0 flex items-center justify-center z-50 bg-black/60"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
         >
           <EmbedModal />
         </div>

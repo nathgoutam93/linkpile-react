@@ -20,10 +20,10 @@ function Header() {
   };
 
   return (
-    <header className="sticky top-0 w-full p-4 flex justify-between items-center bg-white dark:bg-primary border-b border-gray-300 dark:border-secondary z-10">
+    <header className="sticky top-0 z-10 flex w-full items-center justify-between border-b border-gray-300 bg-white p-4 dark:border-secondary dark:bg-primary">
       <Link
         to="/"
-        className="text-2xl font-nunito flex font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-fuchsia-400 to-blue-400"
+        className="flex bg-gradient-to-r from-rose-400 via-fuchsia-400 to-blue-400 bg-clip-text font-nunito text-2xl font-extrabold text-transparent"
       >
         {/* <img
           className="w-8 mr-2 h-full"
@@ -32,18 +32,18 @@ function Header() {
         /> */}
         Link.pile
       </Link>
-      <div className="flex justify-center items-center space-x-4">
+      <div className="flex items-center justify-center space-x-4">
         {customHeader}
         {dark ? (
           <BsFillMoonStarsFill
             size={25}
-            className="text-border-dark cursor-pointer"
+            className="cursor-pointer text-border-dark"
             onClick={handleDark}
           />
         ) : (
           <MdLightMode
             size={25}
-            className="text-border-dark cursor-pointer"
+            className="cursor-pointer text-border-dark"
             onClick={handleDark}
           />
         )}

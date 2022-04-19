@@ -4,8 +4,8 @@ export default function Toast({ show, message }) {
   return (
     <div
       className={`${
-        show ? "opacity-100" : "opacity-0 "
-      } fixed bottom-1/2 right-1/2 lg:bottom-20 lg:right-20 p-4 text-gray-800 font-nunito bg-gray-50 rounded-xl z-50 transition-opacity pointer-events-none`}
+        show ? "right-4 opacity-100 lg:right-20" : "-right-10 opacity-0"
+      } pointer-events-none fixed bottom-3/4 z-50 flex items-center justify-center space-x-2 rounded-xl bg-green-600 p-4 font-nunito text-white transition-all lg:bottom-20`}
     >
       {message}
     </div>

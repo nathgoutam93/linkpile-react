@@ -50,16 +50,16 @@ export default function Page({
       className={styleClasses}
     >
       {imgSrc ? (
-        <div className="w-24 h-24 flex justify-center">
+        <div className="flex h-24 w-24 justify-center">
           <img
             src={imgSrc}
-            className="w-24 h-24 rounded-full object-cover"
+            className="h-24 w-24 rounded-full object-cover"
             alt=""
           />
         </div>
       ) : (
-        <div className="w-24 h-24 flex justify-center border rounded-full">
-          <BsPersonFill className="p-2 w-full h-full text-gray-500" />
+        <div className="flex h-24 w-24 justify-center rounded-full border">
+          <BsPersonFill className="h-full w-full p-2 text-gray-500" />
         </div>
       )}
       {profileName ? (
@@ -69,7 +69,7 @@ export default function Page({
       )}
       <p className="text-center text-base font-semibold">{about}</p>
       <div
-        className={`p-4 w-full flex flex-col justify-center items-center space-y-4`}
+        className={`flex w-full flex-col items-center justify-center space-y-4 p-4`}
       >
         {links
           ?.filter((link) => link.active !== false && link.title && link.link)
@@ -95,7 +95,7 @@ export default function Page({
             );
           })}
       </div>
-      <div className="w-3/4 flex flex-wrap justify-center items-center">
+      <div className="flex w-3/4 flex-wrap items-center justify-center">
         {socials.twitter && (
           <a
             rel="noreferrer"
@@ -104,7 +104,7 @@ export default function Page({
           >
             <FiTwitter
               size={45}
-              className="m-1 hover:scale-110 transition-transform duration-200"
+              className="m-1 transition-transform duration-200 hover:scale-110"
             />
           </a>
         )}
@@ -116,7 +116,7 @@ export default function Page({
           >
             <FiInstagram
               size={45}
-              className="m-1 hover:scale-110 transition-transform duration-200"
+              className="m-1 transition-transform duration-200 hover:scale-110"
             />
           </a>
         )}
@@ -124,7 +124,7 @@ export default function Page({
           <a rel="noreferrer" target="_blank" href={socials.facebook}>
             <FiFacebook
               size={45}
-              className="m-1 hover:scale-110 transition-transform duration-200"
+              className="m-1 transition-transform duration-200 hover:scale-110"
             />
           </a>
         )}
@@ -132,7 +132,7 @@ export default function Page({
           <a rel="noreferrer" target="_blank" href={socials.linkedin}>
             <FiLinkedin
               size={45}
-              className="m-1 hover:scale-110 transition-transform duration-200"
+              className="m-1 transition-transform duration-200 hover:scale-110"
             />
           </a>
         )}
@@ -144,7 +144,7 @@ export default function Page({
           >
             <FiGithub
               size={45}
-              className="m-1 hover:scale-110 transition-transform duration-200"
+              className="m-1 transition-transform duration-200 hover:scale-110"
             />
           </a>
         )}
@@ -156,7 +156,7 @@ export default function Page({
           >
             <SiHashnode
               size={45}
-              className="m-1 hover:scale-110 transition-transform duration-200"
+              className="m-1 transition-transform duration-200 hover:scale-110"
             />
           </a>
         )}
@@ -168,7 +168,7 @@ export default function Page({
           >
             <FaDev
               size={45}
-              className="m-1 hover:scale-110 transition-transform duration-200"
+              className="m-1 transition-transform duration-200 hover:scale-110"
             />
           </a>
         )}
@@ -180,7 +180,7 @@ export default function Page({
           >
             <GrMedium
               size={45}
-              className="m-1 hover:scale-110 transition-transform duration-200"
+              className="m-1 transition-transform duration-200 hover:scale-110"
             />
           </a>
         )}
@@ -192,14 +192,14 @@ export default function Page({
           >
             <ImWhatsapp
               size={45}
-              className="m-1 hover:scale-110 transition-transform duration-200"
+              className="m-1 transition-transform duration-200 hover:scale-110"
             />
           </a>
         )}
       </div>
       <Link
         to={"/"}
-        className="text-2xl font-extraboldbold font-nunito text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-fuchsia-400 to-blue-400"
+        className="font-extraboldbold bg-gradient-to-r from-rose-400 via-fuchsia-400 to-blue-400 bg-clip-text font-nunito text-2xl text-transparent"
       >
         Link.pile
       </Link>

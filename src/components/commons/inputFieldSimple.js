@@ -9,13 +9,13 @@ export default function InputFieldSimple({
 }) {
   return (
     <div className="relative w-full space-y-2">
-      <label html-for="name" className="text-gray-800 dark:text-white text-sm">
+      <label html-for="name" className="text-sm text-gray-800 dark:text-white">
         {label}
       </label>
       <input
         type="text"
         name="name"
-        className="w-full p-2 text-base text-gray-800 dark:text-white bg-gray-200 dark:bg-primary rounded-md"
+        className="w-full rounded-md bg-gray-200 p-2 text-base text-gray-800 dark:bg-primary dark:text-white"
         value={value}
         placeholder={placeholder}
         onChange={(e) => onChange(e)}

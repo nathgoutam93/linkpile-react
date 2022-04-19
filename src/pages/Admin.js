@@ -56,7 +56,7 @@ export default function Admin() {
     const customHeader = (
       <Link
         to={`${ROUTES.PROFILE}`}
-        className="px-4 py-2 text-white font-nunito font-bold rounded-3xl bg-primary-accent hover:bg-secondary-accent"
+        className="rounded-3xl bg-primary-accent px-4 py-2 font-nunito font-bold text-white hover:bg-secondary-accent"
       >
         My Account
       </Link>
@@ -73,9 +73,9 @@ export default function Admin() {
       </div>
 
       <div
-        className={`w-full grid ${
+        className={`grid w-full ${
           !preview && "lg:grid-cols-2"
-        } bg-gray-200 dark:bg-primary font-nunito`}
+        } bg-gray-200 font-nunito dark:bg-primary`}
       >
         <div className={`w-full p-4  pb-96 ${preview && "hidden"}`}>
           <div className="hidden lg:flex">
@@ -87,78 +87,78 @@ export default function Admin() {
         <div
           className={`${
             preview ? "flex" : "hidden"
-          } justify-center items-center lg:flex`}
+          } items-center justify-center lg:flex`}
         >
           <Preview preview={preview} />
 
           <div
             className={`relative ${
               preview ? "flex" : "hidden"
-            } justify-center items-center lg:flex`}
+            } items-center justify-center lg:flex`}
           >
             {preview ? (
               <div
                 onClick={() => setPreview(false)}
-                className="fixed left-4 top-4 p-4 hidden lg:flex justify-center items-center space-x-1 bg-white dark:bg-secondary border border-gray-300 dark:border-border-dark rounded-3xl  cursor-pointer hover:bg-gray-300 dark:hover:bg-secondary-accent"
+                className="fixed left-4 top-4 hidden cursor-pointer items-center justify-center space-x-1 rounded-3xl border border-gray-300 bg-white p-4 hover:bg-gray-300 dark:border-border-dark  dark:bg-secondary dark:hover:bg-secondary-accent lg:flex"
               >
                 <HiOutlinePencil
                   size={23}
                   className="text-gray-800 dark:text-gray-400"
                 />
-                <span className="text-2xl text-gray-800 dark:text-white font-nunito">
+                <span className="font-nunito text-2xl text-gray-800 dark:text-white">
                   Editor
                 </span>
               </div>
             ) : (
-              <div className="fixed top-24 p-4 hidden lg:flex items-center space-x-1 bg-white dark:bg-secondary rounded-3xl border border-gray-300 dark:border-border-dark cursor-pointe">
+              <div className="cursor-pointe fixed top-24 hidden items-center space-x-1 rounded-3xl border border-gray-300 bg-white p-4 dark:border-border-dark dark:bg-secondary lg:flex">
                 {showDesign ? (
                   <div
                     onClick={() => setShowDesign(false)}
-                    className="flex p-2 items-center space-x-2 cursor-pointer hover:bg-gray-300 dark:hover:bg-border-dark rounded-xl"
+                    className="flex cursor-pointer items-center space-x-2 rounded-xl p-2 hover:bg-gray-300 dark:hover:bg-border-dark"
                   >
                     <HiOutlineLink
                       size={25}
                       className="text-gray-800 dark:text-gray-400"
                     />
-                    <span className="text-lg text-gray-800 dark:text-white font-nunito">
+                    <span className="font-nunito text-lg text-gray-800 dark:text-white">
                       Links
                     </span>
                   </div>
                 ) : (
                   <div
                     onClick={() => setShowDesign(true)}
-                    className="flex p-2 items-center space-x-2 cursor-pointer hover:bg-gray-300 dark:hover:bg-border-dark rounded-xl"
+                    className="flex cursor-pointer items-center space-x-2 rounded-xl p-2 hover:bg-gray-300 dark:hover:bg-border-dark"
                   >
                     <BsBrush
                       size={25}
                       className="text-gray-800 dark:text-gray-400"
                     />
-                    <span className="text-lg text-gray-800 dark:text-white font-nunito">
+                    <span className="font-nunito text-lg text-gray-800 dark:text-white">
                       Design
                     </span>
                   </div>
                 )}
                 <div
                   onClick={() => setPreview(true)}
-                  className="flex p-2 items-center space-x-2 cursor-pointer hover:bg-gray-300 dark:hover:bg-border-dark rounded-xl"
+                  className="flex cursor-pointer items-center space-x-2 rounded-xl p-2 hover:bg-gray-300 dark:hover:bg-border-dark"
                 >
                   <AiOutlineEye
                     size={25}
                     className="text-gray-800 dark:text-gray-400"
                   />
-                  <span className="text-lg text-gray-800 dark:text-white font-nunito">
+                  <span className="font-nunito text-lg text-gray-800 dark:text-white">
                     Preview
                   </span>
                 </div>
                 <div
                   disabled={loading}
                   onClick={handleUpdate}
-                  className="flex p-2 items-center space-x-2 cursor-pointer hover:bg-gray-300 dark:hover:bg-border-dark rounded-xl"
+                  className="flex cursor-pointer items-center space-x-2 rounded-xl p-2 hover:bg-gray-300 dark:hover:bg-border-dark"
                 >
                   {loading ? (
                     <ImSpinner
                       size={25}
-                      className="text-gray-800 dark:text-gray-400 animate-spin"
+                      className="animate-spin text-gray-800 dark:text-gray-400"
                     />
                   ) : (
                     <HiOutlineUpload
@@ -166,7 +166,7 @@ export default function Admin() {
                       className="text-gray-800 dark:text-gray-400"
                     />
                   )}
-                  <span className="text-lg text-gray-800 dark:text-white font-nunito">
+                  <span className="font-nunito text-lg text-gray-800 dark:text-white">
                     {loading ? "Saving" : "Save"}
                   </span>
                 </div>
@@ -175,17 +175,17 @@ export default function Admin() {
           </div>
         </div>
       </div>
-      <div className="fixed z-50 bottom-0 w-full p-4 bg-white dark:bg-secondary flex justify-around items-center border border-border-dark rounded-t-3xl lg:hidden">
+      <div className="fixed bottom-0 z-50 flex w-full items-center justify-around rounded-t-3xl border border-border-dark bg-white p-4 dark:bg-secondary lg:hidden">
         {preview ? (
           <div
             onClick={() => setPreview(false)}
-            className="flex justify-center items-center space-x-1  cursor-pointer"
+            className="flex cursor-pointer items-center justify-center  space-x-1"
           >
             <HiOutlinePencil
               size={45}
               className="text-gray-800 dark:text-gray-50"
             />
-            <span className="text-2xl text-gray-800 dark:text-white font-nunito">
+            <span className="font-nunito text-2xl text-gray-800 dark:text-white">
               Editor
             </span>
           </div>
@@ -194,46 +194,46 @@ export default function Admin() {
             {showDesign ? (
               <div
                 onClick={() => setShowDesign(false)}
-                className="flex flex-col justify-center items-center cursor-pointer"
+                className="flex cursor-pointer flex-col items-center justify-center"
               >
                 <HiOutlineLink
                   size={45}
                   className="text-gray-800 dark:text-gray-50"
                 />
-                <span className="text-lg text-gray-800 dark:text-gray-50 font-nunito">
+                <span className="font-nunito text-lg text-gray-800 dark:text-gray-50">
                   Links
                 </span>
               </div>
             ) : (
               <div
                 onClick={() => setShowDesign(true)}
-                className="flex flex-col justify-center items-center cursor-pointer"
+                className="flex cursor-pointer flex-col items-center justify-center"
               >
                 <BsBrush
                   size={45}
                   className="text-gray-800 dark:text-gray-50"
                 />
-                <span className="text-lg text-gray-800 dark:text-gray-50 font-nunito">
+                <span className="font-nunito text-lg text-gray-800 dark:text-gray-50">
                   Design
                 </span>
               </div>
             )}
             <div
               onClick={() => setPreview(true)}
-              className="flex flex-col justify-center items-center cursor-pointer"
+              className="flex cursor-pointer flex-col items-center justify-center"
             >
               <AiOutlineEye
                 size={45}
                 className="text-gray-800 dark:text-gray-50"
               />
-              <span className="text-lg text-gray-800 dark:text-gray-50 font-nunito">
+              <span className="font-nunito text-lg text-gray-800 dark:text-gray-50">
                 Preview
               </span>
             </div>
             <div
               disabled={loading}
               onClick={handleUpdate}
-              className="flex flex-col justify-center items-center cursor-pointer"
+              className="flex cursor-pointer flex-col items-center justify-center"
             >
               {loading ? (
                 <ImSpinner size={45} className="animate-spin" />
@@ -243,7 +243,7 @@ export default function Admin() {
                   className="text-gray-800 dark:text-gray-50"
                 />
               )}
-              <span className="text-lg text-gray-800 dark:text-gray-50 font-nunito">
+              <span className="font-nunito text-lg text-gray-800 dark:text-gray-50">
                 {loading ? "Saving" : "Save"}
               </span>
             </div>

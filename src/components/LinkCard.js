@@ -16,13 +16,13 @@ export default function LinkCard({
         border: linkStyle.filled ? "none" : `2px solid ${linkColor}`,
         color: linkFontColor,
       }}
-      className={`w-full max-w-3xl min-h-[4rem] px-4 flex justify-center items-center ${
+      className={`flex min-h-[4rem] w-full max-w-3xl items-center justify-center px-4 ${
         linkStyle.rounded ? "rounded-3xl" : "rounded-md"
-      } hover:scale-105 transition-transform duration-300`}
+      } transition-transform duration-300 hover:scale-105`}
     >
-      <div className="p-2 flex flex-col text-center space-y-1 lg:space-y-0">
+      <div className="flex flex-col space-y-1 p-2 text-center lg:space-y-0">
         <p className="text-lg font-semibold">{link.title}</p>
-        <p className="text-sm font-light max-w-2xl">{link.description}</p>
+        <p className="max-w-2xl text-sm font-light">{link.description}</p>
       </div>
     </a>
   );

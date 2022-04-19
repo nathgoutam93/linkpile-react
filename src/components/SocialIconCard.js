@@ -17,8 +17,8 @@ export default function SocialIconCard() {
   } = state.socials;
 
   return (
-    <div className="w-full p-5 flex flex-col items-center bg-white dark:bg-secondary space-y-4 rounded-xl border border-gray-300 dark:border-border-dark">
-      <span className="text-gray-800 dark:text-white text-xl font-nunito">
+    <div className="flex w-full flex-col items-center space-y-4 rounded-xl border border-gray-300 bg-white p-5 dark:border-border-dark dark:bg-secondary">
+      <span className="font-nunito text-xl text-gray-800 dark:text-white">
         Social Icons
       </span>
       <InputField

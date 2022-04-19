@@ -45,17 +45,17 @@ export default function EmbedModal() {
   };
 
   return (
-    <div className="w-5/6 max-w-lg p-4 bg-gray-200 dark:bg-secondary flex flex-col font-nunito rounded-xl space-y-2">
+    <div className="flex w-5/6 max-w-lg flex-col space-y-2 rounded-xl bg-gray-200 p-4 font-nunito dark:bg-secondary">
       <button
         onClick={handleYouTube}
-        className="w-full h-12 p-4 flex justify-center items-center bg-red-600 text-white rounded-xl space-x-4"
+        className="flex h-12 w-full items-center justify-center space-x-4 rounded-xl bg-red-600 p-4 text-white"
       >
         <AiFillYoutube size={25} />
         <span>YouTube Embed</span>
       </button>
       <button
         onClick={handleSpotify}
-        className="w-full h-12 p-4 flex justify-center items-center bg-green-600 text-white rounded-xl space-x-4"
+        className="flex h-12 w-full items-center justify-center space-x-4 rounded-xl bg-green-600 p-4 text-white"
       >
         <BsSpotify size={25} />
         <span>Spotify Embed</span>

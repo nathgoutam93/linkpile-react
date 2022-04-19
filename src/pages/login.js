@@ -37,17 +37,17 @@ export default function Login() {
   }, [setCustomHeader]);
 
   return (
-    <div className="w-full h-full bg-gray-200 dark:bg-primary">
+    <div className="h-full w-full bg-gray-200 dark:bg-primary">
       <Header />
-      <div className="w-full h-screen p-4 lg:p-10 flex flex-col justify-center items-center">
-        <form className="w-full max-w-lg p-4 lg:p-10 flex flex-col justify-center items-center font-nunito space-y-4 bg-white dark:bg-secondary border-gray-300 dark:border-border-dark rounded-3xl border">
-          <p className="text-rose-400 text-base font-semibold font-nunito">
+      <div className="flex h-screen w-full flex-col items-center justify-center p-4 lg:p-10">
+        <form className="flex w-full max-w-lg flex-col items-center justify-center space-y-4 rounded-3xl border border-gray-300 bg-white p-4 font-nunito dark:border-border-dark dark:bg-secondary lg:p-10">
+          <p className="font-nunito text-base font-semibold text-rose-400">
             {error}
           </p>
           <h1 className="text-gray-800 dark:text-white">
             Login to your Linkpile account
           </h1>
-          <div className="w-full flex flex-col space-y-4">
+          <div className="flex w-full flex-col space-y-4">
             <input
               value={email}
               onChange={(e) =>
@@ -58,7 +58,7 @@ export default function Login() {
                 })
               }
               type="email"
-              className="p-4 text-gray-800 dark:text-white outline-none bg-gray-200 dark:bg-primary rounded-md"
+              className="rounded-md bg-gray-200 p-4 text-gray-800 outline-none dark:bg-primary dark:text-white"
               placeholder="Email"
             ></input>
             <input
@@ -71,13 +71,13 @@ export default function Login() {
                 })
               }
               type="password"
-              className="p-4 text-gray-800 dark:text-white outline-none bg-gray-200 dark:bg-primary rounded-md"
+              className="rounded-md bg-gray-200 p-4 text-gray-800 outline-none dark:bg-primary dark:text-white"
               placeholder="Password"
             ></input>
             <button
               disabled={invalid || loading}
               onClick={handleLogIn}
-              className={`px-4 py-2 text-white font-nunito font-bold rounded-md ${
+              className={`rounded-md px-4 py-2 font-nunito font-bold text-white ${
                 invalid
                   ? "bg-gray-400 dark:bg-gray-800"
                   : "bg-primary-accent hover:bg-secondary-accent"
@@ -88,13 +88,13 @@ export default function Login() {
           </div>
           <Link
             to={ROUTES.REGISTER}
-            className="mt-6 text-lg text-gray-600 dark:text-gray-300 font-nunito font-semibold hover:underline"
+            className="mt-6 font-nunito text-lg font-semibold text-gray-600 hover:underline dark:text-gray-300"
           >
             Dont have an account? create one
           </Link>
           <Link
             to={ROUTES.RESET_PASSWORD}
-            className="mt-6 text-sm text-gray-600 dark:text-gray-300 font-nunito font-semibold hover:underline"
+            className="mt-6 font-nunito text-sm font-semibold text-gray-600 hover:underline dark:text-gray-300"
           >
             Forgot Password?
           </Link>

@@ -8,9 +8,7 @@
   "etag": "someETag",
   "contentDisposition": "inline",
   "contentEncoding": "identity",
-  "downloadTokens": [
-    "49f8e7a4-e877-4b6b-a6af-d7a0063fb64b"
-  ],
+  "downloadTokens": ["49f8e7a4-e877-4b6b-a6af-d7a0063fb64b"],
   "timeCreated": "2022-02-17T18:44:18.864Z",
   "updated": "2022-02-17T18:44:18.868Z",
   "size": 11712,

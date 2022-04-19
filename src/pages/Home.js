@@ -12,31 +12,31 @@ export default function Home() {
 
   useEffect(() => {
     const customHeader = currentUser ? (
-      <div className="lg:mr-2 flex justify-around items-center space-x-1">
+      <div className="flex items-center justify-around space-x-1 lg:mr-2">
         <button
           onClick={() => logOut()}
-          className="px-4 py-2 text-primary-accent font-nunito font-bold rounded-3xl bg-white dark:bg-primary hover:bg-gray-300 dark:hover:bg-secondary"
+          className="rounded-3xl bg-white px-4 py-2 font-nunito font-bold text-primary-accent hover:bg-gray-300 dark:bg-primary dark:hover:bg-secondary"
         >
           Log Out
         </button>
         <Link
           to={ROUTES.ADMIN}
-          className="px-4 py-2 text-white font-nunito font-bold rounded-3xl bg-primary-accent hover:bg-secondary-accent"
+          className="rounded-3xl bg-primary-accent px-4 py-2 font-nunito font-bold text-white hover:bg-secondary-accent"
         >
           Admin
         </Link>
       </div>
     ) : (
-      <div className="mr-2 flex justify-around items-center space-x-1">
+      <div className="mr-2 flex items-center justify-around space-x-1">
         <Link
           to={ROUTES.LOGIN}
-          className="px-4 py-2 text-primary-accent font-nunito font-bold rounded-3xl bg-white dark:bg-primary hover:bg-gray-300 dark:hover:bg-secondary"
+          className="rounded-3xl bg-white px-4 py-2 font-nunito font-bold text-primary-accent hover:bg-gray-300 dark:bg-primary dark:hover:bg-secondary"
         >
           Log In
         </Link>
         <Link
           to={ROUTES.REGISTER}
-          className="px-4 py-2 text-white font-nunito font-bold rounded-3xl bg-primary-accent hover:bg-secondary-accent"
+          className="rounded-3xl bg-primary-accent px-4 py-2 font-nunito font-bold text-white hover:bg-secondary-accent"
         >
           Sign Up
         </Link>
@@ -48,7 +48,7 @@ export default function Home() {
 
   if (isLoading)
     return (
-      <div className="w-full h-screen flex justify-center items-center">
+      <div className="flex h-screen w-full items-center justify-center">
         <div className="loader" />
       </div>
     );
@@ -56,26 +56,26 @@ export default function Home() {
   return (
     <div className="w-full">
       <Header />
-      <section className="mb-10 w-full p-4 flex flex-col justify-around lg:flex-row font-nunito">
+      <section className="mb-10 flex w-full flex-col justify-around p-4 font-nunito lg:flex-row">
         <div className="flex flex-col items-center">
-          <h2 className="mt-4 text-2xl lg:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-rose-300 via-fuchsia-400 to-blue-400">
+          <h2 className="mt-4 bg-gradient-to-r from-rose-300 via-fuchsia-400 to-blue-400 bg-clip-text text-2xl text-transparent lg:text-4xl">
             Supercharge your Link In Bio
           </h2>
-          <h3 className="w-5/6 my-2 mb-4 text-center text-sm text-gray-800 dark:text-gray-100 lg:text-xl">
+          <h3 className="my-2 mb-4 w-5/6 text-center text-sm text-gray-800 dark:text-gray-100 lg:text-xl">
             The only link you&apos;ll ever need to connect audiences to all of
             your content
           </h3>
-          <div className="lg:h-screen flex flex-col-reverse items-center lg:flex-col">
-            <div className="flex flex-col justify-center items-center space-y-4">
+          <div className="flex flex-col-reverse items-center lg:h-screen lg:flex-col">
+            <div className="flex flex-col items-center justify-center space-y-4">
               <Link
                 to={ROUTES.REGISTER}
-                className="py-4 px-8 text-center text-xl text-gray-100 font-nunito font-extrabold rounded-3xl bg-primary-accent hover:bg-secondary-accent"
+                className="rounded-3xl bg-primary-accent py-4 px-8 text-center font-nunito text-xl font-extrabold text-gray-100 hover:bg-secondary-accent"
               >
                 Get Started for free
               </Link>
               <Link
                 to={ROUTES.LOGIN}
-                className="mt-6 text-lg text-gray-700 dark:text-gray-200 font-nunito font-semibold hover:underline"
+                className="mt-6 font-nunito text-lg font-semibold text-gray-700 hover:underline dark:text-gray-200"
               >
                 Already on Linkpile? Log In
               </Link>
@@ -84,25 +84,25 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="my-10 w-full p-4 flex flex-col justify-around items-center space-y-8 lg:flex-row">
+      <section className="my-10 flex w-full flex-col items-center justify-around space-y-8 p-4 lg:flex-row">
         <img src="./images/mockup2.png" alt="" className="lg:w-1/2"></img>
         <div className="flex flex-col justify-center space-y-8">
-          <h1 className="text-3xl text-gray-800 dark:text-white font-nunito font-bold">
+          <h1 className="font-nunito text-3xl font-bold text-gray-800 dark:text-white">
             Link to everywhere
           </h1>
-          <p className="max-w-md text-xl text-gray-700 dark:text-gray-100 font-inter font-semibold">
+          <p className="max-w-md font-inter text-xl font-semibold text-gray-700 dark:text-gray-100">
             One link to all of your latest videos, articles, store, website,
             social posts.
           </p>
         </div>
       </section>
-      <section className="my-10 w-full p-4 flex flex-col justify-around items-center space-y-8 lg:flex-row-reverse">
+      <section className="my-10 flex w-full flex-col items-center justify-around space-y-8 p-4 lg:flex-row-reverse">
         <img src="./images/mockup3.png" alt="" className="lg:w-1/2" />
         <div className="flex flex-col justify-center space-y-8">
-          <h1 className="text-3xl text-gray-800 dark:text-white font-nunito font-bold">
+          <h1 className="font-nunito text-3xl font-bold text-gray-800 dark:text-white">
             Easily managed
           </h1>
-          <p className="max-w-md text-xl text-gray-700 dark:text-gray-100 font-inter font-semibold">
+          <p className="max-w-md font-inter text-xl font-semibold text-gray-700 dark:text-gray-100">
             Simple drag-and-drop editor to effortlessly manage your content.
           </p>
         </div>

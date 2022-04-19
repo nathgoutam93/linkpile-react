@@ -51,16 +51,16 @@ export default function Profile() {
 
   useEffect(() => {
     const customHeader = (
-      <div className="flex justify-around items-center space-x-2">
+      <div className="flex items-center justify-around space-x-2">
         <button
           onClick={() => logOut()}
-          className="px-4 py-2 font-nunito font-bold text-primary-accent hover:bg-gray-300 dark:hover:bg-secondary rounded-3xl"
+          className="rounded-3xl px-4 py-2 font-nunito font-bold text-primary-accent hover:bg-gray-300 dark:hover:bg-secondary"
         >
           Log Out
         </button>
         <Link
           to="/admin"
-          className="px-4 py-2 text-white font-nunito font-bold rounded-3xl bg-primary-accent hover:bg-secondary-accent"
+          className="rounded-3xl bg-primary-accent px-4 py-2 font-nunito font-bold text-white hover:bg-secondary-accent"
         >
           Admin
         </Link>
@@ -72,27 +72,27 @@ export default function Profile() {
 
   if (isLoading)
     return (
-      <div className="w-full h-screen flex justify-center items-center">
-        <div className="loader" />;
+      <div className="flex h-screen w-full items-center justify-center">
+        <div className="loader" />
       </div>
     );
 
   if (isUpdated) return <Navigate to={`${ROUTES.ADMIN}`} />;
 
   return (
-    <div className="w-full h-full bg-gray-200 dark:bg-primary">
+    <div className="h-full w-full bg-gray-200 dark:bg-primary">
       <Header />
-      <div className="w-full h-screen p-10 flex flex-col justify-center items-center">
-        <form className="w-full max-w-lg p-10 flex flex-col bg-white dark:bg-secondary space-y-4 rounded-3xl border border-gray-300 dark:border-border-dark">
-          <h2 className="mb-4 text-xl text-gray-800 dark:text-white font-semibold font-nunito">
+      <div className="flex h-screen w-full flex-col items-center justify-center p-10">
+        <form className="flex w-full max-w-lg flex-col space-y-4 rounded-3xl border border-gray-300 bg-white p-10 dark:border-border-dark dark:bg-secondary">
+          <h2 className="mb-4 font-nunito text-xl font-semibold text-gray-800 dark:text-white">
             Account Information
           </h2>
           {error && (
-            <p className="text-rose-400 text-base font-semibold font-nunito">
+            <p className="font-nunito text-base font-semibold text-rose-400">
               {error}
             </p>
           )}
-          <label className="text-sm text-gray-800 dark:text-white font-nunito">
+          <label className="font-nunito text-sm text-gray-800 dark:text-white">
             username
           </label>
           <input
@@ -105,10 +105,10 @@ export default function Profile() {
               })
             }
             type="text"
-            className="w-full text-gray-800 dark:text-white bg-gray-200 dark:bg-primary p-4 outline-none rounded-md"
+            className="w-full rounded-md bg-gray-200 p-4 text-gray-800 outline-none dark:bg-primary dark:text-white"
             placeholder="username"
           ></input>
-          <label className="text-sm text-gray-800 dark:text-white font-nunito">
+          <label className="font-nunito text-sm text-gray-800 dark:text-white">
             email
           </label>
           <input
@@ -123,13 +123,13 @@ export default function Profile() {
             }
             type="email"
             required={true}
-            className="w-full p-4 text-gray-800 dark:text-white bg-gray-200 dark:bg-primary outline-none rounded-md"
+            className="w-full rounded-md bg-gray-200 p-4 text-gray-800 outline-none dark:bg-primary dark:text-white"
             placeholder="email"
           ></input>
           <button
             disabled={loading}
             onClick={handleUpdate}
-            className={`max-w-max px-4 py-2 text-white font-nunito font-bold rounded-3xl bg-primary-accent hover:bg-secondary-accent ${
+            className={`max-w-max rounded-3xl bg-primary-accent px-4 py-2 font-nunito font-bold text-white hover:bg-secondary-accent ${
               loading && "animate-pulse"
             }`}
           >

@@ -24,21 +24,21 @@ export default function UserPage() {
 
   if (loading)
     return (
-      <div className="w-full h-screen flex justify-center items-center">
-        <div className="loader" />;
+      <div className="flex h-screen w-full items-center justify-center">
+        <div className="loader" />
       </div>
     );
 
   if (!data)
     return (
-      <div className="w-full h-screen flex justify-center items-center space-x-2">
+      <div className="flex h-screen w-full items-center justify-center space-x-2">
         <MdOutlineError size={45} className="text-gray-100" />
-        <h1 className="text-3xl text-white font-nunito font-semibold">
+        <h1 className="font-nunito text-3xl font-semibold text-white">
           User not found
         </h1>
         <Link
           to={"/"}
-          className="fixed bottom-10 text-2xl font-extraboldbold font-nunito text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-fuchsia-400 to-blue-400"
+          className="font-extraboldbold fixed bottom-10 bg-gradient-to-r from-rose-400 via-fuchsia-400 to-blue-400 bg-clip-text font-nunito text-2xl text-transparent"
         >
           Link.pile
         </Link>
@@ -56,11 +56,11 @@ export default function UserPage() {
 
   return (
     <div>
-      <div className="w-full h-screen">
+      <div className="h-screen w-full">
         <Toast show={showToast} message="Copied to Clipboard" />
 
         <IoShareOutline
-          className="fixed top-5 right-5 lg:top-10 lg:right-10 text-gray-400 cursor-pointer"
+          className="fixed top-5 right-5 cursor-pointer text-gray-400 lg:top-10 lg:right-10"
           size={35}
           onClick={handleCopy}
         />

@@ -28,25 +28,25 @@ export default function ForgotPassword() {
   };
 
   return (
-    <div className="w-full h-full bg-gray-200 dark:bg-primary">
+    <div className="h-full w-full bg-gray-200 dark:bg-primary">
       <Header />
-      <div className="w-full h-screen p-4 lg:p-10 flex flex-col justify-center items-center">
+      <div className="flex h-screen w-full flex-col items-center justify-center p-4 lg:p-10">
         <form
           method="Post"
           onSubmit={handleReset}
-          className="w-full max-w-lg p-4 lg:p-10 flex flex-col justify-center items-center font-nunito space-y-4 bg-white dark:bg-secondary rounded-3xl border border-gray-300 dark:border-border-dark"
+          className="flex w-full max-w-lg flex-col items-center justify-center space-y-4 rounded-3xl border border-gray-300 bg-white p-4 font-nunito dark:border-border-dark dark:bg-secondary lg:p-10"
         >
-          <p className="text-red-700 text-base font-semibold font-nunito">
+          <p className="font-nunito text-base font-semibold text-red-700">
             {error}
           </p>
-          <p className="text-red-700 text-base font-semibold font-nunito">
+          <p className="font-nunito text-base font-semibold text-red-700">
             {message}
           </p>
           <h1 className="text-gray-800 dark:text-white">Forgot Password</h1>
-          <div className="w-full flex flex-col space-y-4">
+          <div className="flex w-full flex-col space-y-4">
             <input
               type="email"
-              className="w-full h-5 mt-2 px-3 py-5 rounded-md text-gray-800 dark:text-white bg-gray-200 dark:bg-primary"
+              className="mt-2 h-5 w-full rounded-md bg-gray-200 px-3 py-5 text-gray-800 dark:bg-primary dark:text-white"
               placeholder="Email"
               onChange={({ target }) =>
                 dispatch({
@@ -60,21 +60,21 @@ export default function ForgotPassword() {
             <button
               disabled={isInvalid || loading}
               type="submit"
-              className="w-full mt-2 px-4 py-2 text-white bg-primary-accent hover:bg-secondary-accent rounded-md"
+              className="mt-2 w-full rounded-md bg-primary-accent px-4 py-2 text-white hover:bg-secondary-accent"
             >
               Reset Password
             </button>
           </div>
-          <div className="p-2 flex justify-around items-center space-x-4">
+          <div className="flex items-center justify-around space-x-4 p-2">
             <Link
               to={ROUTES.LOGIN}
-              className="mt-6 text-lg text-gray-600 dark:text-gray-300 font-nunito font-semibold hover:underline"
+              className="mt-6 font-nunito text-lg font-semibold text-gray-600 hover:underline dark:text-gray-300"
             >
               Log In
             </Link>
             <Link
               to={ROUTES.REGISTER}
-              className="mt-6 text-lg text-gray-600 dark:text-gray-300 font-nunito font-semibold hover:underline"
+              className="mt-6 font-nunito text-lg font-semibold text-gray-600 hover:underline dark:text-gray-300"
             >
               Sign up
             </Link>

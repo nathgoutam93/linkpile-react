@@ -3,18 +3,18 @@ import PropTypes from "prop-types";
 
 export default function InputField({ label, value, onChange }) {
   return (
-    <div className="relative w-full p-2 pt-6 bg-gray-200 dark:bg-primary rounded-md">
+    <div className="relative w-full rounded-md bg-gray-200 p-2 pt-6 dark:bg-primary">
       <input
         type="text"
         name="name"
         required
-        className="peer w-full h-full text-base text-gray-800 dark:text-white bg-gray-200 dark:bg-primary outline-none border-b-2 border-gray-300 dark:border-border-dark"
+        className="peer h-full w-full border-b-2 border-gray-300 bg-gray-200 text-base text-gray-800 outline-none dark:border-border-dark dark:bg-primary dark:text-white"
         value={value}
         onChange={(e) => onChange(e)}
       />
       <label
         html-for="name"
-        className="absolute top-6 left-2 pointer-events-none text-sm text-gray-800 dark:text-white peer-valid:top-1 peer-focus:top-1 peer-focus:text-blue-500 peer-valid:text-blue-500 transition-all"
+        className="pointer-events-none absolute top-6 left-2 text-sm text-gray-800 transition-all peer-valid:top-1 peer-valid:text-blue-500 peer-focus:top-1 peer-focus:text-blue-500 dark:text-white"
       >
         {label}
       </label>

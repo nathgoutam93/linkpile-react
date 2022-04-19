@@ -8,7 +8,9 @@ export function useDarkMode() {
 }
 
 export function DarkModeProvider({ children }) {
-  const [dark, setDark] = useState(JSON.parse(localStorage.getItem("dark")));
+  const [dark, setDark] = useState(
+    JSON.parse(localStorage.getItem("dark") ?? true),
+  );
 
   useEffect(() => {
     if (dark) {

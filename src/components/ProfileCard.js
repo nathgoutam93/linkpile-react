@@ -77,31 +77,31 @@ export default function ProfileCard() {
   }, [imgFile]);
 
   return (
-    <div className="mt-2 w-full p-10 pt-2 flex flex-col items-center bg-white dark:bg-secondary space-y-4 rounded-xl border border-gray-300 dark:border-border-dark">
-      <div className="mt-4 w-full flex flex-col lg:flex-row justify-around items-center space-x-4 space-y-2">
+    <div className="mt-2 flex w-full flex-col items-center space-y-4 rounded-xl border border-gray-300 bg-white p-10 pt-2 dark:border-border-dark dark:bg-secondary">
+      <div className="mt-4 flex w-full flex-col items-center justify-around space-x-4 space-y-2 lg:flex-row">
         {imgSrc ? (
           <img
             src={imgSrc}
             alt=""
-            className="w-32 h-32 rounded-full object-cover border border-gray-300 dark:border-border-dark"
+            className="h-32 w-32 rounded-full border border-gray-300 object-cover dark:border-border-dark"
           />
         ) : (
-          <div className="p-6 h-32 w-32 rounded-full border border-gray-300 dark:border-border-dark">
+          <div className="h-32 w-32 rounded-full border border-gray-300 p-6 dark:border-border-dark">
             <BsPersonFill className="h-full w-full text-gray-400" />
           </div>
         )}
-        <div className="flex-1 flex justify-center items-center space-x-1">
+        <div className="flex flex-1 items-center justify-center space-x-1">
           {imgFile ? (
             <>
               <button
                 onClick={handleCancel}
-                className="w-full text-white bg-primary-accent font-medium rounded-xl text-sm px-5 py-2 text-center hover:bg-secondary-accent"
+                className="w-full rounded-xl bg-primary-accent px-5 py-2 text-center text-sm font-medium text-white hover:bg-secondary-accent"
               >
                 Cancel
               </button>
               <button
                 onClick={handleUpload}
-                className="w-full text-white bg-primary-accent font-medium rounded-xl text-sm px-5 py-2 text-center hover:bg-secondary-accent"
+                className="w-full rounded-xl bg-primary-accent px-5 py-2 text-center text-sm font-medium text-white hover:bg-secondary-accent"
               >
                 {loading ? "Uploading" : "Upload"}
               </button>
@@ -111,11 +111,11 @@ export default function ProfileCard() {
               <button
                 disabled={!imgSrc}
                 onClick={handleRemove}
-                className="w-full text-white bg-primary-accent font-medium rounded-xl text-sm px-5 py-2 text-center hover:bg-secondary-accent"
+                className="w-full rounded-xl bg-primary-accent px-5 py-2 text-center text-sm font-medium text-white hover:bg-secondary-accent"
               >
                 Remove
               </button>
-              <label className="w-full text-white bg-primary-accent font-medium rounded-xl text-sm px-5 py-2 text-center cursor-pointer hover:bg-secondary-accent">
+              <label className="w-full cursor-pointer rounded-xl bg-primary-accent px-5 py-2 text-center text-sm font-medium text-white hover:bg-secondary-accent">
                 Change
                 <input
                   className="hidden"
@@ -144,7 +144,7 @@ export default function ProfileCard() {
         />
       </div>
       <div className="w-full space-y-1">
-        <label className="text-sm text-gray-800 dark:text-white font-nunito">
+        <label className="font-nunito text-sm text-gray-800 dark:text-white">
           Profile Description
         </label>
         <textarea
@@ -156,7 +156,7 @@ export default function ProfileCard() {
               value: e.target.value,
             })
           }
-          className="w-full p-2 px-4 bg-gray-200 dark:bg-primary text-gray-800 dark:text-white outline-none rounded-md"
+          className="w-full rounded-md bg-gray-200 p-2 px-4 text-gray-800 outline-none dark:bg-primary dark:text-white"
           placeholder="Bio"
         ></textarea>
       </div>
